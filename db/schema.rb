@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180227125726) do
 
   create_table "applications", force: :cascade do |t|
     t.bigint "flat_id"
-    t.boolean "validation", default: false
+    t.string "status", default: "En attente"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,22 +43,6 @@ ActiveRecord::Schema.define(version: 20180227125726) do
     t.index ["availability_id"], name: "index_bookings_on_availability_id"
   end
 
-  create_table "doc_categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "doc_files", force: :cascade do |t|
-    t.bigint "folder_id"
-    t.bigint "doc_category_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["doc_category_id"], name: "index_doc_files_on_doc_category_id"
-    t.index ["folder_id"], name: "index_doc_files_on_folder_id"
-  end
-
   create_table "flats", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -73,13 +57,6 @@ ActiveRecord::Schema.define(version: 20180227125726) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_flats_on_user_id"
-  end
-
-  create_table "folders", force: :cascade do |t|
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_folders_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -106,6 +83,15 @@ ActiveRecord::Schema.define(version: 20180227125726) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "address"
+    t.string "id_card"
+    t.string "tax_notice"
+    t.string "payslip"
+    t.boolean "profil_confirmed"
+    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -117,10 +103,7 @@ ActiveRecord::Schema.define(version: 20180227125726) do
   add_foreign_key "availabilities", "flats"
   add_foreign_key "bookings", "applications"
   add_foreign_key "bookings", "availabilities"
-  add_foreign_key "doc_files", "doc_categories"
-  add_foreign_key "doc_files", "folders"
   add_foreign_key "flats", "users"
-  add_foreign_key "folders", "users"
   add_foreign_key "messages", "flats"
   add_foreign_key "messages", "users", column: "recipient_id"
   add_foreign_key "messages", "users", column: "sender_id"
