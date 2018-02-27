@@ -6,10 +6,9 @@ class CreateMessages < ActiveRecord::Migration[5.1]
       t.boolean :read, default: false
       t.references :sender
       t.references :recipient
-      add_foreign_key :private_messages, :users, column: :sender_id, primary_key: :id
-      add_foreign_key :private_messages, :users, column: :recipient_id, primary_key: :id
-
       t.timestamps
     end
+    add_foreign_key :messages, :users, column: :sender_id, primary_key: :id
+    add_foreign_key :messages, :users, column: :recipient_id, primary_key: :id
   end
 end
