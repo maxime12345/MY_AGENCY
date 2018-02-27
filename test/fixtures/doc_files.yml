@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  folder: one
+  doc_category: one
+  name: MyString
+
+two:
+  folder: two
+  doc_category: two
+  name: MyString
