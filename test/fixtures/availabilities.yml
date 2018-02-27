@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flat: one
+  start_time: 2018-02-27
+  visit_confirmed: false
+
+two:
+  flat: two
+  start_time: 2018-02-27
+  visit_confirmed: false

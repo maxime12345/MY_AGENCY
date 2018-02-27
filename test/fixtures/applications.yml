@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flat: one
+  validation: false
+  user: one
+
+two:
+  flat: two
+  validation: false
+  user: two
