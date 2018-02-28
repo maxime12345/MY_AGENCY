@@ -90,6 +90,15 @@ ActiveRecord::Schema.define(version: 20180227155857) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "address"
+    t.string "id_card"
+    t.string "tax_notice"
+    t.string "payslip"
+    t.boolean "profil_confirmed"
+    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
