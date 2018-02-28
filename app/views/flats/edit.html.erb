@@ -1,2 +1,5 @@
-<h1>Flats#edit</h1>
-<p>Find me in app/views/flats/edit.html.erb</p>
+<h1>Edit <%= @flat.title %></h1>
+
+<%= render 'form', flat: @flat %>
+
+<%= link_to 'Back to Flats', flats_path %>
