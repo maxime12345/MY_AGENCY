@@ -10,7 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to ("Ajouter une annonce"), new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to new_flat_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
+        <i class="fas fa-plus-circle"></i>  <%= "Ajouter une annonce" %>
+      <% end %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -37,9 +39,9 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %><i class="fas fa-sign-in-alt"></i>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
+      <%= link_to new_user_session_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
+        <i class="fas fa-sign-in-alt"></i>  <%= t(".sign_in", default: "Login") %>
+      <% end %>
     <% end %>
   </div>
 
