@@ -1,10 +1,8 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
 
-  # skip_before_action :authenticate_user!, only: [:index, :show]
-
   def index
-    @flats = Flat.where(user: current_user).order(created_at: :desc)
+    @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
     # @flats = policy_scope(Flat).order(created_at: :desc)
     # @wheelies_geo = @wheelies.select{ |wheely| !wheely.latitude.nil? && !wheely.longitude.nil?}
 
@@ -22,7 +20,7 @@ class FlatsController < ApplicationController
 
   def new
     @flat = Flat.new
-    # authorize(@flat)
+    authorize(@flat)
   end
 
   def create
@@ -57,7 +55,7 @@ class FlatsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
   def set_flat
     @flat = Flat.find(params[:id])
-    # authorize(@flat)
+    authorize(@flat)
   end
 
     # Never trust parameters from the scary internet, only allow the white list through.
