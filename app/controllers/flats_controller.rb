@@ -12,7 +12,7 @@ class FlatsController < ApplicationController
     #     lng: wheely.longitude,
     #     infoWindow: { content: render_to_string(partial: "/wheelies/map_box", locals: { wheely: wheely }) }
     #   }
-    end
+    # end
   end
 
   def show
