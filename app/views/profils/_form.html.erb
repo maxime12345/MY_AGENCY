@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="card-form">
+        <h1>Editer mon Profil</h1>
+        <%= simple_form_for @profil, url: profil_path do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :first_name%>
+            <%= f.input :last_name %>
+            <%= f.input :address %>
+            <%= f.input :phone_number %>
+            <%= f.input :avatar %>
+            <%= f.input :avatar_cache, as: :hidden %>
+          </div>
+
+          <div class="form-actions">
+            <%= link_to 'Cancel', :back, class: "btn btn-default"%>
+            <%= f.button :submit, 'Updater mon Profil', class: "btn btn-success pull-right" %>
+          </div>
+        <% end %>
+        <%= link_to 'Retour à votre profil', profil_path(current_user) %>
+      </div>
+    </div>
+  </div>
+</div>
