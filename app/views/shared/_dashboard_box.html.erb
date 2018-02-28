@@ -1,3 +1,21 @@
 <div class="dashboard-box">
-
+<div>
+  <%= link_to edit_flat_path  do %>
+    <i class="fas fa-pen-square"></i>  <%= "Editer" %>
+  <% end %>
+</div>
+<div>
+  <%= link_to @flat.ad_url  do %>
+    <i class="fas fa-link"></i>  <%= "Voir l'annonce" %>
+  <% end %>
+</div>
+<p><%= @flat.publication_date %></p>
+<p><%= @flat.address %></p>
+<p><%= @flat.price %> € / mois</p>
+<p><%= @flat.user_id %></p>
+<p><%= @flat.description %></p>
+<p><%= @flat.surface %> m2</p>
+<p>Nb de pièces principales : <%= @flat.nb_rooms %></p>
+<p>Créé le <%= @flat.created_at %></p>
+<p>Dernière mise à jour le <%= @flat.updated_at %></p>
 </div>
