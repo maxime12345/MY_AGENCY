@@ -1,2 +1,8 @@
-<h1>Profils#show</h1>
-<p>Find me in app/views/profils/show.html.erb</p>
+<h1> <%= "#{@profil.first_name} #{@profil.last_name}" %> </h1>
+<ul>
+  <li><%= "adresse: #{@profil.address}" %></li>
+  <li><%= "Tel: #{@profil.phone_number}" %></li>
+</ul>
+
+
+<%= link_to 'Editer mon Profil', edit_profil_path(current_user) %> <br>

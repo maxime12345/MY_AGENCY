@@ -1,5 +1,6 @@
 function form_autocomplete() {
   var url_input = document.getElementById('flat_ad_url')
+
   var button_scrap = document.getElementById('scrap')
   if (button_scrap !== null) {
     button_scrap.addEventListener("click", function() {
