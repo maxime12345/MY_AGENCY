@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :flats do
-    resources :applications, only: [:index, :show, :edit, :update]
+    resources :applications, only: [:index, :new, :show, :edit, :update]
     resources :availabilities
   end
   resources :applications do
