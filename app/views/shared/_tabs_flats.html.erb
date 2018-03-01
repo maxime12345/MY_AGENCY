@@ -1,8 +1,9 @@
 <div class="tabs-flats">
-    <% @flats.each do |flat| %>
+    <% @flats.each_with_index do |flat, i| %>
       <%= link_to flat_path(flat) do %>
-        <div class="tab-flat <%= 'active' if @flat == flat %>">
+        <div class="tab-flat <%= 'active' if @flat == flat %> <%= 'first-tab' if i == 0 %>">
           <%= flat.name %>
+          <!-- virer le nom du flat (le laisser en title) et ajouter picto 'home' + n°i) -->
         </div>
       <% end %>
     <% end %>
