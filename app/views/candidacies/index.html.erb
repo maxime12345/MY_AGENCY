@@ -1,2 +1,12 @@
-<h1>Candidacies#index</h1>
-
+<div class="flex-container">
+  <div class="candidacies">
+    <div class="row">
+      <h2>Mes candidatures</h2>
+      <% @candidacies.each do |candidacy| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 wheely_card">
+          <%= render 'card', candidacy: candidacy %>
+        </div>
+      <% end%>
+    </div>
+  </div>
+</div>
