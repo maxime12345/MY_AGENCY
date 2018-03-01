@@ -28,7 +28,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :id_card
       t.string :tax_notice
       t.string :payslip
-      t.boolean :profil_confirmed
+      t.boolean :profil_confirmed, default: false
       t.string :avatar
 
       ## Confirmable

@@ -16,6 +16,7 @@ class FlatsController < ApplicationController
   end
 
   def show
+    @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
   end
 
   def new
