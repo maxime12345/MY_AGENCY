@@ -5,7 +5,7 @@ class ProfilsController < ApplicationController
   end
 
   def update
-    if !@profil.id_card.nil? && !@profil.tax_notice.nil? && !@profil.payslip.nil?
+    if @profil.id_card? && @profil.tax_notice? && @profil.payslip?
       @profil.update(profil_confirmed: true)
     else
       @profil.update(profil_confirmed: false)
