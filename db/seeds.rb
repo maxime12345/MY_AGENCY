@@ -17,12 +17,13 @@ urls = [
   "https://www.leboncoin.fr/locations/1392469156.htm?ca=22_s"
 ]
 
-urls.each do |url|
-  LbcScraper.new(url).extract
-end
+# urls.each do |url|
+#   p LbcScraper.new(url).extract
+# end
+
 # ------------------------------------------------------------------------------
 # creation of 4 owners :
-User.create!(
+marion = User.create!(
   email: "marionblanchard69004@gmail.com",
   password: "myagency69",
   first_name: "Marion",
@@ -32,7 +33,7 @@ User.create!(
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mjuutjo19df7vnadx0um.jpg"
   )
 
-User.create!(
+steeve = User.create!(
   email: "steverichard69004@gmail.com",
   password: "myagency69",
   first_name: "Steeve",
@@ -42,7 +43,7 @@ User.create!(
   remote_avatar_url: "https://avatars0.githubusercontent.com/u/32811068?v=4"
   )
 
-User.create!(
+jose = User.create!(
   email: "josedupres69004@gmail.com",
   password: "myagency69",
   first_name: "Jose",
@@ -52,7 +53,7 @@ User.create!(
   remote_avatar_url: "https://avatars3.githubusercontent.com/u/24254220?v=4"
   )
 
-User.create!(
+vanessa = User.create!(
   email: "vanessaduchemin69004@gmail.com",
   password: "myagency69",
   first_name: "Vanessa",
@@ -121,4 +122,76 @@ User.create!(
   phone_number: "07 32 46 85 23",
   address: "62 grande rue Croix Rousse, 69004 LYON",
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/evqefyvpwl5csouogibi.jpg"
+  )
+# ------------------------------------------------------------------------------
+# creation of flats :
+marion_flat_hash_1 = LbcScraper.new(urls[0]).extract
+marion_flat_1 = Flat.create!(
+  name: marion_flat_hash_1[:name],
+  address: marion_flat_hash_1[:address],
+  price: marion_flat_hash_1[:price],
+  user_id: marion.id,
+  description: marion_flat_hash_1[:description],
+  publication_date: marion_flat_hash_1[:publication_date],
+  surface: marion_flat_hash_1[:surface],
+  nb_rooms: marion_flat_hash_1[:nb_rooms],
+  ad_url: urls[0],
+  visit_capacity: 3
+  )
+
+marion_flat_hash_2 = LbcScraper.new(urls[1]).extract
+marion_flat_2 = Flat.create!(
+  name: marion_flat_hash_2[:name],
+  address: marion_flat_hash_2[:address],
+  price: marion_flat_hash_2[:price],
+  user_id: marion.id,
+  description: marion_flat_hash_2[:description],
+  publication_date: marion_flat_hash_2[:publication_date],
+  surface: marion_flat_hash_2[:surface],
+  nb_rooms: marion_flat_hash_2[:nb_rooms],
+  ad_url: urls[1],
+  visit_capacity: 3
+  )
+
+steeve_flat_hash = LbcScraper.new(urls[2]).extract
+steeve_flat = Flat.create!(
+  name: steeve_flat_hash[:name],
+  address: steeve_flat_hash[:address],
+  price: steeve_flat_hash[:price],
+  user_id: steeve.id,
+  description: steeve_flat_hash[:description],
+  publication_date: steeve_flat_hash[:publication_date],
+  surface: steeve_flat_hash[:surface],
+  nb_rooms: steeve_flat_hash[:nb_rooms],
+  ad_url: urls[2],
+  visit_capacity: 3
+  )
+
+jose_flat_hash = LbcScraper.new(urls[3]).extract
+jose_flat = Flat.create!(
+  name: jose_flat_hash[:name],
+  address: jose_flat_hash[:address],
+  price: jose_flat_hash[:price],
+  user_id: jose.id,
+  description: jose_flat_hash[:description],
+  publication_date: jose_flat_hash[:publication_date],
+  surface: jose_flat_hash[:surface],
+  nb_rooms: jose_flat_hash[:nb_rooms],
+  ad_url: urls[3],
+  visit_capacity: 3
+  )
+
+
+vanessa_flat_hash = LbcScraper.new(urls[4]).extract
+vanessa_flat = Flat.create!(
+  name: vanessa_flat_hash[:name],
+  address: vanessa_flat_hash[:address],
+  price: vanessa_flat_hash[:price],
+  user_id: vanessa.id,
+  description: vanessa_flat_hash[:description],
+  publication_date: vanessa_flat_hash[:publication_date],
+  surface: vanessa_flat_hash[:surface],
+  nb_rooms: vanessa_flat_hash[:nb_rooms],
+  ad_url: urls[4],
+  visit_capacity: 3
   )
