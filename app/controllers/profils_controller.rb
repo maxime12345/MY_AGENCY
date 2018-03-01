@@ -5,6 +5,11 @@ class ProfilsController < ApplicationController
   end
 
   def update
+    if !@profil.id_card.nil? && !@profil.tax_notice.nil? && !@profil.payslip.nil?
+      @profil.update(profil_confirmed: true)
+    else
+      @profil.update(profil_confirmed: false)
+    end
     if @profil.update(profil_params)
       redirect_to profil_path(current_user), notice: 'Profile was successfully updated.'
     else
@@ -24,6 +29,6 @@ class ProfilsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def profil_params
-    params.require(:user).permit(:first_name, :last_name, :phone_number, :ID_card, :tax_notice, :payslip, :avatar, :address)
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :id_card, :tax_notice, :payslip, :avatar, :address)
   end
 end

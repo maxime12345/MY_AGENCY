@@ -4,6 +4,7 @@ class LbcScraper
   attr_reader :html_doc
 
   def initialize(url)
+
     html_file = open(url).read
     @html_doc = Nokogiri::HTML(html_file)
   end
