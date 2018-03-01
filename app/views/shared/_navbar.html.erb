@@ -10,6 +10,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <% if current_user.candidacies.count > 0  %>
+        <%= link_to candidacies_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
+          <i class="fas fa-folder-open"></i>  <%= "Mes candidatures" %>
+        <% end %>
+      <% end %>
 
       <% if current_user.flats.count > 0  %>
         <%= link_to flats_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
