@@ -19,7 +19,7 @@ class FlatsController < ApplicationController
 
   def show
     @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
-    @flat = @flats.first
+    @flat = @flat = Flat.find(params[:id])
     authorize(@flat)
   end
 
