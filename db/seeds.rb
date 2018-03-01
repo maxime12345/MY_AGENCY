@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Candidacy.destroy_all
 Flat.destroy_all
 User.destroy_all
 #-------------------------------------------------------------------------------
@@ -63,7 +64,7 @@ vanessa = User.create!(
   )
 # ------------------------------------------------------------------------------
 # creation of 6 tenants :
-User.create!(
+alexandre = User.create!(
   email: "alexandre.bouvier@gmail.com",
   password: "myagency69",
   first_name: "Alexandre",
@@ -73,7 +74,7 @@ User.create!(
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/frri8d39adeybthbgsx0.jpg"
   )
 
-User.create!(
+alix = User.create!(
   email: "alix.peyrot@gmail.com",
   password: "myagency69",
   first_name: "Alix",
@@ -83,7 +84,7 @@ User.create!(
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/hwiwrtdiuxqckwavwwwf.jpg"
   )
 
-User.create!(
+etienne = User.create!(
   email: "etienne.delorieux@gmail.com",
   password: "myagency69",
   first_name: "Etienne",
@@ -93,7 +94,7 @@ User.create!(
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mx9bazmz2jgmulvhamry.jpg"
   )
 
-User.create!(
+isabelle = User.create!(
   email: "isabelle.pontoizeau@gmail.com",
   password: "myagency69",
   first_name: "Isabelle",
@@ -103,7 +104,7 @@ User.create!(
   remote_avatar_url: "https://avatars2.githubusercontent.com/u/34674849?v=4"
   )
 
-User.create!(
+louis = User.create!(
   email: "louis.delon@gmail.com" ,
   password: "myagency69",
   first_name: "Louis",
@@ -113,7 +114,7 @@ User.create!(
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/qec0kiexjcadwz457xwx.jpg"
   )
 
-User.create!(
+lahbib = User.create!(
   email: "lahbib.belhaddad@gmail.com",
   password: "myagency69",
   first_name: "Lahbib",
@@ -201,3 +202,24 @@ vanessa_flat = Flat.create!(
   ad_url: urls[4],
   visit_capacity: 3
   )
+
+# ------------------------------------------------------------------------------
+# creation of candidacies :
+
+flats = [marion_flat_1, marion_flat_2, steeve_flat, jose_flat]
+tenants = [alexandre, alix, etienne, isabelle, louis]
+
+flats.each do |flat|
+  tenants.each do |tenant|
+    Candidacy.create!(
+      flat_id: flat.id,
+      user_id: tenant.id
+    )
+  end
+end
+
+Candidacy.create!(
+  flat_id: vanessa_flat.id,
+  user_id: lahbib.id
+)
+
