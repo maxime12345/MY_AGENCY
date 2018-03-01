@@ -1,11 +1,11 @@
 <div class="dashboard-box">
-  <h3>Add a new flat</h3>
+  <h3>Ajouter une annonce</h3>
   <%= simple_form_for(@flat) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
       <%= f.input :ad_url%>
-      <%= f.button :button, 'Scrap', type: :button, class: "btn btn-success pull-left", id: "scrap" %> <br> <br>
+      <%= f.button :button, 'Scrap', type: :button, class: "btn btn-primary pull-left", id: "scrap" %> <br> <br>
       <%= f.input :name %>
       <%= f.input :address %>
       <%= f.input :price %>
@@ -18,7 +18,7 @@
 
     <div class="form-actions">
       <%= link_to 'Cancel', :back, class: "btn btn-default"%>
-      <%= f.button :submit, 'Post my flat', class: "btn btn-success pull-right" %>
+      <%= f.button :submit, 'Post my flat', class: "btn btn-primary pull-right" %>
     </div>
   <% end %>
 </div>
