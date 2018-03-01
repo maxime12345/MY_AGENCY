@@ -1,30 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="card-form">
-        <h1>Add a new flat</h1>
-        <%= simple_form_for(@flat) do |f| %>
-          <%= f.error_notification %>
+<div class="dashboard-box">
+  <h3>Add a new flat</h3>
+  <%= simple_form_for(@flat) do |f| %>
+    <%= f.error_notification %>
 
-          <div class="form-inputs">
-            <%= f.input :ad_url%>
-            <%= f.button :button, 'Scrap', type: :button, class: "btn btn-success pull-left", id: "scrap" %> <br> <br>
-            <%= f.input :name %>
-            <%= f.input :address %>
-            <%= f.input :price %>
-            <%= f.input :description %>
-            <%= f.input :publication_date %>
-            <%= f.input :surface %>
-            <%= f.input :nb_rooms %>
-            <%= f.input :visit_capacity %>
-          </div>
-
-          <div class="form-actions">
-            <%= link_to 'Cancel', :back, class: "btn btn-default"%>
-            <%= f.button :submit, 'Post my flat', class: "btn btn-success pull-right" %>
-          </div>
-        <% end %>
-      </div>
+    <div class="form-inputs">
+      <%= f.input :ad_url%>
+      <%= f.button :button, 'Scrap', type: :button, class: "btn btn-success pull-left", id: "scrap" %> <br> <br>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :price %>
+      <%= f.input :description %>
+      <%= f.input :publication_date %>
+      <%= f.input :surface %>
+      <%= f.input :nb_rooms %>
+      <%= f.input :visit_capacity %>
     </div>
-  </div>
+
+    <div class="form-actions">
+      <%= link_to 'Cancel', :back, class: "btn btn-default"%>
+      <%= f.button :submit, 'Post my flat', class: "btn btn-success pull-right" %>
+    </div>
+  <% end %>
 </div>

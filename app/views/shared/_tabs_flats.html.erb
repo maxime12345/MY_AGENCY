@@ -1,8 +1,15 @@
 <div class="tabs-flats">
     <% @flats.each do |flat| %>
-      <%= link_to flat.name, flat_path(flat) %>
-    <% end %>
-    <%= link_to new_flat_path do %>
-        <i class="fas fa-plus-circle"></i>  <%= "Ajouter une annonce" %>
+      <%= link_to flat_path(flat) do %>
+        <div class="tab-flat <%= "active" if @flat == flat %>">
+          <%= flat.name %>
+        </div>
       <% end %>
+    <% end %>
+
+    <%= link_to new_flat_path do %>
+      <div class="tab-flat">
+        <i class="fas fa-plus-circle"></i>  Ajouter une annonce
+      </div>
+    <% end %>
 </div>
