@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Flat.destroy_all
+Flat.destroy_all
 User.destroy_all
 #-------------------------------------------------------------------------------
 urls = [
@@ -28,7 +28,7 @@ marion = User.create!(
   last_name: "BLANCHARD",
   phone_number: "06 34 54 13 59",
   address: "2 Ter cours Richard Vitton, 69003 LYON",
-  avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mjuutjo19df7vnadx0um.jpg"
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mjuutjo19df7vnadx0um.jpg"
   )
 
 steeve = User.create!(
@@ -38,7 +38,7 @@ steeve = User.create!(
   last_name: "Richard",
   phone_number: "07 89 46 23 09",
   address: "192 grande rue de la Guillotiere, 69007 LYON",
-  avatar: "https://avatars0.githubusercontent.com/u/32811068?v=4"
+  remote_avatar_url: "https://avatars0.githubusercontent.com/u/32811068?v=4"
   )
 
 jose = User.create!(
@@ -48,7 +48,7 @@ jose = User.create!(
   last_name: "DUPRES",
   phone_number: "06 45 76 12 45",
   address: "103 av Berthelot, 69007 LYON",
-  avatar: "https://avatars3.githubusercontent.com/u/24254220?v=4"
+  remote_avatar_url: "https://avatars3.githubusercontent.com/u/24254220?v=4"
   )
 
 vanessa = User.create!(
@@ -58,7 +58,7 @@ vanessa = User.create!(
   last_name: "DUCHEMIN",
   phone_number: "07 82 57 93 01",
   address: "31 r Romarin, 69001 LYON",
-  avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/zbtubkg3193pagun6ez2.jpg"
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/zbtubkg3193pagun6ez2.jpg"
   )
 # ------------------------------------------------------------------------------
 # creation of 6 tenants :
@@ -69,7 +69,7 @@ User.create!(
   last_name: "BOUVIER",
   phone_number: "06 55 09 02 35",
   address: "38 av Berthelot, 69007 LYON",
-  avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/frri8d39adeybthbgsx0.jpg"
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/frri8d39adeybthbgsx0.jpg"
   )
 
 User.create!(
@@ -79,7 +79,7 @@ User.create!(
   last_name: "PEYROT",
   phone_number: "06 43 49 02 13",
   address: "76 av Jean Mermoz, 69008 LYON",
-  avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/hwiwrtdiuxqckwavwwwf.jpg"
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/hwiwrtdiuxqckwavwwwf.jpg"
   )
 
 User.create!(
@@ -89,7 +89,7 @@ User.create!(
   last_name: "DELORIEUX",
   phone_number: "07 34 26 53 12",
   address: "5 r Ste Marie des Terreaux, 69001 LYON",
-  avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mx9bazmz2jgmulvhamry.jpg"
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mx9bazmz2jgmulvhamry.jpg"
   )
 
 User.create!(
@@ -99,7 +99,7 @@ User.create!(
   last_name: "PONTOIZEAU" ,
   phone_number: "06 45 21 45 43",
   address: "2 av Berthelot, 69007 LYON",
-  avatar: "https://avatars2.githubusercontent.com/u/34674849?v=4"
+  remote_avatar_url: "https://avatars2.githubusercontent.com/u/34674849?v=4"
   )
 
 User.create!(
@@ -109,7 +109,7 @@ User.create!(
   last_name: "DELON",
   phone_number: "06 23 53 24 78",
   address: "6 pl Terreaux, 69001 LYON",
-  avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/qec0kiexjcadwz457xwx.jpg"
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/qec0kiexjcadwz457xwx.jpg"
   )
 
 User.create!(
@@ -119,7 +119,7 @@ User.create!(
   last_name: "BELHADDAD",
   phone_number: "07 32 46 85 23",
   address: "62 grande rue Croix Rousse, 69004 LYON",
-  avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/evqefyvpwl5csouogibi.jpg"
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/evqefyvpwl5csouogibi.jpg"
   )
 # ------------------------------------------------------------------------------
 # creation of flats :

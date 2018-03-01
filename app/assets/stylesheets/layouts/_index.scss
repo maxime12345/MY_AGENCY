@@ -3,3 +3,26 @@
 // @import "dashboard";
 // @import "profile";
 // @import "map";
+
+li {
+  list-style-type: none;
+}
+
+hr {
+  height: 6px;
+}
+
+h3 {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+h3:after {
+  content: "";
+  width: 100px;
+  height: 5px;
+  background-color: $brand-primary;
+  left: 0;
+  bottom: -15px;
+  position: absolute;
+}

@@ -18,12 +18,12 @@ class ProfilsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_profil
-    @profil = User.find(params[:id])
+    @profil = current_user
     authorize(@profil)
   end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-  def flat_params
+  def profil_params
     params.require(:user).permit(:first_name, :last_name, :phone_number, :ID_card, :tax_notice, :payslip, :avatar, :address)
   end
 end

@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :candidacies
   has_many :flats
   validates :first_name, :last_name, presence: true
+  mount_uploader :avatar, PhotoUploader
 end
