@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="card-form">
+        <h3>Créer un dossier de candidature pour <%= @flat.name %></h3>
+        <%= simple_form_for(@candidacy) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <input id="flat_id" name="flat_id" type="hidden" value= <%= "#{params[:flat_id]}" %>>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, 'Confirmer candidature', class: "btn btn-success pull-center" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

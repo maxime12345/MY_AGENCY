@@ -1,5 +1,6 @@
 class CandidaciesController < ApplicationController
   before_action :set_candidacy, only: [:show, :edit, :update, :destroy]
+  before_action :set_flat, only: [:new, :create]
 
   # skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -31,6 +32,7 @@ class CandidaciesController < ApplicationController
   def create
     @candidacy = Candidacy.new(candidacy_params)
     authorize(@candidacy)
+    @candidacy.flat = @flat
     @candidacy.user = current_user
 
     if @candidacy.save
@@ -58,6 +60,11 @@ class CandidaciesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+  def set_flat
+    @flat = Flat.find(params[:flat_id])
+    authorize(@flat)
+  end
+
   def set_candidacy
     @candidacy = Candidacy.find(params[:id])
     authorize(@candidacy)
@@ -65,6 +72,6 @@ class CandidaciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def candidacy_params
-    params.require(:candidacy).permit(:flat_id, :user_id)
+    params.permit(:flat_id, :user_id)
   end
 end
