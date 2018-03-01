@@ -1,8 +1,10 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update, :destroy]
+  before_action :set_flat, only: [:edit, :update, :destroy]
 
   def index
     @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
+    @flat = @flats.first
+    redirect_to flat_path(@flat)
     # @flats = policy_scope(Flat).order(created_at: :desc)
     # @wheelies_geo = @wheelies.select{ |wheely| !wheely.latitude.nil? && !wheely.longitude.nil?}
 
@@ -17,6 +19,8 @@ class FlatsController < ApplicationController
 
   def show
     @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
+    @flat = @flats.first
+    authorize(@flat)
   end
 
   def new
