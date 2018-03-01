@@ -1,0 +1,9 @@
+<%= link_to(candidacy_path(candidacy)) do %>
+  <div class="candidacy_card_body">
+    <span class="price"><%= candidacy.flat.price %>€</span>
+  </div>
+  <div class="candidacy_card_footer">
+    <div class="candidacy_card_title"><%= candidacy.flat.name %></div>
+    <%= cl_image_tag candidacy.flat.user.avatar, class: "candidacy_card_avatar"%>
+  </div>
+<% end %>

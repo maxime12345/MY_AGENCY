@@ -8,7 +8,7 @@ class CandidaciesController < ApplicationController
     if params[:flat_id].nil?
       @candidacies = policy_scope(Candidacy).where(user: current_user).order(created_at: :desc)
     else
-      @candidacies = policy_scope(Candidacy).where("#{flat.user} = current_user").order(created_at: :desc)
+      @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
     end
     # @flats = policy_scope(Flat).order(created_at: :desc)
     # @wheelies_geo = @wheelies.select{ |wheely| !wheely.latitude.nil? && !wheely.longitude.nil?}
