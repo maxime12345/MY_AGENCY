@@ -21,6 +21,7 @@ class FlatsController < ApplicationController
 
   def new
     @flat = Flat.new
+    @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
     authorize(@flat)
   end
 
