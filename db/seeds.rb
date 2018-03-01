@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 Flat.destroy_all
 User.destroy_all
 #-------------------------------------------------------------------------------
@@ -22,7 +21,7 @@ urls.each do |url|
 end
 # ------------------------------------------------------------------------------
 # creation of 4 owners :
-User.create!(
+marion = User.create!(
   email: "marionblanchard69004@gmail.com",
   password: "myagency69",
   first_name: "Marion",
@@ -32,7 +31,7 @@ User.create!(
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mjuutjo19df7vnadx0um.jpg"
   )
 
-User.create!(
+steeve = User.create!(
   email: "steverichard69004@gmail.com",
   password: "myagency69",
   first_name: "Steeve",
@@ -42,7 +41,7 @@ User.create!(
   remote_avatar_url: "https://avatars0.githubusercontent.com/u/32811068?v=4"
   )
 
-User.create!(
+jose = User.create!(
   email: "josedupres69004@gmail.com",
   password: "myagency69",
   first_name: "Jose",
@@ -52,7 +51,7 @@ User.create!(
   remote_avatar_url: "https://avatars3.githubusercontent.com/u/24254220?v=4"
   )
 
-User.create!(
+vanessa = User.create!(
   email: "vanessaduchemin69004@gmail.com",
   password: "myagency69",
   first_name: "Vanessa",
@@ -122,3 +121,18 @@ User.create!(
   address: "62 grande rue Croix Rousse, 69004 LYON",
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/evqefyvpwl5csouogibi.jpg"
   )
+# ------------------------------------------------------------------------------
+# creation of flats :
+# Flat.create!(
+#   name:"a",
+#   address:"a",
+#   price:"a",
+#   user_id: marion.id,
+#   description:"a",
+#   publication_date: "",
+#   surface:"1",
+#   nb_rooms:"1",
+#   ad_url:"a",
+#   visit_capacity: 10
+#   )
+
