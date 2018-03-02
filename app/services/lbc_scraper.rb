@@ -1,11 +1,9 @@
-require 'open-uri'
-
 class LbcScraper
   attr_reader :html_doc
 
   def initialize(url)
-
-    html_file = open(url).read
+    RestClient.proxy = ENV['PROXY_ADDRESS']
+    html_file = RestClient.get(url)
     @html_doc = Nokogiri::HTML(html_file)
   end
 
