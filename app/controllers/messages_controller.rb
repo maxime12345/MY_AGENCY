@@ -21,6 +21,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.candidacy = @candidacy
     @message.sender = current_user
+    authorize(@message)
     if current_user == @candidacy.user
       @message.recipient = @candidacy.flat.user
     elsif current_user == @candidacy.flat.user

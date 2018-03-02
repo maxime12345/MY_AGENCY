@@ -1,10 +1,12 @@
 <p> Conversation entre <%= "#{@candidacy.user.first_name} #{@candidacy.user.last_name} et #{@candidacy.flat.user.first_name} #{@candidacy.flat.user.last_name}" %> </p>
 <div id="conversation">
-  <% @messages.each do |message| %>
-  <div class="message">
-    <p><%= "#{message.sender.first_name}: #{message.content}"%></p>
-  </div>
-  <% end%>
+  <% if @candidacy.messages.blank? %>
+    Envoyer un premier message au propriétaire
+  <% else %>
+    <% @messages.each do |message| %>
+      <%= render 'messages/show', message: message %>
+    <% end %>
+  <% end %>
 </div>
 
 <div class="new_message">

@@ -1,6 +1,6 @@
 function refreshForm(innerHTML) {
   console.log("je suis dans refreshForm")
-  const newMessageForm = document.getElementById('message_content');
+  const newMessageForm = document.getElementById('new_message');
   newMessageForm.innerHTML = innerHTML;
 }
 
@@ -13,6 +13,6 @@ function addMessage(messageHTML) {
 <% if @message.errors.any? %>
   refreshForm('<%= j render "messages/form", candidacy: @candidacy, message: @message %>');
 <% else %>
-  addMessage('<%= j render "messages/index", message: @message %>');
-  refreshForm('<%= j render "messages/form", , candidacy: @candidacy, message: Message.new %>');
+  addMessage('<%= j render "messages/show", message: @message %>');
+  refreshForm('<%= j render "messages/form", candidacy: @candidacy, message: Message.new %>');
 <% end %>
