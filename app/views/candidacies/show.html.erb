@@ -1,4 +1,17 @@
-<h1><%= @candidacy.flat.name %></h1>
+<!-- Dashboard-box côté locataire -->
+<div class="dashboard">
 
-<%= render 'messages/index', candidacy: @candidacy %>
+  <div class="container">
+    <div class="row flex">
+      <div class="col-xs-4 sm-padding-right">
+        <!-- sidebar-owner -->
+        <%= render 'shared/sidebar_tenant' %>
+      </div>
+
+      <div class="col-xs-8 sm-padding-left">
+        <!-- dashboard-box -->
+        <%= render 'shared/tabs_candidacies' %>
+      </div>
+    </div>
+  </div>
 </div>

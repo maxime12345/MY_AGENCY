@@ -24,6 +24,7 @@ class CandidaciesController < ApplicationController
   end
 
   def show
+
     if params[:flat_id].nil?
       @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
     else
@@ -31,6 +32,7 @@ class CandidaciesController < ApplicationController
       @messages = policy_scope(Message).where(flat_id: params[:flat_id]).order(created_at: :desc)
     end
     @message = Message.new
+    @flat = @candidacy.flat
   end
 
   def new

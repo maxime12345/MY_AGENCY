@@ -222,6 +222,7 @@ DEPENDENCIES
   pundit
   rails (= 5.1.5)
   redis
+  rest-client
   sass-rails
   simple_form
   spring

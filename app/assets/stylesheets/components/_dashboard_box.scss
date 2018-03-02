@@ -15,7 +15,37 @@
   height: 100%;
 }
 
-
 .sm-padding-left {
   padding-left: 1px;
+}
+
+#map {
+  height: 300px;
+  flex: 1;
+  background-color: red;
+  margin: 0 0 0 10px;
+}
+
+.visuel {
+  display: flex;
+}
+
+.photo_flat {
+  flex: 0 0 400px;
+}
+
+.info_flat {
+  display: flex;
+  justify-content: space-between;
+}
+
+.metric_flat {
+  display: flex;
+  width: 400px;
+  justify-content: space-around;
+}
+
+.dashboard-box-head {
+  display: flex;
+  justify-content: space-between;
 }
