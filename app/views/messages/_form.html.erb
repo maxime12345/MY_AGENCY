@@ -1,0 +1,4 @@
+<%= simple_form_for([ candidacy, message ], remote: true) do |form| %>
+  <%= form.input :content, as: :text %>
+  <%= form.button :submit %>
+<% end %>
