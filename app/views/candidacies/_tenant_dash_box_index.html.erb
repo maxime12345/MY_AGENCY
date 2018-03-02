@@ -1,14 +1,25 @@
-<div class="dashboard dashboard-tenant">
-  <h3>Mes candidatures</h3>
-  <div class="flex-container">
-    <div class="candidacies">
-      <div class="row">
-        <% @candidacies.each do |candidacy| %>
-          <div class="col-xs-12 col-sm-6 col-md-4 wheely_card">
-            <% render 'card', candidacy: candidacy %>
+
+  <div class="dashboard-tenant">
+    <div class="row">
+      <div class="col-xs-8">
+        <!-- grille -->
+        <h3>Mes candidatures</h3>
+        <div class="flex-container">
+          <div class="candidacies">
+            <div class="row">
+              <% @candidacies.each do |candidacy| %>
+                <div class="col-xs-12 candidacy_card">
+                  <%= render 'card', candidacy: candidacy %>
+                </div>
+              <% end%>
+            </div>
           </div>
-        <% end%>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="map">
+          <!-- map -->
+        </div>
       </div>
     </div>
   </div>
-</div>
