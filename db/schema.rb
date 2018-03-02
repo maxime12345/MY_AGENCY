@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227125726) do
+ActiveRecord::Schema.define(version: 20180302143515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20180227125726) do
     t.integer "visit_capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
@@ -90,7 +92,7 @@ ActiveRecord::Schema.define(version: 20180227125726) do
     t.string "id_card"
     t.string "tax_notice"
     t.string "payslip"
-    t.boolean "profil_confirmed", default: false
+    t.boolean "profil_confirmed"
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
