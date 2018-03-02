@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :flats do
     resources :candidacies, only: [:index, :new, :show, :edit, :update]
     resources :availabilities
+    resources :messages
   end
   resources :candidacies do
     resources :bookings
