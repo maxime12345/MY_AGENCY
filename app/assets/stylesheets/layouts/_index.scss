@@ -15,6 +15,9 @@ hr {
 h3 {
   position: relative;
   margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: $gray-base;
 }
 
 h3:after {
