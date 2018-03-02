@@ -15,11 +15,9 @@
   height: 100%;
 }
 
-
 .sm-padding-left {
   padding-left: 1px;
 }
-
 
 #map {
   height: 300px;
@@ -45,4 +43,9 @@
   display: flex;
   width: 400px;
   justify-content: space-around;
+}
+
+.dashboard-box-head {
+  display: flex;
+  justify-content: space-between;
 }
