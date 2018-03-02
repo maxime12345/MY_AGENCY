@@ -15,16 +15,6 @@ ActiveRecord::Schema.define(version: 20180227125726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "applications", force: :cascade do |t|
-    t.bigint "flat_id"
-    t.string "status", default: "En attente"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["flat_id"], name: "index_applications_on_flat_id"
-    t.index ["user_id"], name: "index_applications_on_user_id"
-  end
-
   create_table "availabilities", force: :cascade do |t|
     t.bigint "flat_id"
     t.date "start_time"
@@ -36,11 +26,21 @@ ActiveRecord::Schema.define(version: 20180227125726) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "availability_id"
-    t.bigint "application_id"
+    t.bigint "candidacy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["application_id"], name: "index_bookings_on_application_id"
     t.index ["availability_id"], name: "index_bookings_on_availability_id"
+    t.index ["candidacy_id"], name: "index_bookings_on_candidacy_id"
+  end
+
+  create_table "candidacies", force: :cascade do |t|
+    t.bigint "flat_id"
+    t.string "status", default: "En attente"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flat_id"], name: "index_candidacies_on_flat_id"
+    t.index ["user_id"], name: "index_candidacies_on_user_id"
   end
 
   create_table "flats", force: :cascade do |t|
@@ -60,14 +60,14 @@ ActiveRecord::Schema.define(version: 20180227125726) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "application_id"
+    t.bigint "candidacy_id"
     t.text "content"
     t.boolean "read", default: false
     t.bigint "sender_id"
     t.bigint "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["application_id"], name: "index_messages_on_application_id"
+    t.index ["candidacy_id"], name: "index_messages_on_candidacy_id"
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20180227125726) do
     t.string "id_card"
     t.string "tax_notice"
     t.string "payslip"
-    t.boolean "profil_confirmed"
+    t.boolean "profil_confirmed", default: false
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -98,11 +98,11 @@ ActiveRecord::Schema.define(version: 20180227125726) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "applications", "flats"
-  add_foreign_key "applications", "users"
   add_foreign_key "availabilities", "flats"
-  add_foreign_key "bookings", "applications"
   add_foreign_key "bookings", "availabilities"
+  add_foreign_key "bookings", "candidacies"
+  add_foreign_key "candidacies", "flats"
+  add_foreign_key "candidacies", "users"
   add_foreign_key "flats", "users"
   add_foreign_key "messages", "users", column: "recipient_id"
   add_foreign_key "messages", "users", column: "sender_id"
