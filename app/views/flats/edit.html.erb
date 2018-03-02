@@ -1,5 +1,21 @@
-<h1>Edit <%= @flat.name %></h1>
+<div class="dashboard">
+  
+  <div class="container">
+    <div class="row flex">
+      <div class="col-xs-1 no-padding-right">
+        <!-- tabs apparts -->
+        <%= render 'shared/tabs_flats' %>
+      </div>
+      <div class="col-xs-3 sm-padding-right no-padding-left">
+        <!-- sidebar-owner -->
+        <%= render 'shared/sidebar_owner' %>
+      </div>
 
-<%= render 'form', flat: @flat %>
+      <div class="col-xs-8 sm-padding-left">
+        <!-- dashboard-box -->
+        <%= render 'flats/form', flat: @flat %>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Back to Flats', flats_path %>
+</div>

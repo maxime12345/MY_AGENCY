@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20180227125726) do
     t.string "id_card"
     t.string "tax_notice"
     t.string "payslip"
-    t.boolean "profil_confirmed"
+    t.boolean "profil_confirmed", default: false
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
