@@ -1,23 +1,40 @@
 <!-- Dashboard-box de la vue show -->
 <div class="dashboard-box">
-  <div>
-    <%= link_to edit_flat_path  do %>
-      <i class="fas fa-pen-square"></i>  <%= "Editer" %>
-    <% end %>
+  <div class="dashboard-box-head">
+    <div>
+      <%= link_to @flat.ad_url  do %>
+        <i class="fas fa-link"></i>  <%= "Voir l'annonce" %>
+      <% end %>
+    </div>
+      <div>
+        <% if current_user.id == @flat.user_id %>
+          <%= link_to edit_flat_path  do %>
+            <i class="fas fa-pen-square"></i>
+          <% end %>
+        <% else %>
+          <%= cl_image_tag @flat.user.avatar, class: "avatar"%>
+        <% end %>
+    </div>
   </div>
-  <div>
-    <%= link_to @flat.ad_url  do %>
-      <i class="fas fa-link"></i>  <%= "Voir l'annonce" %>
-    <% end %>
+  <div class="visuel">
+    <div class="photo_flat">
+      <%= cl_image_tag "https://a0.muscache.com/im/pictures/30270243/263addda_original.jpg?aki_policy=xx_large", height: 300, width: 400, crop: :fill %>
+    </div>
+    <div id="map"></div>
   </div>
-  <p><%= @flat.publication_date %></p>
-  <p><%= @flat.address %></p>
-  <p><%= @flat.price %> € / mois</p>
-  <p><%= @flat.user_id %></p>
+  <div class="info_flat">
+    <div class="metric_flat">
+      <div><p><%= @flat.price %> € / mois</p></div>
+      <div><p><i class="fas fa-expand-arrows-alt"></i> <%= @flat.surface %> m2 </p></div>
+      <div><p><i class="fas fa-bed"></i> <%= @flat.nb_rooms %> pièce(s)</p></div>
+    </div>
+    <div>
+      <p><%= @flat.address %></p>
+    </div>
+  </div>
   <p><%= @flat.description %></p>
-  <p><%= @flat.surface %> m2</p>
-  <p>Nb de pièces principales : <%= @flat.nb_rooms %></p>
-  <p>Créé le <%= @flat.created_at %></p>
-  <p>Dernière mise à jour le <%= @flat.updated_at %></p>
+  <h6>Dernière mise à jour le
+    <%= @flat.updated_at.day %>/<%= @flat.updated_at.month %>/<%= @flat.updated_at.year %>
+  </h6>
 </div>
 
