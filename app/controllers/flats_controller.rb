@@ -42,6 +42,7 @@ class FlatsController < ApplicationController
   end
 
   def edit
+    @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
   end
 
   def update
