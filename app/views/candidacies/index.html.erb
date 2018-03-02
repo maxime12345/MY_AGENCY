@@ -1,12 +1,18 @@
-<div class="flex-container">
-  <div class="candidacies">
-    <div class="row">
-      <h2>Mes candidatures</h2>
-      <% @candidacies.each do |candidacy| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 wheely_card">
-          <%= render 'card', candidacy: candidacy %>
-        </div>
-      <% end%>
+<!-- Dashboard-box côté locataire -->
+<div class="dashboard">
+
+  <div class="container">
+    <div class="row flex">
+      <div class="col-xs-4 sm-padding-right">
+        <!-- sidebar-owner -->
+        <%= render 'shared/sidebar_tenant' %>
+      </div>
+
+      <div class="col-xs-8 sm-padding-left">
+        <!-- dashboard-box -->
+        <%= render 'candidacies/tenant_dash_box_index' %>
+      </div>
     </div>
   </div>
+
 </div>
