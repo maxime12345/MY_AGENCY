@@ -3,15 +3,17 @@
   <!-- Ajouter un if @flat exist : Name Sinon "Nouveau" -->
   <h3><%= @flat.name ? @flat.name : "Nouveau" %></h3>
   <!-- <h3><%= @flat.name %></h3> -->
-  <ul>
-    <li><a href="#"><i class="fas fa-map-marker-alt"></i>Mon logement</li></a>
-    <li><a href="#"><i class="fas fa-envelope"></i>Messages</li></a>
-    <li><a href="#"><i class="far fa-calendar-alt"></i>Visites</li></a>
-    <li> <%= link_to flat_candidacies_path(@flat) do %>
-      <i class="fas fa-folder"></i>
-      Dossiers
-    <% end %></li>
-    <li><a href="#"><i class="fas fa-user"></i>Profile</li></a>
-  </ul>
+  <% if !@flat.id.nil? %>
+    <ul>
+      <li><a href="#"><i class="fas fa-map-marker-alt"></i>Mon logement</li></a>
+      <li><a href="#"><i class="fas fa-envelope"></i>Messages</li></a>
+      <li><a href="#"><i class="far fa-calendar-alt"></i>Visites</li></a>
+      <li> <%= link_to flat_candidacies_path(@flat) do %>
+        <i class="fas fa-folder"></i>
+        Dossiers
+      <% end %></li>
+      <li><a href="#"><i class="fas fa-user"></i>Profile</li></a>
+    </ul>
+  <% end%>
 </div>
 
