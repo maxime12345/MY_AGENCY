@@ -1,25 +1,19 @@
 
   <div class="dashboard-tenant">
     <div class="row">
-      <div class="col-xs-8">
+      <div class="col-xs-12">
         <!-- grille -->
-        <h3>Mes candidatures</h3>
+        <h3>Les dossiers de candidatures</h3>
         <div class="flex-container">
           <div class="candidacies">
             <div class="row">
               <% @candidacies.each do |candidacy| %>
-                <div class="col-xs-12 candidacy_card">
-                  <%= render 'card_flat', candidacy: candidacy %>
+                <div class="col-xs-6 candidacy_card">
+                  <%= render 'card_tenant', candidacy: candidacy %>
                 </div>
               <% end%>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col-xs-4">
-        <div
-          id="map"
-          data-markers="<%= @markers.to_json %>">
         </div>
       </div>
     </div>

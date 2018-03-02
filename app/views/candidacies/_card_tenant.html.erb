@@ -1,0 +1,8 @@
+<%= link_to(candidacy_path(candidacy)) do %>
+  <div class="candidacy_card_body">
+  </div>
+  <div class="candidacy_card_footer">
+    <div class="candidacy_card_title"><%= "#{candidacy.user.first_name} #{candidacy.user.last_name}"%></div>
+    <%= cl_image_tag candidacy.user.avatar, class: "candidacy_card_avatar"%>
+  </div>
+<% end %>
