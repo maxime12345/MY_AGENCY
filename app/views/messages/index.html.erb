@@ -1,2 +1,14 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<p> Conversation entre <%= "#{@candidacy.user.first_name} #{@candidacy.user.last_name} et #{@candidacy.flat.user.first_name} #{@candidacy.flat.user.last_name}" %> </p>
+<div id="conversation">
+  <% if @candidacy.messages.blank? %>
+    Envoyer un premier message au propriétaire
+  <% else %>
+    <% @messages.each do |message| %>
+      <%= render 'messages/show', message: message %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="new_message">
+  <%= render 'messages/form', candidacy: @candidacy, message: @message %>
+</div>

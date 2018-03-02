@@ -2,7 +2,7 @@ class Candidacy < ApplicationRecord
   belongs_to :flat
   belongs_to :user
   has_many :bookings
-  has_many :discussions
+  has_many :messages
   validates :user, uniqueness: { scope: :flat }
   # validate :user_is_not_owner
 
