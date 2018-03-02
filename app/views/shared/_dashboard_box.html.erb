@@ -20,7 +20,11 @@
     <div class="photo_flat">
       <%= cl_image_tag "https://a0.muscache.com/im/pictures/30270243/263addda_original.jpg?aki_policy=xx_large", height: 300, width: 400, crop: :fill %>
     </div>
-    <div id="map"></div>
+    <div
+      id="map"
+      data-markers="<%= @marker.to_json %>">
+    </div>
+
   </div>
   <div class="info_flat">
     <div class="metric_flat">
