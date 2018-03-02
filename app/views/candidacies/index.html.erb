@@ -1,18 +1,44 @@
+
+<% if params[:flat_id].nil? %>
 <!-- Dashboard-box côté locataire -->
-<div class="dashboard">
+  <div class="dashboard">
 
-  <div class="container">
-    <div class="row flex">
-      <div class="col-xs-4 sm-padding-right">
-        <!-- sidebar-owner -->
-        <%= render 'shared/sidebar_tenant' %>
-      </div>
+    <div class="container">
+      <div class="row flex">
+        <div class="col-xs-4 sm-padding-right">
+          <!-- sidebar-owner -->
+          <%= render 'shared/sidebar_tenant' %>
+        </div>
 
-      <div class="col-xs-8 sm-padding-left">
-        <!-- dashboard-box -->
-        <%= render 'candidacies/tenant_dash_box_index' %>
+        <div class="col-xs-8 sm-padding-left">
+          <!-- dashboard-box -->
+          <%= render 'candidacies/tenant_dash_box_index' %>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
+<% else %>
+<!-- Dashboard-box côté proprio-->
+  <div class="dashboard">
+
+    <div class="container">
+      <div class="row flex">
+        <div class="col-xs-1 no-padding-right">
+          <!-- tabs apparts -->
+          <%= render 'shared/tabs_flats' %>
+        </div>
+        <div class="col-xs-3 sm-padding-right no-padding-left">
+          <!-- sidebar-owner -->
+          <%= render 'shared/sidebar_owner' %>
+        </div>
+
+        <div class="col-xs-8 sm-padding-left">
+          <!-- dashboard-box -->
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+<% end %>
