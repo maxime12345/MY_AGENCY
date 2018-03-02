@@ -1,0 +1,19 @@
+<div class="tabs-candidacies">
+  <%= link_to candidacy_path, title: @flat.name do %>
+    <div class="tab-candidacy">
+      <%= @flat.name %>
+    </div>
+  <% end %>
+  <%= link_to candidacy_messages_path(@candidacy) do %>
+    <div class="tab-candidacy">
+      <i class="fas fa-comments"></i>
+      Messages
+    </div>
+  <% end %>
+  <%= link_to candidacy_messages_path(@candidacy) do %>
+    <div class="tab-candidacy">
+      <i class="far fa-calendar-alt"></i>
+      Visiter
+    </div>
+  <% end %>
+</div>
