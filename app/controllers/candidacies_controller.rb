@@ -22,6 +22,7 @@ class CandidaciesController < ApplicationController
   end
 
   def show
+    @flat = @candidacy.flat
   end
 
   def new
