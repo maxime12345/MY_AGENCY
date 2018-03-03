@@ -23,8 +23,9 @@ class LbcScraper
   private
 
   def photos
-    html_doc.search('.Lqamr > div').map do |photo|
+    tab = html_doc.search('.Lqamr > div').map do |photo|
       photo.attr('style')[/url\((.+)\)/, 1]
     end
+    tab[0..2]
   end
 end
