@@ -12,7 +12,10 @@
 
         <div class="col-xs-8 sm-padding-left">
           <!-- dashboard-box -->
-          <%= render 'candidacies/tenant_dash_box_index'%>
+          <div class="dashboard-box">
+            <%= render 'shared/tabs_candidacies' %>
+            <%= render 'candidacies/tenant_dash_box_index'%>
+          </div>
         </div>
       </div>
     </div>
