@@ -16,15 +16,16 @@ class LbcScraper
       surface: html_doc.search('[data-qa-id="criteria_item_square"] ._3Jxf3').text,
       publication_date: html_doc.search('._3Pad-').text,
       nb_rooms: html_doc.search('[data-qa-id="criteria_item_rooms"] ._3Jxf3').text,
-      photos: photos
+      photo: photos
     }
   end
 
   private
 
   def photos
-    html_doc.search('.Lqamr > div').map do |photo|
+    tab = html_doc.search('.Lqamr > div').map do |photo|
       photo.attr('style')[/url\((.+)\)/, 1]
     end
+    tab[0..2]
   end
 end
