@@ -1,25 +1,26 @@
-<div class="row">
-  <div class="tabs-candidacies">
-    <div class="col-xs-4">
-      <%= link_to candidacy_path, title: @flat.name do %>
+<div class="tabs-candidacies">
+  <div class="row">
+    <div class="col-xs-4 text-center">
+      <%= link_to candidacy_path do %>
         <div class="tab-candidacy">
-          <%= @flat.name %>
+          <i class="fas fa-home"></i>
+          Le logement
         </div>
       <% end %>
     </div>
-    <div class="col-xs-4">
-  <%= link_to candidacy_messages_path(@candidacy) do %>
-    <div class="tab-candidacy">
-      <i class="fas fa-comments"></i>
-      Messages
+    <div class="col-xs-4 text-center">
+      <%= link_to candidacy_messages_path(@candidacy) do %>
+        <div class="tab-candidacy">
+          <i class="fas fa-comments"></i>
+          Messages
+        </div>
+      <% end %>
     </div>
-  <% end %>
-    </div>
-    <div class="col-xs-4">
+    <div class="col-xs-4 text-center">
       <%= link_to candidacy_messages_path(@candidacy) do %>
         <div class="tab-candidacy">
           <i class="far fa-calendar-alt"></i>
-          Visiter
+          Plannifier une visite
         </div>
       <% end %>
     </div>
