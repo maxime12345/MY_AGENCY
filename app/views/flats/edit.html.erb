@@ -1,5 +1,5 @@
 <div class="dashboard">
-  
+
   <div class="container">
     <div class="row flex">
       <div class="col-xs-1 no-padding-right">
@@ -13,7 +13,9 @@
 
       <div class="col-xs-8 sm-padding-left">
         <!-- dashboard-box -->
-        <%= render 'flats/form', flat: @flat %>
+        <div class="dashboard-box">
+          <%= render 'flats/form', flat: @flat %>
+        </div>
       </div>
     </div>
   </div>
