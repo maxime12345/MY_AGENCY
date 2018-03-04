@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking).where(candidacy_id: @candidacy).order(created_at: :desc)
+    @sidebar_title = "#nom_appart_a_recuperer"
   end
 
   def show
