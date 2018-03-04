@@ -68,7 +68,7 @@ class CandidaciesController < ApplicationController
 
   def destroy
     @candidacy.destroy
-    redirect_to candidacys_path, notice: 'Candidacy was successfully destroyed.'
+    redirect_to candidacies_path, notice: 'Candidacy was successfully destroyed.'
   end
 
   private
