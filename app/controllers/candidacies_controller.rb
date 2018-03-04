@@ -12,6 +12,7 @@ class CandidaciesController < ApplicationController
       @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
       @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
     end
+    @sidebar_title = "Mes candidatures"
     # @flats = policy_scope(Flat).order(created_at: :desc)
     # @wheelies_geo = @wheelies.select{ |wheely| !wheely.latitude.nil? && !wheely.longitude.nil?}
 
@@ -33,6 +34,7 @@ class CandidaciesController < ApplicationController
     end
     @message = Message.new
     @flat = @candidacy.flat
+    @sidebar_title = @flat.name
   end
 
   def new
