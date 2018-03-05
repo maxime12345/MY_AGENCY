@@ -43,7 +43,7 @@
 .message-status {
   font-size: 14px;
   font-weight: bold;
-  flex: 0 0 67px;
+  min-width: 67px;
 }
 .status.accepted {
   color: #04A366;
@@ -63,3 +63,123 @@
 .discussion-header h3{
   padding-right: 10px;
 }
+
+.message-bubble {
+  padding: 0 10px;
+  border-radius: 3px;
+  border: 2px solid rgba(220,224,244,0.4);
+}
+
+.recipient {
+  width:100%;
+}
+
+.sender {
+  width:100%;
+}
+
+.text{
+  width:75%;
+  display:flex;
+  text-align:left;
+  flex-direction:column;
+}
+.text > p:first-of-type{
+  width:100%;
+  margin-top:0;
+}
+
+
+.text > p.time{
+  width:100%;
+  text-align:right;
+  color:silver;
+  margin-bottom:-7px;
+  margin-top:auto;
+  font-weight: lighter;
+}
+
+.text-l{
+  justify-content: flex-start;
+  float:left;
+  padding-left:10px;
+}
+.text-r{
+  float:right;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.avatar-bubble{
+    display:flex;
+    align-items:center;
+    width:35px;
+    float:left;
+}
+
+.macro{
+    margin-top:5px;
+    width:85%;
+    border-radius:5px;
+    padding:5px;
+    display:flex;
+}
+.msj-rta{
+  float:right;
+  background:whitesmoke;
+  justify-content: space-between;
+}
+.msj{
+    float:left;
+    background:whitesmoke;
+    justify-content: flex-start;
+}
+
+.frame{
+    background:#e0e0de;
+    height:450px;
+    overflow:hidden;
+    padding:0;
+}
+
+
+ul {
+    width:100%;
+    list-style-type: none;
+    padding:18px;
+    bottom:47px;
+    display:flex;
+    flex-direction: column;
+    top:0;
+    overflow-y:scroll;
+}
+
+.msj:before{
+    width: 0;
+    height: 0;
+    content:"";
+    top:-5px;
+    left:-14px;
+    position:relative;
+    border-style: solid;
+    border-width: 0 13px 13px 0;
+    border-color: transparent whitesmoke transparent transparent;
+}
+.msj-rta:after{
+    width: 0;
+    height: 0;
+    content:"";
+    top:-5px;
+    left:14px;
+    position:relative;
+    border-style: solid;
+    border-width: 13px 13px 0 0;
+    border-color: whitesmoke transparent transparent transparent;
+}
+
+
+
+
+
+
+

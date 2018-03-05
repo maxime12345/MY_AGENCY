@@ -11,19 +11,22 @@
           <%= cl_image_tag candidacy.user.avatar, class: "avatar-large"%>
         <% end %>
       </div>
-      <div id="conversation">
-        <% if candidacy.messages.blank? %>
-          Envoyer un premier message
-        <% else %>
-          <% messages.each do |message| %>
-            <%= render 'messages/show', message: message %>
-          <% end %>
-        <% end %>
-      </div>
-
       <div class="new_message">
         <%= render 'messages/form', candidacy: candidacy, message: @message %>
       </div>
+      <div id="conversation frame">
+        <% if candidacy.messages.blank? %>
+          Envoyer un premier message
+        <% else %>
+          <ul>
+            <% messages.each do |message| %>
+              <%= render 'messages/show', message: message %>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+
     </div>
   </div>
 </div>
