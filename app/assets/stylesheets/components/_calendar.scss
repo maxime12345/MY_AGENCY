@@ -31,6 +31,13 @@
   margin-bottom: 2px;
 }
 
+.availability {
+  background-color: $my-light-blue;
+  // background-color: $my-blue;
+  border-radius: 15px;
+  color: white;
+}
+
 .availabilities-slot:hover {
   background-color: $my-light-blue;
   // background-color: $my-blue;
