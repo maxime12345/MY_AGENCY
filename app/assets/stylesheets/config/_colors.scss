@@ -12,5 +12,5 @@ $light-gray: #F4F4F4;
 $my-violet: #9073B3;
 $my-green: #29B73C;
 $my-blue: #1DACFC;
-$my-light-blue: lighter($my-blue, - 50%);
+$my-light-blue: lighten($my-blue, 20%);
 $my-light-gray: #F4F4F4;
