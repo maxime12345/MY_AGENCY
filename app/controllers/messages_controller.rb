@@ -5,9 +5,18 @@ class MessagesController < ApplicationController
     if params[:flat_id].nil?
       set_candidacy
       @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
+      @flat = @candidacy.flat
+      @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
     else
+      set_flat
+      @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
+      @discussions = []
       @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
-      @messages = policy_scope(Message).where(flat_id: params[:flat_id]).order(created_at: :desc)
+      @candidacies.each do |candidacy|
+        if !policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc).empty?
+          @discussions << policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc)
+        end
+      end
     end
     @message = Message.new
   end
@@ -50,6 +59,10 @@ class MessagesController < ApplicationController
   end
 
   private
+  def set_flat
+    @flat = Flat.find(params[:flat_id])
+    authorize(@flat)
+  end
     # Use callbacks to share common setup or constraints between actions.
   def set_candidacy
     @candidacy = Candidacy.find(params[:candidacy_id])

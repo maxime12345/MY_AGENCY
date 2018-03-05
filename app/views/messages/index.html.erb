@@ -1,14 +1,49 @@
-<p> Conversation entre <%= "#{@candidacy.user.first_name} #{@candidacy.user.last_name} et #{@candidacy.flat.user.first_name} #{@candidacy.flat.user.last_name}" %> </p>
-<div id="conversation">
-  <% if @candidacy.messages.blank? %>
-    Envoyer un premier message au propriétaire
-  <% else %>
-    <% @messages.each do |message| %>
-      <%= render 'messages/show', message: message %>
-    <% end %>
-  <% end %>
-</div>
+<% if params[:flat_id].nil? %>
+<!-- Dashboard-box côté locataire -->
+  <div class="dashboard">
 
-<div class="new_message">
-  <%= render 'messages/form', candidacy: @candidacy, message: @message %>
-</div>
+    <div class="container">
+      <div class="row flex">
+        <div class="col-xs-4 sm-padding-right">
+          <!-- sidebar-owner -->
+          <%= render 'shared/sidebar_tenant' %>
+        </div>
+
+        <div class="col-xs-8 sm-padding-left">
+          <!-- dashboard-box -->
+          <div class="dashboard-box">
+            <%= render 'messages/index_messages', candidacy: @candidacy, messages: @messages %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<% else %>
+<!-- Dashboard-box côté proprio-->
+  <div class="dashboard">
+
+    <div class="container">
+      <div class="row flex">
+        <div class="col-xs-1 no-padding-right">
+          <!-- tabs apparts -->
+          <%= render 'shared/tabs_flats' %>
+        </div>
+        <div class="col-xs-3 sm-padding-right no-padding-left">
+          <!-- sidebar-owner -->
+          <%= render 'shared/sidebar_owner' %>
+        </div>
+
+        <div class="col-xs-8 sm-padding-left">
+          <!-- dashboard-box -->
+        <% if params[:flat_id].nil? %>
+            <%= render 'messages/index_messages', candidacy: @candidacy, messages: @messages %>
+          <% else %>
+            <%= render 'messages/index_discussions', candidacy: @candidacy, discussions: @discussions %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+

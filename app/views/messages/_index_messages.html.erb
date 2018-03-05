@@ -1,0 +1,22 @@
+<div class="dashboard-tenant">
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- grille -->
+      <h3> Conversation avec <%= "#{candidacy.user.first_name} #{candidacy.user.last_name} et #{candidacy.flat.user.first_name} #{candidacy.flat.user.last_name}" %> </h3>
+      <div id="conversation">
+        <% if candidacy.messages.blank? %>
+          Envoyer un premier message
+        <% else %>
+          <% messages.each do |message| %>
+            <%= render 'messages/show', message: message %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="new_message">
+        <%= render 'messages/form', candidacy: candidacy, message: @message %>
+      </div>
+    </div>
+  </div>
+</div>
+

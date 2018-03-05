@@ -6,7 +6,10 @@
   <% if !@flat.id.nil? %>
     <ul>
       <li><a href="#"><i class="fas fa-map-marker-alt"></i>Mon logement</li></a>
-      <li><a href="#"><i class="fas fa-envelope"></i>Messages</li></a>
+      <li> <%= link_to  flat_messages_path(@flat) do %>
+        <i class="fas fa-envelope"></i>
+        Messages
+      <% end %></li>
       <li><a href="#"><i class="far fa-calendar-alt"></i>Visites</li></a>
       <li> <%= link_to flat_candidacies_path(@flat) do %>
         <i class="fas fa-folder"></i>

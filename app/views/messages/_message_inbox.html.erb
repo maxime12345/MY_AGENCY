@@ -1,0 +1,14 @@
+<div class="message">
+  <%= cl_image_tag last_message.candidacy.user.avatar, class: "avatar-large"%>
+  <div class="message-name">
+    <h4><%= "#{last_message.candidacy.user.first_name} #{last_message.candidacy.user.last_name}" %></h4>
+    <p><%= last_message.updated_at.strftime("%d/%m/%Y"); %></p>
+  </div>
+  <div class="message-body">
+    <p><strong><%= last_message.content.scan(/[^\.!?]+[\.!?]/).map(&:strip)[0] %></strong></p>
+
+  </div>
+  <div class="message-status">
+    <p class="status pending">Pending</p>
+  </div>
+</div>
