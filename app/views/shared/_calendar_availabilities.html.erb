@@ -15,17 +15,21 @@
 
                 <div class="availabilities-day-title">
                   <div class="availabilities-day-name">
-                  <%= I18n.l(@today + i, format: '%A') %>
+                    <%= I18n.l(@today + i, format: '%A') %>
                   </div>
                   <div class="availabilities-day-date">
-                  <%= @today.day + i %> <%= I18n.l(@today + i, format: '%B') %>
+                    <%= @today.day + i %> <%= I18n.l(@today + i, format: '%B') %>
                   </div>
+
+
                 </div>
                 <div class="availabilities-slots">
                   <% 12.times do |i| %>
-                    <div class="availabilities-slot">
-                      <%= 8 + i  %>h
-                    </div>
+                    <%= link_to "#" do %>
+                      <div class="availabilities-slot">
+                        <%= 8 + i  %>h
+                      </div>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
