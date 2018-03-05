@@ -1,7 +1,7 @@
 <% if current_user == message.recipient %>
   <li class="recipient">
      <div class="msj-rta macro">
-        <div class="text text-r">
+        <div class="message-text message-text-r">
           <p> <%= message.content %> </p>
           <p class="time"><%= message.updated_at.strftime("%H:%M") %></p>
         </div>
@@ -12,7 +12,7 @@
   <li class="sender">
      <div class="msj macro">
         <%= cl_image_tag message.sender.avatar, class: "avatar-bubble avatar"%>
-        <div class="text text-l">
+        <div class="message-text message-text-l">
             <p> <%= message.content %> </p>
             <p class="time"><%= message.updated_at.strftime("%H:%M") %></small></p>
         </div>

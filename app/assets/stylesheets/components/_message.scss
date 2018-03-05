@@ -78,19 +78,19 @@
   width:100%;
 }
 
-.text{
+.message-text{
   width:75%;
   display:flex;
   text-align:left;
   flex-direction:column;
 }
-.text > p:first-of-type{
+.message-text > p:first-of-type{
   width:100%;
   margin-top:0;
 }
 
 
-.text > p.time{
+.message-text > p.time{
   width:100%;
   text-align:right;
   color:silver;
@@ -99,12 +99,12 @@
   font-weight: lighter;
 }
 
-.text-l{
+.message-text-l{
   justify-content: flex-start;
   float:left;
   padding-left:10px;
 }
-.text-r{
+.message-text-r{
   float:right;
   padding-left:10px;
   padding-right:10px;
@@ -126,7 +126,7 @@
 }
 .msj-rta{
   float:right;
-  background:whitesmoke;
+  background:$my-light-blue;
   justify-content: space-between;
 }
 .msj{
@@ -135,7 +135,7 @@
     justify-content: flex-start;
 }
 
-.frame{
+.message-frame{
     background:#e0e0de;
     height:450px;
     overflow:hidden;
@@ -143,7 +143,7 @@
 }
 
 
-ul {
+.conversation ul {
     width:100%;
     list-style-type: none;
     padding:18px;
@@ -174,7 +174,7 @@ ul {
     position:relative;
     border-style: solid;
     border-width: 13px 13px 0 0;
-    border-color: whitesmoke transparent transparent transparent;
+    border-color: $my-light-blue transparent transparent transparent;
 }
 
 
