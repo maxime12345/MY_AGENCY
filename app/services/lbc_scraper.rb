@@ -11,9 +11,9 @@ class LbcScraper
     {
       name: html_doc.search('._1KQme').text,
       address: html_doc.search('._1aCZv span').text,
-      price: html_doc.search('._1F5u3').text.split('€')[0],
+      price: html_doc.search('._1F5u3').text.split(' €')[0],
       description: html_doc.search('._11TgD [data-qa-id="adview_description_container"] span').text,
-      surface: html_doc.search('[data-qa-id="criteria_item_square"] ._3Jxf3').text,
+      surface: html_doc.search('[data-qa-id="criteria_item_square"] ._3Jxf3').text.split(' m')[0],
       publication_date: html_doc.search('._3Pad-').text,
       nb_rooms: html_doc.search('[data-qa-id="criteria_item_rooms"] ._3Jxf3').text,
       photo: photos

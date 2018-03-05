@@ -1,6 +1,8 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: [:edit, :update, :destroy]
 
+  after_action :verify_authorized, except: :extract_from_lbc
+
   def index
     @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
     @flat = @flats.first
@@ -35,6 +37,11 @@ class FlatsController < ApplicationController
       lat: @flat.latitude,
       lng: @flat.longitude
     }]
+  end
+
+  def extract_from_lbc
+    policy_scope(Flat)
+    render json: LbcScraper.new(params[:url]).extract
   end
 
   def new
