@@ -25,6 +25,8 @@ function form_autocomplete() {
   if (button_scrap !== null) {
     button_scrap.addEventListener("click", function() {
       document.querySelectorAll(".form-group.hidden").forEach(function(elem){elem.classList.remove("hidden")});
+      document.querySelectorAll(".form-actions.hidden").forEach(function(elem){elem.classList.remove("hidden")});
+      document.querySelectorAll(".warning-info.hidden").forEach(function(elem){elem.classList.remove("hidden")});
       const url = `/flats/extract_from_lbc?url=${url_input.value}`
 
 
