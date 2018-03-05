@@ -28,10 +28,9 @@ const updateDisplayDays = (firstDay) => {
 };
 
 
-document.addEventListener('DOMContentLoaded', (ev) => {
+document.addEventListener('DOMContentLoaded', (event) => {
   // initialiser display au chargement de la page (à partir de today)
   if (document.querySelector(".calendar")) {
-
     // initialiser plage jour = today --> today + 5
     firstDay = 0;
     updateDisplayDays(firstDay);
@@ -47,3 +46,61 @@ document.addEventListener('DOMContentLoaded', (ev) => {
     });
   }
 });
+
+
+
+
+// function addAvailability(date) {
+//     fetch(`flats/${4}/availabilities/`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       credentials: 'same-origin'
+//     },
+//     body: JSON.stringify({ date: date })
+//   })
+//     .then(response => response.json())
+//     .then((data) => {
+//       console.log(data); // Look at local_names.default
+//     });
+// }
+// }
+
+// function removeAvailability(id) {
+//     fetch(`availabilities/${id}/`, {
+//     method: "DELETE",
+//     headers: {
+//       "Content-Type": "application/json",
+//       credentials: 'same-origin'
+//     }
+//   })
+//     .then(response => response.json())
+//     .then((data) => {
+//       console.log(data); // Look at local_names.default
+//     });
+// }
+// }
+
+
+btnAvailabilities = document.querySelectorAll(".availability-proprio");
+btnAvailabilities.forEach(function(availability, index){
+  availability.addEventListener("click", (event) => {
+    console.log("ok")
+    // if (je suis active){
+        //    JE DOIS AVOIR UN ID DANS L'HTML,
+        //      soit fournit par ruby quand la page a été généré
+        //      soit injecté en js parce qu'on vient de l'activer depuis le chargement de la page
+        // je change le html pour le desactive (ou je le fais dans le retour de mon ajax)
+        // removeAvailability(id chopé dans data-id)
+    // }
+    // else {
+      // addAvailability(date, chopé dans data-dt)
+      // j'ajoute une class active au l'élement cliqué.
+    // }
+  });
+});
+
+
+
+
+
