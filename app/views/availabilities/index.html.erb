@@ -1,0 +1,23 @@
+<div class="dashboard">
+
+  <div class="container">
+    <div class="row flex">
+      <div class="col-xs-1 no-padding-right">
+        <!-- tabs apparts -->
+        <%= render 'shared/tabs_flats' %>
+      </div>
+      <div class="col-xs-3 sm-padding-right no-padding-left">
+        <!-- sidebar-owner -->
+        <%= render 'shared/sidebar_owner' %>
+      </div>
+
+      <div class="col-xs-8 sm-padding-left">
+        <!-- dashboard-box -->
+        <div class="dashboard-box">
+          <%= render 'shared/calendar_availabilities' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
