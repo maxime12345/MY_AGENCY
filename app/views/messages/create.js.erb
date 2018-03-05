@@ -1,13 +1,11 @@
 function refreshForm(innerHTML) {
-  console.log("je suis dans refreshForm")
   const newMessageForm = document.getElementById('new_message');
   newMessageForm.innerHTML = innerHTML;
 }
 
 function addMessage(messageHTML) {
-  console.log("je suis dans addMessage")
   const conversation = document.getElementById('conversation');
-  conversation.insertAdjacentHTML('beforeend', messageHTML);
+  conversation.insertAdjacentHTML('afterbegin', messageHTML);
 }
 
 <% if @message.errors.any? %>

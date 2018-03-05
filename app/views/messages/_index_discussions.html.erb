@@ -3,7 +3,7 @@
     <div class="col-xs-12">
       <!-- grille -->
       <div id="inbox">
-        <% if @discussions[0].empty? %>
+        <% if @discussions[0].nil? %>
           <h3>Vous n'avez pas encore de conversations.</h3>
         <% else %>
           <% @discussions.each do |discussion| %>
