@@ -7,12 +7,13 @@ class CandidaciesController < ApplicationController
   def index
     if params[:flat_id].nil?
       @candidacies = policy_scope(Candidacy).where(user: current_user).order(created_at: :desc)
+      @sidebar_title = "Mes candidatures"
     else
       set_flat
       @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
       @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
     end
-    @sidebar_title = "Mes candidatures"
+
     # @flats = policy_scope(Flat).order(created_at: :desc)
     # @wheelies_geo = @wheelies.select{ |wheely| !wheely.latitude.nil? && !wheely.longitude.nil?}
 

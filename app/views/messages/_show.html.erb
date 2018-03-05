@@ -1,1 +1,22 @@
-<p><%= "#{message.sender.first_name}: #{message.content}"%></p>
+<% if current_user == message.recipient %>
+  <li class="recipient">
+     <div class="msj-rta macro">
+        <div class="text text-r">
+          <p> <%= message.content %> </p>
+          <p class="time"><%= message.updated_at.strftime("%H:%M") %></p>
+        </div>
+        <%= cl_image_tag message.sender.avatar, class: "avatar-bubble avatar" %>
+      </div>
+    </li>
+<% else %>
+  <li class="sender">
+     <div class="msj macro">
+        <%= cl_image_tag message.sender.avatar, class: "avatar-bubble avatar"%>
+        <div class="text text-l">
+            <p> <%= message.content %> </p>
+            <p class="time"><%= message.updated_at.strftime("%H:%M") %></small></p>
+        </div>
+    </div>
+  </li>
+<% end %>
+

@@ -1,0 +1,21 @@
+<div class="dashboard-tenant">
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- grille -->
+      <div id="inbox">
+        <% if @discussions[0].empty? %>
+          <h3>Vous n'avez pas encore de conversations.</h3>
+        <% else %>
+          <% @discussions.each do |discussion| %>
+            <%= render 'messages/message_inbox', last_message: discussion.first %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
