@@ -1,21 +1,23 @@
-<h3>Ajouter une annonce</h3>
+<h3>Synchronisation de l'annonce</h3>
 <%= simple_form_for(@flat) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :ad_url, label: "Lien de votre annonce", placeholder: 'Lien de votre annonce Leboncoin, Seloger...'%>
+    <%= f.input :ad_url, label: "", placeholder: 'Copiez le lien de votre annonce LeBonCoin ou SeLoger'%>
     <%= f.button :button, 'Synchroniser', type: :button, class: "btn btn-primary pull-right", id: "scrap" %> <br> <br>
-    <%= f.input :name, label: "Le petit nom de ce logement", placeholder: "ex. 'T2 Lyon X-Rousse'" %>
-    <%= f.input :address, label: "Son Adresse" %>
-    <%= f.input :price, label: "Le montant du loyer mensuel" %>
-    <%= f.input :description, label: "Description" %>
-    <%= f.input :publication_date, label: "Date de publication" %>
-    <%= f.input :surface, label: "Surface" %>
-    <%= f.input :nb_rooms, label: "Nombre de pièces principales" %>
-    <%= f.input :visit_capacity, label: "Nombre limite de candidats par visite" %>
+    <h3 class='warning-info hidden'>Merci de vérifier les informations de votre annonce</h3>
+    <%= f.input :name, wrapper_html: { class: 'hidden' }, label: "Le petit nom de ce logement", placeholder: "ex. 'T2 Lyon X-Rousse'" %>
+    <%= f.input :address, wrapper_html: { class: 'hidden' }, label: "Son Adresse" %>
+    <%= f.input :price, wrapper_html: { class: 'hidden' }, label: "Le montant du loyer mensuel" %>
+    <%= f.input :description, wrapper_html: { class: 'hidden' }, label: "Description" %>
+    <%= f.input :publication_date, wrapper_html: { class: 'hidden' }, label: "Date de publication" %>
+    <%= f.input :surface, wrapper_html: { class: 'hidden' }, label: "Surface" %>
+    <%= f.input :nb_rooms, wrapper_html: { class: 'hidden' }, label: "Nombre de pièces principales" %>
+    <%= f.input :visit_capacity, wrapper_html: { class: 'hidden' }, label: "Entrez le nombre maximal de candidat par visite" %>
+    <%= f.input :photo, as: :hidden, label: "Liens des photos" %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions hidden" >
     <%= link_to 'Annuler', :back, class: "btn btn-default"%>
     <%= f.button :submit, 'Valider', class: "btn btn-primary pull-right" %>
   </div>
