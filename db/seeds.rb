@@ -5,6 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "deleting bookings..."
+Booking.destroy_all
+puts "deleting availabilities..."
+Availability.destroy_all
+puts "deleting messages..."
+Message.destroy_all
 puts "deleting candidacies..."
 Candidacy.destroy_all
 puts "deleting flats..."
@@ -13,7 +20,7 @@ puts "deleting users..."
 User.destroy_all
 #-------------------------------------------------------------------------------
 urls = [
-  "https://www.leboncoin.fr/locations/1362623176.htm?ca=22_s",
+  "https://www.leboncoin.fr/locations/1387875755.htm?ca=12_s",
   "https://www.leboncoin.fr/locations/1385711512.htm?ca=22_s",
   "https://www.leboncoin.fr/locations/1377652859.htm?ca=22_s",
   "https://www.leboncoin.fr/locations/1392479371.htm?ca=22_s",
