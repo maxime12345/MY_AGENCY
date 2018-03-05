@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def index
     if params[:flat_id].nil?
       set_candidacy
-      @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
+      @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :asc)
       @flat = @candidacy.flat
       @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
     else
@@ -15,13 +15,13 @@ class MessagesController < ApplicationController
         @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
         @candidacies.each do |candidacy|
           if !policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc).empty?
-            @discussions << policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc)
+            @discussions << policy_scope(Message).where(candidacy: candidacy).order(created_at: :asc)
           end
         end
-        @discussions.sort!{|a,b| b.first.updated_at <=> a.first.updated_at}
+        @discussions.sort!{|a,b| b.last.updated_at <=> a.last.updated_at}
       else
         set_candidacy
-        @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
+        @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :asc)
         @flat = @candidacy.flat
         @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
       end

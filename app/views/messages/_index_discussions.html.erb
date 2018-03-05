@@ -7,7 +7,7 @@
           <h3>Vous n'avez pas encore de conversations.</h3>
         <% else %>
           <% @discussions.each do |discussion| %>
-            <%= render 'messages/message_inbox', last_message: discussion[0] %>
+            <%= render 'messages/message_inbox', last_message: discussion.last %>
           <% end %>
         <% end %>
       </div>

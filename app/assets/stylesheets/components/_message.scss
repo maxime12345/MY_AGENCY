@@ -43,6 +43,7 @@
 .message-status {
   font-size: 14px;
   font-weight: bold;
+  flex: 0 0 67px;
 }
 .status.accepted {
   color: #04A366;
@@ -52,4 +53,13 @@
 }
 .status.pending {
   color: lightgrey;
+}
+
+.discussion-header {
+  display: flex;
+  align-items: center;
+}
+
+.discussion-header h3{
+  padding-right: 10px;
 }
