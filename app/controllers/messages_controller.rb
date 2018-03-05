@@ -8,14 +8,22 @@ class MessagesController < ApplicationController
       @flat = @candidacy.flat
       @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
     else
-      set_flat
-      @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
-      @discussions = []
-      @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
-      @candidacies.each do |candidacy|
-        if !policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc).empty?
-          @discussions << policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc)
+      if params[:candidacy_id].nil?
+        set_flat
+        @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
+        @discussions = []
+        @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
+        @candidacies.each do |candidacy|
+          if !policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc).empty?
+            @discussions << policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc)
+          end
         end
+        @discussions.sort!{|a,b| b.first.updated_at <=> a.first.updated_at}
+      else
+        set_candidacy
+        @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
+        @flat = @candidacy.flat
+        @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
       end
     end
     @message = Message.new

@@ -36,10 +36,10 @@
 
         <div class="col-xs-8 sm-padding-left">
           <!-- dashboard-box -->
-        <% if params[:flat_id].nil? %>
-            <%= render 'messages/index_messages', candidacy: @candidacy, messages: @messages %>
+        <% if params[:candidacy_id].nil? %>
+            <%= render 'messages/index_discussions', discussions: @discussions %>
           <% else %>
-            <%= render 'messages/index_discussions', candidacy: @candidacy, discussions: @discussions %>
+            <%= render 'messages/index_messages', candidacy: @candidacy, messages: @messages %>
           <% end %>
         </div>
       </div>
