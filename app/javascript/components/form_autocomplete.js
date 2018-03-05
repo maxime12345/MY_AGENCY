@@ -4,7 +4,7 @@ function updateFields(data) {
 
   document.getElementById('flat_name').value = data.name;
   document.getElementById('flat_address').value = data.address;
-  document.getElementById('flat_price').value = data.price;
+  document.getElementById('flat_price').value = Number(data.price.replace(/ /g, ""));
   document.getElementById('flat_description').value = data.description;
   document.getElementById('flat_publication_date_1i').value = parseInt(date[2], 10);
   document.getElementById('flat_publication_date_2i').value = parseInt(date[1], 10);
@@ -21,7 +21,10 @@ function form_autocomplete() {
   if (button_scrap !== null) {
     button_scrap.addEventListener("click", function() {
 
-      const url = "/flats/extract_from_lbc?url=https://www.leboncoin.fr/locations/1395070692.htm?ca=22_s"
+      const url = `/flats/extract_from_lbc?url=${url_input.value}`
+
+
+      console.log(url)
 
       fetch(url, {
         credentials: 'same-origin'
