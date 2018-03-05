@@ -14,7 +14,7 @@
       <div class="new_message">
         <%= render 'messages/form', candidacy: candidacy, message: @message %>
       </div>
-      <div id="conversation frame">
+      <div id="conversation message-frame">
         <% if candidacy.messages.blank? %>
           Envoyer un premier message
         <% else %>
