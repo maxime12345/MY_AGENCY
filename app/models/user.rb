@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   has_many :sent_messages, :class_name => 'Message', :foreign_key => 'sender_id'
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'recipient_id'
-  has_many :candidacies
-  has_many :flats
+  has_many :candidacies, dependent: :destroy
+  has_many :flats, dependent: :destroy
   validates :first_name, :last_name, presence: true
   mount_uploader :avatar, PhotoUploader
   mount_uploader :id_card, PhotoUploader
