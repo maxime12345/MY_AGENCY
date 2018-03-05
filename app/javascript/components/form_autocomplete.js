@@ -1,5 +1,7 @@
 function updateFields(data) {
 
+  console.log(data.photo);
+
   const date = data.publication_date.split(" ")[0].split("/")
 
   document.getElementById('flat_name').value = data.name;
@@ -11,6 +13,8 @@ function updateFields(data) {
   document.getElementById('flat_publication_date_3i').value = parseInt(date[0], 10);
   document.getElementById('flat_surface').value = data.surface;
   document.getElementById('flat_nb_rooms').value = data.nb_rooms;
+  document.getElementById('flat_photo').value = data.photo;
+
   // document.getElementById('flat_visit_capacity').value = data.visit_capacity;
 }
 
