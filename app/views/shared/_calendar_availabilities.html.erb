@@ -1,0 +1,47 @@
+<!-- calendar structure by Antoine -->
+<div class="row calendar">
+  <div class="col-xs-12 text-center">
+
+    <div class="row">
+
+        <div class="col-xs-12 availabilities-desktop">
+          <div class="row">
+            <div class="col-xs-1 availabilities-pagination">
+              <a href="#" id="left-pagination"><i class="fas fa-chevron-left"></i></a>
+            </div>
+
+            <% 14.times do |i| %>
+              <div class="col-xs-2 availabilities-day" <%= raw "style=\"display: none\""%> data-day-step="<%= i %>">
+
+                <div class="availabilities-day-title">
+                  <div class="availabilities-day-name">
+                    <%= I18n.l(@today + i, format: '%A') %>
+                  </div>
+                  <div class="availabilities-day-date">
+                    <%= @today.day + i %> <%= I18n.l(@today + i, format: '%B') %>
+                  </div>
+
+
+                </div>
+                <div class="availabilities-slots">
+                  <% 12.times do |i| %>
+                    <%= link_to "#" do %>
+                      <div class="availabilities-slot">
+                        <%= 8 + i  %>h
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="col-xs-1 availabilities-pagination">
+              <a href="#" id="right-pagination"><i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</div>
+

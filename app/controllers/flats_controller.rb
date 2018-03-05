@@ -1,9 +1,12 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: [:edit, :update, :destroy]
 
+  after_action :verify_authorized, except: :extract_from_lbc
+
   def index
     @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
     @flat = @flats.first
+    authorize(@flat)
     redirect_to flat_path(@flat)
     # @flats = policy_scope(Flat).order(created_at: :desc)
     # @wheelies_geo = @wheelies.select{ |wheely| !wheely.latitude.nil? && !wheely.longitude.nil?}
@@ -29,12 +32,17 @@ class FlatsController < ApplicationController
 
   def show
     @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
-    @flat = @flat = Flat.find(params[:id])
+    @flat = Flat.find(params[:id])
     authorize(@flat)
     @marker = [{
       lat: @flat.latitude,
       lng: @flat.longitude
     }]
+  end
+
+  def extract_from_lbc
+    policy_scope(Flat)
+    render json: LbcScraper.new(params[:url]).extract
   end
 
   def new
@@ -47,6 +55,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     authorize(@flat)
     @flat.user = current_user
+    @flat.photo = params[:flat][:photo].split(',')
 
     if @flat.save
       redirect_to @flat, notice: 'Flat was successfully created.'
@@ -81,6 +90,19 @@ class FlatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def flat_params
-    params.require(:flat).permit(:name, :address, :price, :description, :publication_date, :surface, :nb_rooms, :ad_url, :visit_capacity, :user_id)
+    params
+      .require(:flat)
+      .permit(
+        :name,
+        :address,
+        :price,
+        :description,
+        :publication_date,
+        :surface,
+        :nb_rooms,
+        :ad_url,
+        :visit_capacity,
+        :user_id
+      )
   end
 end

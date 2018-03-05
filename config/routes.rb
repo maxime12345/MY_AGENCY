@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     end
     resources :availabilities
     resources :messages
+    collection do
+      get :extract_from_lbc
+    end
   end
   resources :candidacies do
     resources :bookings
