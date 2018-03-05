@@ -95,7 +95,9 @@ btnAvailabilities.forEach(function(availability, index){
     // }
     // else {
       // addAvailability(date, chopé dans data-dt)
-      // j'ajoute une class active au l'élement cliqué.
+      // j'ajoute une class active au l'élement cliqué:
+      child = document.querySelectorAll(".availabilities-slot")[index];
+      child.classList.add("availability");
     // }
   });
 });

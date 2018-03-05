@@ -4,6 +4,10 @@
 // @import "profile";
 // @import "map";
 
+a, a:visited {
+    text-decoration: none !important;
+}
+
 li {
   list-style-type: none;
 }
