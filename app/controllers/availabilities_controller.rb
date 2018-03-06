@@ -1,8 +1,9 @@
 class AvailabilitiesController < ApplicationController
-  before_action :set_flat, only: [:index]
+  before_action :set_flat, only: [:index, :create]
+  before_action :set_availability, only: [:destroy]
 
   def index
-    @availabilities = policy_scope(Availability).where(candidacy_id: @candidacy).order(created_at: :desc)
+    @availabilities = policy_scope(Availability).where(flat: @flat).order(created_at: :desc)
     @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
     @today = Date.today
   end
@@ -20,9 +21,26 @@ class AvailabilitiesController < ApplicationController
   end
 
   def create
+    @availability = Availability.new(availability_params)
+    @availability.flat = @flat
+    authorize(@availability)
+
+    if @availability.save
+      render json: @availability
+    else
+      head :bad_request
+    end
   end
 
   def destroy
+    @availability.destroy
+    authorize(@availability)
+
+    if @availability.destroy
+      head :ok
+    else
+      head :bad_request
+    end
   end
 
   private
@@ -31,4 +49,19 @@ class AvailabilitiesController < ApplicationController
     @flat = Flat.find(params[:flat_id])
     authorize(@flat)
   end
+
+  def set_availability
+    @availability = Availability.find(params[:id])
+    authorize(@availability)
+  end
+
+  def availability_params
+    params
+      .require(:availability)
+      .permit(
+        :start_time,
+        :visit_confirmed
+      )
+  end
+
 end

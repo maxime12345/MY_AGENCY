@@ -38,3 +38,32 @@ h3:after {
   flex-grow: 1;
   margin: 0 1em;
 }
+
+#body-wrap {
+  min-height: calc(100vh - 170px);
+}
+
+.flex-container {
+  display: flex;
+
+}
+
+#map-sticky {
+  height: 300px;
+  flex: 1;
+  background-color: red;
+  margin: 0 0 0 10px;
+}
+
+.candidacies {
+  flex-grow: 1;
+}
+
+.map_tenant_candidacies {
+  height: calc(100vh - 145px) !important;
+  flex: 1;
+  background-color: red;
+  margin: 10px 0 0 10px !important;
+  position: sticky !important;
+  top: 0px;
+  }

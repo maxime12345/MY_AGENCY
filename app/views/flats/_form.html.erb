@@ -1,10 +1,16 @@
+
+
 <h3>Synchronisation de l'annonce</h3>
 <%= simple_form_for(@flat) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :ad_url, label: "", placeholder: 'Copiez le lien de votre annonce LeBonCoin ou SeLoger'%>
-    <%= f.button :button, 'Synchroniser', type: :button, class: "btn btn-primary pull-right", id: "scrap" %> <br> <br>
+    <button id="scrap" class="progress-button" data-style="shrink" data-horizontal="">
+      <span class="content">Submit</span>
+      <span class="progress"><span class="progress-inner"></span></span>
+    </button>
+    <br> <br>
     <h3 class='warning-info hidden'>Merci de vérifier les informations de votre annonce</h3>
     <%= f.input :name, wrapper_html: { class: 'hidden' }, label: "Le petit nom de ce logement", placeholder: "ex. 'T2 Lyon X-Rousse'" %>
     <%= f.input :address, wrapper_html: { class: 'hidden' }, label: "Son Adresse" %>

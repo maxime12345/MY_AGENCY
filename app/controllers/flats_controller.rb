@@ -8,24 +8,13 @@ class FlatsController < ApplicationController
     @flat = @flats.first
     authorize(@flat)
     redirect_to flat_path(@flat)
-    # @flats = policy_scope(Flat).order(created_at: :desc)
-    # @wheelies_geo = @wheelies.select{ |wheely| !wheely.latitude.nil? && !wheely.longitude.nil?}
-
-    # @markers = @wheelies_geo.map do |wheely|
-    #   {
-    #     lat: wheely.latitude,
-    #     lng: wheely.longitude,
-    #     infoWindow: { content: render_to_string(partial: "/wheelies/map_box", locals: { wheely: wheely }) }
-    #   }
-    # end
-
     @flats = Flat.where.not(latitude: nil, longitude: nil)
 
     @markers = @flats.map do |flat|
       {
         lat: flat.latitude,
-        lng: flat.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: flat.longitude,
+        infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: flat }) }
       }
     end
   end
@@ -36,11 +25,13 @@ class FlatsController < ApplicationController
     authorize(@flat)
     @marker = [{
       lat: @flat.latitude,
-      lng: @flat.longitude
+      lng: @flat.longitude,
+      infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: @flat }) }
     }]
   end
 
   def extract_from_lbc
+    sleep(3)
     policy_scope(Flat)
     render json: LbcScraper.new(params[:url]).extract
   end

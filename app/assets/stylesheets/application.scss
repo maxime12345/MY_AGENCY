@@ -1,3 +1,5 @@
+@import "config/reset";
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -9,7 +11,11 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@import "config/reset-lib";
+
 // Your CSS partials
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+

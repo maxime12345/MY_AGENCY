@@ -19,24 +19,34 @@ function updateFields(data) {
 }
 
 function form_autocomplete() {
-  var url_input = document.getElementById('flat_ad_url')
+  const url_input = document.getElementById('flat_ad_url')
+  const button_scrap = document.getElementById('scrap')
+  const progress = document.querySelector('.progress-button .progress-inner');
 
-  var button_scrap = document.getElementById('scrap')
-  if (button_scrap !== null) {
-    button_scrap.addEventListener("click", function() {
-      document.querySelectorAll(".form-group.hidden").forEach(function(elem){elem.classList.remove("hidden")});
-      document.querySelectorAll(".form-actions.hidden").forEach(function(elem){elem.classList.remove("hidden")});
-      document.querySelectorAll(".warning-info.hidden").forEach(function(elem){elem.classList.remove("hidden")});
-      const url = `/flats/extract_from_lbc?url=${url_input.value}`
+  if (button_scrap) {
+    button_scrap.addEventListener('click', function(event) {
+      event.preventDefault();
 
+      this.classList.add('state-loading');
 
-      console.log(url)
+      const url = `/flats/extract_from_lbc?url=${url_input.value}`;
 
-      fetch(url, {
-        credentials: 'same-origin'
-      })
+      let percentage = 0;
+      const interval = setInterval(() => {
+        percentage = percentage + 0.3;
+        progress.style.width = `${percentage}%`;
+      }, 150);
+
+      fetch(url, { credentials: 'same-origin' })
         .then(response => response.json())
-        .then(updateFields);
+        .then((data) => {
+          document.querySelectorAll(".form-group.hidden").forEach(function(elem){elem.classList.remove("hidden")});
+          document.querySelectorAll(".form-actions.hidden").forEach(function(elem){elem.classList.remove("hidden")});
+          document.querySelectorAll(".warning-info.hidden").forEach(function(elem){elem.classList.remove("hidden")});
+          clearInterval(interval);
+          progress.style.width = '100%';
+          updateFields(data);
+        });
     });
   }
 }

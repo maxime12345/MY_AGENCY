@@ -8,26 +8,33 @@ class CandidaciesController < ApplicationController
     if params[:flat_id].nil?
       @candidacies = policy_scope(Candidacy).where(user: current_user).order(created_at: :desc)
       @sidebar_title = "Mes candidatures"
+      @flats = []
+      @candidacies.each do |candidacy|
+        @flats << candidacy.flat
+      end
+      @flats_geo = @flats.select{ |flat| !flat.latitude.nil? && !flat.longitude.nil?}
+
+      @markers = @flats_geo.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude,
+          infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: flat }) }
+        }
+      end
     else
       set_flat
       @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
       @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
     end
-
-    # @flats = policy_scope(Flat).order(created_at: :desc)
-    # @wheelies_geo = @wheelies.select{ |wheely| !wheely.latitude.nil? && !wheely.longitude.nil?}
-
-    # @markers = @wheelies_geo.map do |wheely|
-    #   {
-    #     lat: wheely.latitude,
-    #     lng: wheely.longitude,
-    #     infoWindow: { content: render_to_string(partial: "/wheelies/map_box", locals: { wheely: wheely }) }
-    #   }
   end
 
   def show
-
     if params[:flat_id].nil?
+      @marker = [{
+        lat: @candidacy.flat.latitude,
+        lng: @candidacy.flat.longitude,
+        infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: @candidacy.flat }) }
+      }]
       @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
     else
       @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)

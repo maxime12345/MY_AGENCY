@@ -4,15 +4,15 @@
 
     <div class="container">
       <div class="row flex">
-        <div class="col-xs-4 sm-padding-right">
+        <div class="col-xs-3 sm-padding-right">
           <!-- sidebar-owner -->
           <%= render 'shared/sidebar_tenant' %>
         </div>
 
-        <div class="col-xs-8 sm-padding-left">
+        <div class="col-xs-9 sm-padding-left">
           <!-- dashboard-box -->
           <div class="dashboard-box">
-            <%= render 'messages/index_messages', candidacy: @candidacy, messages: @messages %>
+            <%= render 'messages/index_messages', candidacy: @candidacy, messages: @messages, unread_messages: @unread_messages %>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
         <% if params[:candidacy_id].nil? %>
             <%= render 'messages/index_discussions', discussions: @discussions %>
           <% else %>
-            <%= render 'messages/index_messages', candidacy: @candidacy, messages: @messages %>
+            <%= render 'messages/index_messages', candidacy: @candidacy, messages: @messages, unread_messages: @unread_messages  %>
           <% end %>
         </div>
       </div>
