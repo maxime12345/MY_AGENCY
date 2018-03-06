@@ -2,10 +2,24 @@
   <div class="row">
     <div class="col-xs-12">
       <!-- grille -->
+      <% if current_user == candidacy.user %>
+        <%= link_to candidacies_path do %>
+          <i class="fas fa-chevron-circle-left"></i>
+          Retour à mes candidatures
+        <% end %>
+      <% else %>
+        <%= link_to profil_path(candidacy.user) do %>
+          <i class="fas fa-folder"></i>
+          Voir dossier
+        <% end %>
+      <% end %>
+
       <div class="discussion-header">
         <% if current_user == candidacy.user %>
+
           <h3> Conversation avec <%= "#{candidacy.flat.user.first_name} #{candidacy.flat.user.last_name}" %> </h3>
           <%= cl_image_tag candidacy.flat.user.avatar, class: "avatar-large"%>
+
         <% else %>
           <h3> Conversation avec <%= "#{candidacy.user.first_name} #{candidacy.user.last_name}" %> </h3>
           <%= cl_image_tag candidacy.user.avatar, class: "avatar-large"%>
