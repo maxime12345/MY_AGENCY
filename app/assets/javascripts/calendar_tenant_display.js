@@ -69,20 +69,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-function updateAvailabilityHtml(element, booked, id){
+function updateBookingHtml(element, booked, id){
   if(booked){
-      element.classList.add("availability");
-      element.dataset.availabilityId = id;
+      element.classList.add("booked");
+      element.dataset.bookingId = id;
   }
   else{
-    element.classList.remove("availability");
-    element.dataset.availabilityId = null;
+    element.classList.remove("booked");
+    element.dataset.bookingId = null;
   }
 }
 
 function addBooking(element) {
-    date = element.dataset.dt;
-    // A REPRENDRE DEMAIN :
+    availability = element.dataset.availabilityId;
     fetch(`/candidacies/${candidacyId}/bookings/`, {
     method: "POST",
     headers: {
@@ -90,11 +89,11 @@ function addBooking(element) {
       'X-CSRF-Token': Rails.csrfToken()
     },
     credentials: 'same-origin',
-    body: JSON.stringify({ availability: {start_time: date} })
+    body: JSON.stringify({ booking: {availability_id: availability} })
   })
     .then(response => response.json())
     .then((data) => {
-      updateAvailabilityHtml(element, true, data.id);
+      updateBookingHtml(element, true, data.id);
     });
 }
 
@@ -127,9 +126,7 @@ btnAvailabilities.forEach(function(availability, index){
       removeBooking(child);
 
     } else {
-      // requête AJAX pour create availability
       addBooking(child);
-      // j'ajoute une class active au l'élement cliqué:
     }
   });
 });

@@ -29,14 +29,14 @@
 
 
                     <% date_hour = day.to_datetime + ((8 + i) * 3600).seconds %>
-                    <% is_booked = @availabilities.map(&:start_time).include?(date_hour) %>
+                    <% is_available = @availabilities.map(&:start_time).include?(date_hour) %>
 
                     <% availability_id = @availabilities.select{|av| av.start_time == date_hour}.map(&:id).first %>
 
 
 
                     <%= link_to flat_availabilities_path(@flat, date: date_hour), class:"availability-proprio" do %>
-                      <div class="availabilities-slot <%= "availability" if is_booked %>" data-dt="<%= date_hour %>" data-availability-id="<%= availability_id %>">
+                      <div class="availabilities-slot <%= "availability" if is_available %>" data-dt="<%= date_hour %>" data-availability-id="<%= availability_id %>">
                         <%= date_hour.strftime('%Hh')  %>
                       </div>
                     <% end %>
