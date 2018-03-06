@@ -6,8 +6,11 @@
       <p><%= last_message.updated_at.strftime("%d/%m/%Y"); %></p>
     </div>
     <div class="message-body">
-      <p><strong><%= last_message.content.split(/[\.!?]/)[0] %></strong></p>
-
+      <% if  unread_messages.count > 0%>
+        <p><strong><%= last_message.content.split(/[\.!?]/)[0]%> <%= "(#{unread_messages.count})" %></strong> </p>
+      <% else %>
+        <p><strong><%= last_message.content.split(/[\.!?]/)[0]%></strong> </p>
+      <% end%>
     </div>
     <div class="message-status">
       <p class="status pending"><%= last_message.candidacy.status %></p>

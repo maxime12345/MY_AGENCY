@@ -18,7 +18,7 @@ class CandidaciesController < ApplicationController
         {
           lat: flat.latitude,
           lng: flat.longitude,
-          infoWindow: { content: render_to_string(partial: "/candidacies/map_box", locals: { flat: flat }) }
+          infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: flat }) }
         }
       end
     else
@@ -29,12 +29,11 @@ class CandidaciesController < ApplicationController
   end
 
   def show
-
     if params[:flat_id].nil?
       @marker = [{
         lat: @candidacy.flat.latitude,
         lng: @candidacy.flat.longitude,
-        infoWindow: { content: render_to_string(partial: "/candidacies/map_box", locals: { flat: @candidacy.flat }) }
+        infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: @candidacy.flat }) }
       }]
       @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
     else
