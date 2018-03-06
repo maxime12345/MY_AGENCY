@@ -5,14 +5,14 @@
 }
 
 .card {
-
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
-  height: 180px;
-  position: relative;
-  padding-top: 10px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  // background-size: cover !important;
+  // background-position: center;
+  // color: white;
+  // height: 180px;
+  // position: relative;
+  // padding-top: 10px;
 }
 
 .card-user {
@@ -84,16 +84,14 @@ bottom: 0px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
-  font-size: 15px;
+  font-size: 18px;
   color: white;
   height: 150px;
   position: relative;
-    .price{
-      position: absolute;
-      font-size: 18px;
-      left: 10px;
-      top: 10%;
-
+  .candidacy_card_title{
+    position: absolute;
+    left: 10px;
+    top: 10%;
   }
   transition: margin-top 0.2s ease;
 }
@@ -101,19 +99,35 @@ bottom: 0px;
 .candidacy_card_footer{
   background-color: white;
   height: 50px;
-  position: relative;
+  // position: relative;
   font-size: 15px;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
 
-  img {
-    height: 80%;
-    position: absolute;
-    right: 20px;
-    top: 10%;
-    border-radius: 50%;
-  }
-  .candidacy_card_title{
-      position: absolute;
-      left: 10px;
-      top: 20%;
+  .icon-message{
+    // position: absolute;
+    font-size: 25px;
+    i {
+      color: lightgrey;
     }
+    i:hover {
+      color: $brand-primary;
+    }
+    // right: 50%;
+    // top: 30%;
+  }
+
+  .icon-calendar{
+    // position: absolute;
+    font-size: 25px;
+    i {
+      color: lightgrey;
+    }
+    i:hover {
+      color: $brand-primary;
+    }
+    // right: 20px;
+    // top: 30%;
+  }
 }
