@@ -6,7 +6,7 @@
       <p><%= last_message.updated_at.strftime("%d/%m/%Y"); %></p>
     </div>
     <div class="message-body">
-      <p><strong><%= last_message.content.split(/[\.!?]/)[0] %></strong></p>
+      <p><strong><%= last_message.content.split(/[\.!?]/)[0]%> <%= "(#{unread_messages.count})" %></strong> </p>
 
     </div>
     <div class="message-status">

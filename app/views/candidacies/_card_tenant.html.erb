@@ -1,8 +1,27 @@
-<%= link_to(candidacy_path(candidacy)) do %>
-  <div class="candidacy_card_body">
+<div class="tenant-card">
+  <div class="img-card-tenant">
+    <%= cl_image_tag candidacy.user.avatar, class: "avatar-large"%>
   </div>
-  <div class="candidacy_card_footer">
-    <div class="candidacy_card_title"><%= "#{candidacy.user.first_name} #{candidacy.user.last_name}"%></div>
-    <%= cl_image_tag candidacy.user.avatar, class: "candidacy_card_avatar"%>
+  <div class="tenant-name">
+    <p><%= "#{candidacy.user.first_name} #{candidacy.user.last_name}" %></p>
   </div>
-<% end %>
+  <div class="tenant-message">
+    <%= link_to flat_candidacy_messages_path(candidacy.flat,candidacy) do %>
+      <i class="fas fa-comments"></i>
+    <% end %>
+  </div>
+  <div class="tenant-folder">
+    <%= link_to profil_path(candidacy.user) do %>
+      <i class="fas fa-folder"></i>
+    <% end %>
+  </div>
+  <div class="tenant-calendar">
+    <%= link_to flat_availabilities_path(candidacy.flat) do %>
+      <i class="far fa-calendar-alt"></i>
+    <% end %>
+  </div>
+  <div class="tenant-status">
+    <p class="status pending"><%= candidacy.status %></p>
+  </div>
+</div>
+
