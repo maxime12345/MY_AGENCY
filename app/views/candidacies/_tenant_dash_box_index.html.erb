@@ -1,22 +1,21 @@
-<div class="row">
-  <div class="col-xs-8">
-    <!-- grille -->
-    <div class="flex-container">
-      <div class="candidacies">
-        <div class="row">
-          <% @candidacies.each do |candidacy| %>
-            <div class="col-xs-12 candidacy_card">
-              <%= render 'card_flat', candidacy: candidacy %>
-            </div>
-          <% end%>
-        </div>
+<div class="col-xs-6">
+  <!-- grille -->
+  <div class="flex-container">
+    <div class="candidacies">
+      <div class="row">
+        <% @candidacies.each do |candidacy| %>
+          <div class="candidacy_card">
+            <%= render 'card_flat', candidacy: candidacy %>
+          </div>
+        <% end%>
       </div>
     </div>
   </div>
-  <div class="col-xs-4">
-    <div
-      id="map"
-      data-markers="<%= @markers.to_json %>">
-    </div>
+</div>
+<div class="col-xs-6">
+  <div
+    id="map"
+    class="map_tenant_candidacies"
+    data-markers="<%= @markers.to_json %>">
   </div>
 </div>
