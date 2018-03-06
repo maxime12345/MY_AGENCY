@@ -59,3 +59,11 @@ h3:after {
   flex-grow: 1;
 }
 
+.map_tenant_candidacies {
+  height: calc(100vh - 145px) !important;
+  flex: 1;
+  background-color: red;
+  margin: 10px 0 0 10px !important;
+  position: sticky !important;
+  top: 0px;
+  }

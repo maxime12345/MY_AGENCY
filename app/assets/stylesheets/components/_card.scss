@@ -73,11 +73,14 @@ bottom: 0px;
 
 .candidacy_card{
   height: 200px;
-  margin-top: 20px;
+  padding: 20px 0 0 0;
+  margin-bottom: 20px;
+  transition: margin-top 0.2s ease, margin-bottom 0.2s ease;
 }
 
-.candidacy_card_body:hover {
+.candidacy_card:hover{
   margin-top: -10px;
+  margin-bottom: 30px;
 }
 
 .candidacy_card_body{
@@ -93,7 +96,6 @@ bottom: 0px;
     left: 10px;
     top: 10%;
   }
-  transition: margin-top 0.2s ease;
 }
 
 .candidacy_card_footer{
