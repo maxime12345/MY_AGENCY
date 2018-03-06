@@ -27,6 +27,23 @@
   }
 }
 
+.calendar-tenant {
+  .disabled {
+    pointer-events: none !important;
+    cursor: default !important;
+    color: $my-light-gray;
+  }
+  .availability {
+    background-color: $my-mid-gray;
+    // background-color: $my-blue;
+    border-radius: 15px;
+    color: white;
+  }
+  .availabilities-slot:hover, .booked {
+    background-color: $my-light-blue;
+  }
+}
+
 .availabilities-slot {
   margin-bottom: 2px;
 }

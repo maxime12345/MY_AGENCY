@@ -1,67 +1,68 @@
-// JS côté PROPRIO
-let firstDay;
-const leftPagination = document.getElementById("left-pagination");
-const rightPagination = document.getElementById("right-pagination");
-const flatId = document.querySelector(".availabilities-slots").dataset.flat;
-// console.log(flatId);
+// JS côté LOCATAIRE
+let firstDayT;
+const leftPaginationT = document.getElementById("left-pagination");
+const rightPaginationT = document.getElementById("right-pagination");
+const candidacyId = document.querySelector(".availabilities-slots").dataset.candidacyId;
+// console.log(flatIdT);
 
-const updateDisplayDays = (firstDay) => {
+const updateDisplayDaysT = (firstDayT) => {
 
   days = document.querySelectorAll(".availabilities-day");
 
   days.forEach(function(day, index){
-    if (index >= firstDay && index <= firstDay + 4) {
+    if (index >= firstDayT && index <= firstDayT + 4) {
       day.style.display = null;
     } else {
       day.style.display = "none";
     }
   });
-  // mise à jour de l'état des boutons left et rightPagination
-  if (firstDay === 0) {
-    leftPagination.classList.add("navigationdisable");
+  // mise à jour de l'état des boutons left et rightPaginationT
+  if (firstDayT === 0) {
+    leftPaginationT.classList.add("navigationdisable");
   } else {
-    leftPagination.classList.remove("navigationdisable");
+    leftPaginationT.classList.remove("navigationdisable");
   }
 
-  if (firstDay === 9) {
-    rightPagination.classList.add("navigationdisable");
+  if (firstDayT === 9) {
+    rightPaginationT.classList.add("navigationdisable");
   } else {
-    rightPagination.classList.remove("navigationdisable");
+    rightPaginationT.classList.remove("navigationdisable");
   }
 };
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
   // initialiser display au chargement de la page (à partir de today)
-  if (document.querySelector(".calendar-owner")) {
+  if (document.querySelector(".calendar-tenant")) {
     // initialiser plage jour = today --> today + 5
-    firstDay = 0;
-    updateDisplayDays(firstDay);
+    firstDayT = 0;
+    updateDisplayDaysT(firstDayT);
 
-    leftPagination.addEventListener("click", (event) => {
+    leftPaginationT.addEventListener("click", (event) => {
       event.preventDefault();
-      firstDay = firstDay - 1;
-      updateDisplayDays(firstDay);
+      firstDayT = firstDayT - 1;
+      updateDisplayDaysT(firstDayT);
     });
 
-    rightPagination.addEventListener("click", (event) => {
+    rightPaginationT.addEventListener("click", (event) => {
       event.preventDefault();
-      firstDay = firstDay + 1;
-      updateDisplayDays(firstDay);
+      firstDayT = firstDayT + 1;
+      updateDisplayDaysT(firstDayT);
     });
 
     // Tableau de h des availabilities de la DB associées à ce flat :
     const availabilitiesFlat = JSON.parse(document.querySelector(".availabilities-slots").dataset.bookings);
     // console.log(availabilitiesFlat);
 
-    // On traite chaque availability récupérée pour assigner la classe CSS 'availability'
-    // availabilitiesFlat.forEach(function(availability, index){
-    //   console.log(availability.start_time);
-    //   console.log(document.querySelector("[data-dt=`${availability.start_time}`]"));
-    //   document.querySelector("[data-dt=`${availability.start_time}`]").classList.add("availability");
-      // Et on ajoute directement l'ID de l'availability
-
-    // });
+    // on récupère tous les liens des créneaux horaire
+    links = document.querySelectorAll(".availability-tenant");
+    // on boucle sur cette liste
+    links.forEach(function(link, index){
+      // si on trouve pas la classe 'availability' --> on add 'disabled'
+      if (link.querySelector(".availabilities-slot").classList.contains("availability") === false) {
+        link.classList.add("disabled");
+      }
+    })
   }
 });
 
@@ -79,9 +80,10 @@ function updateAvailabilityHtml(element, booked, id){
   }
 }
 
-function addAvailability(element) {
+function addBooking(element) {
     date = element.dataset.dt;
-    fetch(`/flats/${flatId}/availabilities/`, {
+    // A REPRENDRE DEMAIN :
+    fetch(`/candidacies/${candidacyId}/bookings/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -96,7 +98,7 @@ function addAvailability(element) {
     });
 }
 
-function removeAvailability(element) {
+function removeBooking(element) {
     const id = element.dataset.availabilityId
     fetch(`availabilities/${id}/`, {
     method: "DELETE",
@@ -114,19 +116,19 @@ function removeAvailability(element) {
 }
 
 
-btnAvailabilities = document.querySelectorAll(".availability-proprio");
+btnAvailabilities = document.querySelectorAll(".availability-tenant");
 btnAvailabilities.forEach(function(availability, index){
   availability.addEventListener("click", (event) => {
     event.preventDefault();
     child = document.querySelectorAll(".availabilities-slot")[index];
     // if (je suis active){
-    if (child.classList.contains("availability")) {
+    if (child.classList.contains("booked")) {
       // console.log(availabilityId);
-      removeAvailability(child);
+      removeBooking(child);
 
     } else {
       // requête AJAX pour create availability
-      addAvailability(child);
+      addBooking(child);
       // j'ajoute une class active au l'élement cliqué:
     }
   });

@@ -1,5 +1,5 @@
-<!-- calendar structure côté proprio by Antoine -->
-<div class="row calendar calendar-owner">
+<!-- calendar structure côté locataire by Antoine -->
+<div class="row calendar calendar-tenant">
   <div class="col-xs-12 text-center">
 
     <div class="row">
@@ -24,7 +24,7 @@
 
                 </div>
 
-                <div class="availabilities-slots" data-bookings="<%= @availabilities.to_json %>" data-flat="<%= @flat.id %>">
+                <div class="availabilities-slots" data-bookings="<%= @candidacy.flat.availabilities.to_json %>" data-candidacy-id="<%= @candidacy.id %>">
                   <% 12.times do |i| %>
 
 
@@ -35,7 +35,7 @@
 
 
 
-                    <%= link_to flat_availabilities_path(@flat, date: date_hour), class:"availability-proprio" do %>
+                    <%= link_to flat_availabilities_path(@flat, date: date_hour), class:"availability-tenant" do %>
                       <div class="availabilities-slot <%= "availability" if is_booked %>" data-dt="<%= date_hour %>" data-availability-id="<%= availability_id %>">
                         <%= date_hour.strftime('%Hh')  %>
                       </div>
