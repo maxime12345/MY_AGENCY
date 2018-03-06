@@ -1,6 +1,8 @@
 let firstDay;
 const leftPagination = document.getElementById("left-pagination");
 const rightPagination = document.getElementById("right-pagination");
+const flatId = document.querySelector(".availabilities-slots").dataset.flat;
+console.log(flatId);
 
 const updateDisplayDays = (firstDay) => {
 
@@ -36,13 +38,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     updateDisplayDays(firstDay);
 
     leftPagination.addEventListener("click", (event) => {
+      event.preventDefault();
       firstDay = firstDay - 1;
       updateDisplayDays(firstDay);
     });
 
     rightPagination.addEventListener("click", (event) => {
+      event.preventDefault();
       firstDay = firstDay + 1;
       updateDisplayDays(firstDay);
+    });
+
+    // Tableau de h des availabilities de la DB associées à ce flat :
+    const availabilitiesFlat = JSON.parse(document.querySelector(".availabilities-slots").dataset.bookings);
+    console.log(availabilitiesFlat);
+    // const availabiliyStarTime = availabilitiesFlat
+    availabilitiesFlat.forEach(function(availability, index){
+      console.log(availability.start_time);
+
     });
   }
 });
@@ -50,21 +63,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-// function addAvailability(date) {
-//     fetch(`flats/${4}/availabilities/`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       credentials: 'same-origin'
-//     },
-//     body: JSON.stringify({ date: date })
-//   })
-//     .then(response => response.json())
-//     .then((data) => {
-//       console.log(data); // Look at local_names.default
-//     });
-// }
-// }
+function addAvailability(date) {
+  console.log(date);
+    fetch(`/flats/${flatId}/availabilities/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      'X-CSRF-Token': Rails.csrfToken()
+    },
+    credentials: 'same-origin',
+    body: JSON.stringify({ availability: {start_time: date} })
+  })
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data); // Look at local_names.default
+    });
+}
+
+
 
 // function removeAvailability(id) {
 //     fetch(`availabilities/${id}/`, {
@@ -85,20 +101,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
 btnAvailabilities = document.querySelectorAll(".availability-proprio");
 btnAvailabilities.forEach(function(availability, index){
   availability.addEventListener("click", (event) => {
+    event.preventDefault();
     console.log("ok")
+    console.log(index);
+    child = document.querySelectorAll(".availabilities-slot")[index];
     // if (je suis active){
-        //    JE DOIS AVOIR UN ID DANS L'HTML,
-        //      soit fournit par ruby quand la page a été généré
-        //      soit injecté en js parce qu'on vient de l'activer depuis le chargement de la page
-        // je change le html pour le desactive (ou je le fais dans le retour de mon ajax)
+    if (child.classList.contains("availability")) {
+      //    JE DOIS AVOIR UN ID DANS L'HTML,
+      // reqûete pour vérifier si availability existe pour ce flat_id et ce start_time
+      //      soit fournit par ruby quand la page a été généré
+      //      soit injecté en js parce qu'on vient de l'activer depuis le chargement de la page
+      // requête AJAX pour create availability :
+      // removeAvailability(id);
+      // je change le html pour le desactive (ou je le fais dans le retour de mon ajax)
+      child.classList.remove("availability");
         // removeAvailability(id chopé dans data-id)
-    // }
-    // else {
+
+    } else {
       // addAvailability(date, chopé dans data-dt)
+      date = child.dataset.dt;
+      // requête AJAX pour create availability
+      addAvailability(date);
       // j'ajoute une class active au l'élement cliqué:
-      child = document.querySelectorAll(".availabilities-slot")[index];
       child.classList.add("availability");
-    // }
+    }
   });
 });
 

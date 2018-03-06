@@ -24,11 +24,12 @@
 
 
                 </div>
-                <div class="availabilities-slots">
+
+                <div class="availabilities-slots" data-bookings="<%= @availabilities.to_json %>" data-flat="<%= @flat.id %>">
                   <% 12.times do |i| %>
                     <% date_hour = day.to_datetime + ((8 + i) * 3600).seconds %>
-                    <%= link_to flat_availabilities_path(@flat, date: date_hour), method: :post, remote: true, class:"availability-proprio" do %>
-                      <div class="availabilities-slot">
+                    <%= link_to flat_availabilities_path(@flat, date: date_hour), class:"availability-proprio" do %>
+                      <div class="availabilities-slot" data-dt="<%= date_hour %>">
                         <%= date_hour.strftime('%Hh')  %>
                       </div>
                     <% end %>
