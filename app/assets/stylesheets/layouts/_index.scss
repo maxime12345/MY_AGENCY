@@ -42,3 +42,20 @@ h3:after {
 #body-wrap {
   min-height: calc(100vh - 170px);
 }
+
+.flex-container {
+  display: flex;
+
+}
+
+#map-sticky {
+  height: 300px;
+  flex: 1;
+  background-color: red;
+  margin: 0 0 0 10px;
+}
+
+.candidacies {
+  flex-grow: 1;
+}
+

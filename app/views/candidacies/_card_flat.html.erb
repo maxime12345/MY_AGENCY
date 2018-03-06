@@ -1,9 +1,9 @@
 <%= link_to(candidacy_path(candidacy)) do %>
-  <div class="candidacy_card_body">
+  <div class="candidacy_card_body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= candidacy.flat.photo[0] %>);">
     <span class="price"><%= candidacy.flat.price %>€</span>
   </div>
   <div class="candidacy_card_footer">
-    <div class="candidacy_card_title"><%= candidacy.flat.name %></div>
+    <div class="candidacy_card_title"><strong><%= candidacy.flat.name %></strong> <br> <%= candidacy.flat.address %></div>
     <%= cl_image_tag candidacy.flat.user.avatar, class: "candidacy_card_avatar"%>
   </div>
 <% end %>
