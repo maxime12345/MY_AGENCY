@@ -35,7 +35,7 @@ function form_autocomplete() {
       const interval = setInterval(() => {
         percentage = percentage + 1;
         progress.style.width = `${percentage}%`;
-      }, 50);
+      }, 150);
 
       fetch(url, { credentials: 'same-origin' })
         .then(response => response.json())
