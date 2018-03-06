@@ -33,7 +33,7 @@ function form_autocomplete() {
 
       let percentage = 0;
       const interval = setInterval(() => {
-        percentage = percentage + 1;
+        percentage = percentage + 0.3;
         progress.style.width = `${percentage}%`;
       }, 150);
 
