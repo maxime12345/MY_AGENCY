@@ -41,6 +41,7 @@ class FlatsController < ApplicationController
   end
 
   def extract_from_lbc
+    sleep(3)
     policy_scope(Flat)
     render json: LbcScraper.new(params[:url]).extract
   end
