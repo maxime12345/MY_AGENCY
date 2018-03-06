@@ -7,7 +7,16 @@
   </div>
   <div class="tenant-message">
     <%= link_to flat_candidacy_messages_path(candidacy.flat,candidacy) do %>
-      <i class="fas fa-comments"></i>
+      <% if !candidacy.messages.empty? %>
+        <% if (candidacy.messages.last.sender == candidacy.user && !candidacy.messages.last.read) %>
+          <i class="fas fa-comments mess-icon"><i class="fas fa-circle unread-message-dot"></i></i>
+        <% else %>
+          <i class="fas fa-comments mess-icon"></i>
+        <% end %>
+      <% else %>
+        <i class="fas fa-comments mess-icon"></i>
+      <% end %>
+
     <% end %>
   </div>
   <div class="tenant-folder">
