@@ -38,3 +38,7 @@ h3:after {
   flex-grow: 1;
   margin: 0 1em;
 }
+
+#body-wrap {
+  min-height: calc(100vh - 170px);
+}

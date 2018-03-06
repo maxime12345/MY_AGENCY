@@ -1,14 +1,27 @@
+
+
+
+<div>
+  <%= cl_image_tag @profil.avatar, class: "avatar-large" %>
+</div>
+       <h3>
+        <%= "#{@profil.first_name} #{@profil.last_name}" %>
+
+      </h3>
 <div class="profil_show">
   <% if @profil.profil_confirmed %>
-      <h1> <%= "#{@profil.first_name} #{@profil.last_name}" %> <i class="fas fa-check-circle"></i></h1>
+      <h3> <%= "#{@profil.first_name} #{@profil.last_name}" %><i class="fas fa-check-circle"></i></h3>
     <% else %>
-      <h1> <%= "#{@profil.first_name} #{@profil.last_name}" %></h1>
-      <p>(Merci de compléter votre profil pour appliquer à une offre)</p>
+
+
     <% end %>
 
-  <%= cl_image_tag @profil.avatar, class: "avatar-large" %>
 
+  <div class="profil_status">
+     <p>Merci de compléter votre profil pour accéder à une offre</p>
+  </div>
 
+  <div class="informations">
   <ul>
     <li><%= "adresse: #{@profil.address}" %></li>
     <li><%= "Tel: #{@profil.phone_number}" %></li>
@@ -29,7 +42,10 @@
     <% end %>
   </ul>
 
+</div>
 
 
-  <%= link_to 'Editer mon Profil', edit_profil_path(current_user) %> <br>
+
+
+  <%= link_to 'Editer mon Profil', edit_profil_path(current_user) %>  <i class="fas fa-edit"></i> <br>
 </div>
