@@ -1,9 +1,16 @@
-<!-- Sidebar du locataire -->
 <div class="sidebar sidebar-tenant">
   <h3><%= @sidebar_title %></h3>
     <ul>
-      <li><a href="#"><i class="fas fa-map-marker-alt"></i>Annonces</li></a>
+      <li> <%= link_to  candidacies_path do %>
+        <i class="fas fa-map-marker-alt"></i>
+          Annonces
+        <% end %>
+      </li>
       <li><a href="#"><i class="far fa-calendar-alt"></i>Visites</li></a>
-      <li><a href="#"><i class="fas fa-user"></i>Profile</li></a>
-    </ul>
+      <li> <%= link_to  profil_path(current_user) do %>
+        <i class="fas fa-user"></i>
+        Profile
+        <% end %>
+      </li>
+    <ul>
 </div>

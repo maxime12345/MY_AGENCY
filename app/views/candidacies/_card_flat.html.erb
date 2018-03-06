@@ -1,9 +1,25 @@
 <%= link_to(candidacy_path(candidacy)) do %>
-  <div class="candidacy_card_body">
-    <span class="price"><%= candidacy.flat.price %>€</span>
-  </div>
-  <div class="candidacy_card_footer">
-    <div class="candidacy_card_title"><%= candidacy.flat.name %></div>
-    <%= cl_image_tag candidacy.flat.user.avatar, class: "candidacy_card_avatar"%>
+  <div class="card">
+    <div class="candidacy_card_body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= candidacy.flat.photo[0] %>);">
+      <div class="candidacy_card_title"><strong><%= candidacy.flat.name %></strong> <br> <%= candidacy.flat.address %> <br> <%= candidacy.flat.price %>€</div>
+    </div>
+    <div class="candidacy_card_footer">
+      <div class="avatar-img">
+        <%= cl_image_tag candidacy.flat.user.avatar, class: "avatar"%>
+      </div>
+      <div class="icon-message">
+        <%= link_to candidacy_messages_path(candidacy) do %>
+          <i class="fas fa-comments"></i>
+        <% end %>
+      </div>
+      <div class="icon-calendar">
+        <%= link_to candidacy_bookings_path(candidacy) do %>
+          <i class="far fa-calendar-alt"></i>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+
+
