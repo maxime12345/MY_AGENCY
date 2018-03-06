@@ -21,6 +21,7 @@ class MessagesController < ApplicationController
     set_candidacy
     @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
     check_unread_message(@messages)
+    unread_to_read
     @flat = @candidacy.flat
     @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
   end
@@ -86,5 +87,11 @@ class MessagesController < ApplicationController
 
   def check_unread_message(messages_list)
     @unread_messages = messages_list.select { |message| !message.read && message.recipient == current_user}
+  end
+
+  def unread_to_read
+    @unread_messages.each do |message|
+      message.update(read: true)
+    end
   end
 end
