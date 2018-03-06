@@ -9,7 +9,15 @@
       </div>
       <div class="icon-message">
         <%= link_to candidacy_messages_path(candidacy) do %>
-          <i class="fas fa-comments"></i>
+          <% if !candidacy.messages.empty? %>
+            <% if (candidacy.messages.last.sender == candidacy.flat.user && !candidacy.messages.last.read) %>
+              <i class="fas fa-comments mess-icon"><i class="fas fa-circle unread-message-dot"></i></i>
+            <% else %>
+              <i class="fas fa-comments mess-icon"></i>
+            <% end %>
+          <% else %>
+            <i class="fas fa-comments mess-icon"></i>
+          <% end %>
         <% end %>
       </div>
       <div class="icon-calendar">
@@ -20,6 +28,5 @@
     </div>
   </div>
 <% end %>
-
 
 

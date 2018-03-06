@@ -110,6 +110,9 @@ bottom: 0px;
     font-size: 25px;
     i {
       color: lightgrey;
+      .unread-message-dot {
+      color: red;
+      }
     }
     i:hover {
       color: $brand-primary;

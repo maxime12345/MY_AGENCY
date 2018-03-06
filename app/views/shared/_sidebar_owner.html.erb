@@ -8,7 +8,11 @@
       <li><a href="#"><i class="fas fa-map-marker-alt"></i>Mon logement</li></a>
       <li> <%= link_to  flat_messages_path(@flat) do %>
         <i class="fas fa-envelope"></i>
-        Messages
+        <% if @unread_mess_flat > 0%>
+          Messages <%= "(#{@unread_mess_flat})" %>
+        <% else%>
+          Messages
+        <% end %>
       <% end %></li>
       <li> <%= link_to flat_availabilities_path(@flat) do %>
         <i class="far fa-calendar-alt"></i>
