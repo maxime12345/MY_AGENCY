@@ -2,7 +2,7 @@ let firstDay;
 const leftPagination = document.getElementById("left-pagination");
 const rightPagination = document.getElementById("right-pagination");
 const flatId = document.querySelector(".availabilities-slots").dataset.flat;
-console.log(flatId);
+// console.log(flatId);
 
 const updateDisplayDays = (firstDay) => {
 
@@ -51,20 +51,35 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Tableau de h des availabilities de la DB associées à ce flat :
     const availabilitiesFlat = JSON.parse(document.querySelector(".availabilities-slots").dataset.bookings);
-    console.log(availabilitiesFlat);
-    // const availabiliyStarTime = availabilitiesFlat
-    availabilitiesFlat.forEach(function(availability, index){
-      console.log(availability.start_time);
+    // console.log(availabilitiesFlat);
 
-    });
+    // On traite chaque availability récupérée pour assigner la classe CSS 'availability'
+    // availabilitiesFlat.forEach(function(availability, index){
+    //   console.log(availability.start_time);
+    //   console.log(document.querySelector("[data-dt=`${availability.start_time}`]"));
+    //   document.querySelector("[data-dt=`${availability.start_time}`]").classList.add("availability");
+      // Et on ajoute directement l'ID de l'availability
+
+    // });
   }
 });
 
 
 
 
-function addAvailability(date) {
-  console.log(date);
+function updateAvailabilityHtml(element, booked, id){
+  if(booked){
+      element.classList.add("availability");
+      element.dataset.availabilityId = id;
+  }
+  else{
+    element.classList.remove("availability");
+    element.dataset.availabilityId = null;
+  }
+}
+
+function addAvailability(element) {
+    date = element.dataset.dt;
     fetch(`/flats/${flatId}/availabilities/`, {
     method: "POST",
     headers: {
@@ -76,54 +91,42 @@ function addAvailability(date) {
   })
     .then(response => response.json())
     .then((data) => {
-      console.log(data); // Look at local_names.default
+      updateAvailabilityHtml(element, true, data.id);
     });
 }
 
-
-
-// function removeAvailability(id) {
-//     fetch(`availabilities/${id}/`, {
-//     method: "DELETE",
-//     headers: {
-//       "Content-Type": "application/json",
-//       credentials: 'same-origin'
-//     }
-//   })
-//     .then(response => response.json())
-//     .then((data) => {
-//       console.log(data); // Look at local_names.default
-//     });
-// }
-// }
+function removeAvailability(element) {
+    const id = element.dataset.availabilityId
+    fetch(`availabilities/${id}/`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      'X-CSRF-Token': Rails.csrfToken()
+    },
+    credentials: 'same-origin',
+  })
+    .then((data) => {
+      console.log(data.body);
+      // on considere que tout c'est bien passé si on est ici.
+      updateAvailabilityHtml(element, false);
+    });
+}
 
 
 btnAvailabilities = document.querySelectorAll(".availability-proprio");
 btnAvailabilities.forEach(function(availability, index){
   availability.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("ok")
-    console.log(index);
     child = document.querySelectorAll(".availabilities-slot")[index];
     // if (je suis active){
     if (child.classList.contains("availability")) {
-      //    JE DOIS AVOIR UN ID DANS L'HTML,
-      // reqûete pour vérifier si availability existe pour ce flat_id et ce start_time
-      //      soit fournit par ruby quand la page a été généré
-      //      soit injecté en js parce qu'on vient de l'activer depuis le chargement de la page
-      // requête AJAX pour create availability :
-      // removeAvailability(id);
-      // je change le html pour le desactive (ou je le fais dans le retour de mon ajax)
-      child.classList.remove("availability");
-        // removeAvailability(id chopé dans data-id)
+      // console.log(availabilityId);
+      removeAvailability(child);
 
     } else {
-      // addAvailability(date, chopé dans data-dt)
-      date = child.dataset.dt;
       // requête AJAX pour create availability
-      addAvailability(date);
+      addAvailability(child);
       // j'ajoute une class active au l'élement cliqué:
-      child.classList.add("availability");
     }
   });
 });

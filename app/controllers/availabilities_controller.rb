@@ -1,5 +1,6 @@
 class AvailabilitiesController < ApplicationController
   before_action :set_flat, only: [:index, :create]
+  before_action :set_availability, only: [:destroy]
 
   def index
     @availabilities = policy_scope(Availability).where(flat: @flat).order(created_at: :desc)
@@ -20,13 +21,6 @@ class AvailabilitiesController < ApplicationController
   end
 
   def create
-    p "-------------"
-    p params
-    p "-------------"
-    p availability_params
-    p "-------------"
-
-
     @availability = Availability.new(availability_params)
     @availability.flat = @flat
     authorize(@availability)
@@ -39,6 +33,14 @@ class AvailabilitiesController < ApplicationController
   end
 
   def destroy
+    @availability.destroy
+    authorize(@availability)
+
+    if @availability.destroy
+      head :ok
+    else
+      head :bad_request
+    end
   end
 
   private
@@ -46,6 +48,11 @@ class AvailabilitiesController < ApplicationController
   def set_flat
     @flat = Flat.find(params[:flat_id])
     authorize(@flat)
+  end
+
+  def set_availability
+    @availability = Availability.find(params[:id])
+    authorize(@availability)
   end
 
   def availability_params

@@ -9,7 +9,6 @@
             <div class="col-xs-1 availabilities-pagination">
               <a href="#" id="left-pagination"><i class="fas fa-chevron-left"></i></a>
             </div>
-
             <% 14.times do |i| %>
               <% day = @today + i %>
               <div class="col-xs-2 availabilities-day" <%= raw "style=\"display: none\""%> data-day-step="<%= i %>">
@@ -27,9 +26,17 @@
 
                 <div class="availabilities-slots" data-bookings="<%= @availabilities.to_json %>" data-flat="<%= @flat.id %>">
                   <% 12.times do |i| %>
+
+
                     <% date_hour = day.to_datetime + ((8 + i) * 3600).seconds %>
+                    <% is_booked = @availabilities.map(&:start_time).include?(date_hour) %>
+
+                    <% availability_id = @availabilities.select{|av| av.start_time == date_hour}.map(&:id).first %>
+
+
+
                     <%= link_to flat_availabilities_path(@flat, date: date_hour), class:"availability-proprio" do %>
-                      <div class="availabilities-slot" data-dt="<%= date_hour %>">
+                      <div class="availabilities-slot <%= "availability" if is_booked %>" data-dt="<%= date_hour %>" data-availability-id="<%= availability_id %>">
                         <%= date_hour.strftime('%Hh')  %>
                       </div>
                     <% end %>
