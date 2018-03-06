@@ -29,7 +29,6 @@ class CandidaciesController < ApplicationController
   end
 
   def show
-
     if params[:flat_id].nil?
       @marker = [{
         lat: @candidacy.flat.latitude,

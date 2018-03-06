@@ -137,6 +137,7 @@ bottom: 0px;
   border-bottom: 2px solid rgba(220,224,244,0.4);
   i {
     font-size: 25px;
+    color: lightgrey;
   }
   p {
     margin-bottom: 0;
@@ -151,14 +152,29 @@ bottom: 0px;
   min-width: 100px;
 }
 
-
-
 .tenant-message {
   min-width: 60px;
 }
 
 .tenant-folder {
   min-width: 60px;
+}
+
+.folder-icon{
+  position: relative;
+}
+
+i.folder-check{
+  font-size: 12px;
+  color: green;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.folder-check{
+  position: absolute;
+  top: 0px;
+  right: -5px;
 }
 
 .tenant-calendar {

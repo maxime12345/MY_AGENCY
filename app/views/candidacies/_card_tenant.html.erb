@@ -12,7 +12,11 @@
   </div>
   <div class="tenant-folder">
     <%= link_to profil_path(candidacy.user) do %>
-      <i class="fas fa-folder"></i>
+      <% if candidacy.user.profil_confirmed %>
+        <i class="fas fa-folder folder-icon"><i class="fas fa-check-circle folder-check"></i></i>
+      <% else %>
+        <i class="fas fa-folder folder-icon"></i>
+      <% end %>
     <% end %>
   </div>
   <div class="tenant-calendar">
