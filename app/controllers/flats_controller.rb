@@ -28,6 +28,7 @@ class FlatsController < ApplicationController
       lng: @flat.longitude,
       infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: @flat }) }
     }]
+    count_unread_messages
   end
 
   def extract_from_lbc
@@ -95,5 +96,13 @@ class FlatsController < ApplicationController
         :visit_capacity,
         :user_id
       )
+  end
+
+  def count_unread_messages
+    @unread_mess_flat = 0
+    @flat.candidacies.each do |candidacy|
+      @unread_mess_flat += candidacy.messages.where(read: false).where(recipient: current_user).count
+    end
+    return @unread_mess_flat
   end
 end

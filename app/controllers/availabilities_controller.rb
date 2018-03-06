@@ -4,6 +4,7 @@ class AvailabilitiesController < ApplicationController
 
   def index
     @availabilities = policy_scope(Availability).where(flat: @flat).order(created_at: :desc)
+    count_unread_messages(@flat)
     @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
     @today = Date.today
   end
@@ -62,6 +63,14 @@ class AvailabilitiesController < ApplicationController
         :start_time,
         :visit_confirmed
       )
+  end
+
+  def count_unread_messages(flat)
+    @unread_mess_flat = 0
+    flat.candidacies.each do |candidacy|
+      @unread_mess_flat += candidacy.messages.where(read: false).where(recipient: current_user).count
+    end
+    return @unread_mess_flat
   end
 
 end

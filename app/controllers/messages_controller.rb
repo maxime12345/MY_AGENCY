@@ -19,6 +19,7 @@ class MessagesController < ApplicationController
 
   def set_chat_page
     set_candidacy
+    count_unread_messages(@candidacy.flat)
     @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
     check_unread_message(@messages)
     unread_to_read
@@ -36,6 +37,7 @@ class MessagesController < ApplicationController
       end
     end
     @discussions.sort!{|a,b| b.first.first.updated_at <=> a.first.first.updated_at}
+    @candidacies.empty? ? @unread_mess_flat = 0 : count_unread_messages(@candidacies.first.flat)
   end
 
   def create
@@ -93,5 +95,13 @@ class MessagesController < ApplicationController
     @unread_messages.each do |message|
       message.update(read: true)
     end
+  end
+
+  def count_unread_messages(flat)
+    @unread_mess_flat = 0
+    flat.candidacies.each do |candidacy|
+      @unread_mess_flat += candidacy.messages.where(read: false).where(recipient: current_user).count
+    end
+    return @unread_mess_flat
   end
 end
