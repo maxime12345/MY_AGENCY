@@ -3,6 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :candidacy
 
   validate :check_flat_id
+  validate :check_user
 
   private
 
@@ -12,7 +13,8 @@ class Booking < ApplicationRecord
     end
   end
 
-
-  Booking.where(candidacy_id: self.id)
+  def check_user
+    Booking.where(candidacy_id: self.id)
+  end
 
 end

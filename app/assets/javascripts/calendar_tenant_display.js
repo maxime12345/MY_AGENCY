@@ -16,6 +16,16 @@ const updateDisplayDaysT = (firstDayT) => {
       day.style.display = "none";
     }
   });
+
+  // Mise à jour couleur des bookings déjà en DB :
+  // Tableau de h des bookings de la DB associées à ce flat :
+  const bookingsCandidacy = JSON.parse(document.querySelector(".availabilities-slots").dataset.bookings);
+  console.log(bookingsCandidacy);
+  bookingsCandidacy.forEach(function(link, index){
+    console.log(link.availability_id);
+    document.querySelector(`[data-availability-id="${link.availability_id}"]`).classList.add("booked");
+  })
+
   // mise à jour de l'état des boutons left et rightPaginationT
   if (firstDayT === 0) {
     leftPaginationT.classList.add("navigationdisable");
@@ -50,9 +60,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       updateDisplayDaysT(firstDayT);
     });
 
-    // Tableau de h des availabilities de la DB associées à ce flat :
-    const availabilitiesFlat = JSON.parse(document.querySelector(".availabilities-slots").dataset.bookings);
-    // console.log(availabilitiesFlat);
+
 
     // on récupère tous les liens des créneaux horaire
     links = document.querySelectorAll(".availability-tenant");
@@ -122,7 +130,7 @@ btnAvailabilities.forEach(function(availability, index){
     child = document.querySelectorAll(".availabilities-slot")[index];
     // if (je suis active){
     if (child.classList.contains("booked")) {
-      // console.log(availabilityId);
+      console.log("coucou");
       removeBooking(child);
 
     } else {
