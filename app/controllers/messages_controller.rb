@@ -3,36 +3,42 @@ class MessagesController < ApplicationController
 
   def index
     if params[:flat_id].nil?
-      set_candidacy
-      @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
-      @flat = @candidacy.flat
-      @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
+      set_chat_page
     else
       if params[:candidacy_id].nil?
         set_flat
         @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
-        @discussions = []
         @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
-        @candidacies.each do |candidacy|
-          if !policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc).empty?
-            @discussions << policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc)
-          end
-        end
-        @discussions.sort!{|a,b| b.first.updated_at <=> a.first.updated_at}
+        create_discussions
       else
-        set_candidacy
-        @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
-        @flat = @candidacy.flat
-        @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
+        set_chat_page
       end
     end
     @message = Message.new
   end
 
-  # def new
-  #   @message = Message.new
-  #   authorize(@message)
-  # end
+  def set_chat_page
+    set_candidacy
+    count_unread_messages(@candidacy.flat)
+    @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
+    check_unread_message(@messages)
+    unread_to_read
+    @flat = @candidacy.flat
+    @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
+  end
+
+
+  def create_discussions
+    @discussions = []
+    @candidacies.each do |candidacy|
+      if !policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc).empty?
+        @messages = policy_scope(Message).where(candidacy: candidacy).order(created_at: :desc)
+        @discussions << [@messages, check_unread_message(@messages)]
+      end
+    end
+    @discussions.sort!{|a,b| b.first.first.updated_at <=> a.first.first.updated_at}
+    @candidacies.empty? ? @unread_mess_flat = 0 : count_unread_messages(@candidacies.first.flat)
+  end
 
   def create
     @message = Message.new(message_params)
@@ -79,5 +85,23 @@ class MessagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def check_unread_message(messages_list)
+    @unread_messages = messages_list.select { |message| !message.read && message.recipient == current_user}
+  end
+
+  def unread_to_read
+    @unread_messages.each do |message|
+      message.update(read: true)
+    end
+  end
+
+  def count_unread_messages(flat)
+    @unread_mess_flat = 0
+    flat.candidacies.each do |candidacy|
+      @unread_mess_flat += candidacy.messages.where(read: false).where(recipient: current_user).count
+    end
+    return @unread_mess_flat
   end
 end

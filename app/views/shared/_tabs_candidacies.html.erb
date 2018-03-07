@@ -11,8 +11,18 @@
     <div class="col-xs-4 text-center">
       <%= link_to candidacy_messages_path(@candidacy) do %>
         <div class="tab-candidacy">
-          <i class="fas fa-comments"></i>
-          Messages
+          <% if !@candidacy.messages.empty? %>
+            <% if (@candidacy.messages.last.sender == @candidacy.flat.user && !@candidacy.messages.last.read) %>
+              <i class="fas fa-comments mess-icon"><i class="fas fa-circle unread-message-dot"></i></i>
+              Messages
+            <% else %>
+              <i class="fas fa-comments mess-icon"></i>
+              Messages
+            <% end %>
+          <% else %>
+            <i class="fas fa-comments mess-icon"></i>
+            Messages
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -26,3 +36,4 @@
     </div>
   </div>
 </div>
+

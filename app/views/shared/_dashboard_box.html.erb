@@ -75,13 +75,24 @@
       </div>
       <div>
         <p><%= @flat.address %></p>
+
       </div>
     </div>
-    <p><%= @flat.description %></p>
+
+    <p><%= @flat.description.html_safe %></p>
+
+
     <h6>Dernière mise à jour le
       <%= @flat.updated_at.day %>/<%= @flat.updated_at.month %>/<%= @flat.updated_at.year %>
+
+
+
     </h6>
+
+
+
   </div>
+
 </div>
 
 

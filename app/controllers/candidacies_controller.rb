@@ -9,6 +9,7 @@ class CandidaciesController < ApplicationController
       @candidacies = policy_scope(Candidacy).where(user: current_user).order(created_at: :desc)
       @sidebar_title = "Mes candidatures"
       @flats = []
+      @candidacies.empty? ? @unread_mess_flat = 0 : count_unread_messages(@candidacies.first.flat)
       @candidacies.each do |candidacy|
         @flats << candidacy.flat
       end
@@ -18,23 +19,23 @@ class CandidaciesController < ApplicationController
         {
           lat: flat.latitude,
           lng: flat.longitude,
-          infoWindow: { content: render_to_string(partial: "/candidacies/map_box", locals: { flat: flat }) }
+          infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: flat }) }
         }
       end
     else
       set_flat
+      count_unread_messages(@flat)
       @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
       @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
     end
   end
 
   def show
-
     if params[:flat_id].nil?
       @marker = [{
         lat: @candidacy.flat.latitude,
         lng: @candidacy.flat.longitude,
-        infoWindow: { content: render_to_string(partial: "/candidacies/map_box", locals: { flat: @candidacy.flat }) }
+        infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: @candidacy.flat }) }
       }]
       @messages = policy_scope(Message).where(candidacy: @candidacy).order(created_at: :desc)
     else
@@ -95,5 +96,13 @@ class CandidaciesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
   def candidacy_params
     params.permit(:flat_id, :user_id)
+  end
+
+  def count_unread_messages(flat)
+    @unread_mess_flat = 0
+    flat.candidacies.each do |candidacy|
+      @unread_mess_flat += candidacy.messages.where(read: false).where(recipient: current_user).count
+    end
+    return @unread_mess_flat
   end
 end
