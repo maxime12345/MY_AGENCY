@@ -4,9 +4,18 @@ class AvailabilitiesController < ApplicationController
 
   def index
     @availabilities = policy_scope(Availability).where(flat: @flat).order(created_at: :desc)
+    list_bookings(@availabilities)
     count_unread_messages(@flat)
     @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
     @today = Date.today
+  end
+
+  def list_bookings(availabilities)
+    @bookings = []
+    availabilities.each do |availability|
+      @bookings << availability.bookings unless availability.bookings.empty?
+    end
+    @bookings.sort!{|a,b| a.first.availability.start_time <=> b.first.availability.start_time}
   end
 
   def show
