@@ -1,35 +1,46 @@
-<div class="profil_show">
-  <% if @profil.profil_confirmed %>
-      <h1> <%= "#{@profil.first_name} #{@profil.last_name}" %> <i class="fas fa-check-circle"></i></h1>
-    <% else %>
-      <h1> <%= "#{@profil.first_name} #{@profil.last_name}" %></h1>
-      <p>(Merci de compléter votre profil pour appliquer à une offre)</p>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="card-form">
+        <div class="profil_show">
+          <% if @profil.profil_confirmed %>
+              <h3> <%= "#{@profil.first_name} #{@profil.last_name}" %> <i class="fas fa-check-circle"></i></h3>
+            <% else %>
+              <h3> <%= "#{@profil.first_name} #{@profil.last_name}" %></h3>
+              <p>Attention : merci de bien compléter ton profile pour candidater à une offre</p>
+            <% end %>
 
-  <%= cl_image_tag @profil.avatar, class: "avatar-large" %>
-
-
-  <ul>
-    <li><%= "adresse: #{@profil.address}" %></li>
-    <li><%= "Tel: #{@profil.phone_number}" %></li>
-    <% if @profil.id_card? %>
-      <li><i class="fas fa-check-circle"></i> Carte d'identité </li>
-    <% else %>
-      <li><i class="fas fa-times-circle"></i> Carte d'identité </li>
-    <% end %>
-    <% if @profil.tax_notice? %>
-      <li><i class="fas fa-check-circle"></i> Avis d'imposition </li>
-    <% else %>
-      <li><i class="fas fa-times-circle"></i> Avis d'imposition </li>
-    <% end %>
-    <% if @profil.payslip? %>
-      <li><i class="fas fa-check-circle"></i> Fiche de salaire </li>
-    <% else %>
-      <li><i class="fas fa-times-circle"></i> Fiche de salaire </li>
-    <% end %>
-  </ul>
+          <%= cl_image_tag @profil.avatar, class: "avatar-large" %>
 
 
+          <ul>
+            <li><%= "Adresse: #{@profil.address}" %></li>
+            <li><%= "Tel: #{@profil.phone_number}" %></li>
+            <% if @profil.id_card? %>
+              <li><i class="fas fa-check-circle"></i> Carte d'identité </li>
+            <% else %>
+              <li><i class="fas fa-times-circle"></i> Carte d'identité </li>
+            <% end %>
+            <% if @profil.tax_notice? %>
+              <li><i class="fas fa-check-circle"></i> Avis d'imposition </li>
+            <% else %>
+              <li><i class="fas fa-times-circle"></i> Avis d'imposition </li>
+            <% end %>
+            <% if @profil.payslip? %>
+              <li><i class="fas fa-check-circle"></i> Fiche de salaire </li>
+            <% else %>
+              <li><i class="fas fa-times-circle"></i> Fiche de salaire </li>
+            <% end %>
+          </ul>
 
-  <%= link_to 'Editer mon Profil', edit_profil_path(current_user) %> <br>
+          <%= link_to edit_profil_path(current_user) do %>
+            <i class="fas fa-edit"></i>
+            Editer mon profile
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
