@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
       @candidacies.each do |candidacy|
         @bookings << candidacy.bookings.first unless candidacy.bookings.empty?
       end
-      @bookings.sort!{|a,b| b.availability.start_time <=> a.availability.start_time}
+      @bookings.sort!{|a,b| a.availability.start_time <=> b.availability.start_time}
       @sidebar_title = "Mes candidatures"
     else
       set_candidacy

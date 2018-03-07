@@ -1,4 +1,10 @@
 <!-- calendar structure côté locataire by Antoine -->
+<% if @candidacy.status == "Visite effectuée" || @candidacy.status == "Dossier retenu" %>
+<h4> Visite effectuée</h4>
+<p> <%= I18n.l(@bookings.first.availability.start_time, format: "%A %d %B %H:%M") %></p>
+
+<% else %>
+<!-- calendar structure côté locataire by Antoine -->
 <div class="row calendar calendar-tenant">
   <div class="col-xs-12 text-center">
 
@@ -20,14 +26,9 @@
                   <div class="availabilities-day-date">
                     <%= day.day %> <%= I18n.l(day, format: '%B') %>
                   </div>
-
-
                 </div>
-
                 <div class="availabilities-slots" data-bookings="<%= @bookings.to_json %>" data-candidacy-id="<%= @candidacy.id %>">
                   <% 12.times do |i| %>
-
-
                     <% date_hour = day.to_datetime + ((8 + i) * 3600).seconds %>
                     <% is_available = @availabilities.map(&:start_time).include?(date_hour) %>
 
@@ -35,13 +36,10 @@
 
                     <!-- ajouter insersion class 'booked' si is_booked == true -->
 
-
                     <!-- ajouter data-booking-id si is_booked == true -->
                     <% is_booked = @bookings.map(&:candidacy_id).include?(@candidacy) %>
 
                     <!-- booking_id = @bookings.select{|booking| booking.availability_id == @availability} -->
-
-
                     <%= link_to flat_availabilities_path(@flat, date: date_hour), class:"availability-tenant" do %>
                       <div class="availabilities-slot <%= "availability" if is_available %>" data-dt="<%= date_hour %>" data-availability-id="<%= availability_id %>">
                         <%= date_hour.strftime('%Hh')  %>
@@ -63,3 +61,4 @@
   </div>
 </div>
 
+<% end %>
