@@ -1,0 +1,11 @@
+<% if candidacy_group.first.status == "Dossier retenu" %>
+  <i class="fas fa-check-circle"></i> <%= candidacy_group.first.status%>
+<% elsif candidacy_group.first.status == "Visite effectuée" %>
+  <i class="far fa-calendar-check"> </i> <%= candidacy_group.first.status%>
+<% elsif candidacy_group.first.status == "Visite programmée" %>
+  <i class="far fa-calendar-alt folder-icon"></i> <%= candidacy_group.first.status%>
+<% elsif candidacy_group.first.status == "En attente" %>
+  <i class="far fa-clock"> </i> <%= candidacy_group.first.status%>
+<% elsif candidacy_group.first.status == "Dossier archivé" %>
+  <i class="fas fa-archive"> </i> <%= candidacy_group.first.status%>
+<% end %>

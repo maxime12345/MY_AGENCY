@@ -7,6 +7,7 @@ class CandidaciesController < ApplicationController
   def index
     if params[:flat_id].nil? #Côté locataire: Mes candidatures
       @candidacies = policy_scope(Candidacy).where(user: current_user).order(created_at: :desc)
+      sort_candidacies(@candidacies)
       @sidebar_title = "Mes candidatures"
       @flats = []
       @candidacies.empty? ? @unread_mess_flat = 0 : count_unread_messages(@candidacies.first.flat)
