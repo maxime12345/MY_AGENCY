@@ -27,22 +27,23 @@ urls = [
   "https://www.leboncoin.fr/locations/1392469156.htm?ca=22_s"
 ]
 
-# urls.each do |url|
-#   p LbcScraper.new(url).extract
-# end
+DOC = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mjuutjo19df7vnadx0um.jpg"
 
 # ------------------------------------------------------------------------------
-# creation of 4 owners :
+# OWNERS :-----------------------------------------------------------------
+# ------------------------------------------------------------------------------
+
+
 puts "creating of the 4 owners..."
 
-marion = User.create!(
-  email: "marionblanchard69004@gmail.com",
+antoine = User.create!(
+  email: "antoine.giret@gmail.com",
   password: "myagency69",
-  first_name: "Marion",
-  last_name: "BLANCHARD",
-  phone_number: "06 34 54 13 59",
-  address: "2 Ter cours Richard Vitton, 69003 LYON",
-  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mjuutjo19df7vnadx0um.jpg"
+  first_name: "Antoine",
+  last_name: "GIRET",
+  phone_number: "07 82 57 93 01",
+  address: "31 r Romarin, 69001 LYON",
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/zbtubkg3193pagun6ez2.jpg"
   )
 
 steeve = User.create!(
@@ -62,21 +63,39 @@ jose = User.create!(
   last_name: "DUPRES",
   phone_number: "06 45 76 12 45",
   address: "103 av Berthelot, 69007 LYON",
-  remote_avatar_url: "https://avatars3.githubusercontent.com/u/24254220?v=4"
+  remote_avatar_url: "https://avatars3.githubusercontent.com/u/472453?s=400&v=4"
   )
 
-vanessa = User.create!(
-  email: "vanessaduchemin69004@gmail.com",
+marion = User.create!(
+  email: "marionblanchard69004@gmail.com",
   password: "myagency69",
-  first_name: "Vanessa",
-  last_name: "DUCHEMIN",
-  phone_number: "07 82 57 93 01",
-  address: "31 r Romarin, 69001 LYON",
-  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/zbtubkg3193pagun6ez2.jpg"
+  first_name: "Marion",
+  last_name: "BLANCHARD",
+  phone_number: "06 34 54 13 59",
+  address: "2 Ter cours Richard Vitton, 69003 LYON",
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mjuutjo19df7vnadx0um.jpg"
   )
+
 # ------------------------------------------------------------------------------
-# creation of 6 tenants :
+# TENANTS :---------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+
+
 puts "creating of the 6 tenants..."
+
+sebastien = User.create!(
+  email: "seb.balas@gmail.com",
+  password: "myagency69",
+  first_name: "Sébastien",
+  last_name: "Balas",
+  phone_number: "06 45 76 12 45",
+  address: "103 av Berthelot, 69007 LYON",
+  profil_confirmed: true,
+  remote_avatar_url: "https://avatars3.githubusercontent.com/u/24254220?v=4",
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
+  )
 
 alexandre = User.create!(
   email: "alexandre.bouvier@gmail.com",
@@ -85,7 +104,11 @@ alexandre = User.create!(
   last_name: "BOUVIER",
   phone_number: "06 55 09 02 35",
   address: "38 av Berthelot, 69007 LYON",
-  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/frri8d39adeybthbgsx0.jpg"
+  profil_confirmed: true,
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/frri8d39adeybthbgsx0.jpg",
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
   )
 
 alix = User.create!(
@@ -95,6 +118,7 @@ alix = User.create!(
   last_name: "PEYROT",
   phone_number: "06 43 49 02 13",
   address: "76 av Jean Mermoz, 69008 LYON",
+  profil_confirmed: false,
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/hwiwrtdiuxqckwavwwwf.jpg"
   )
 
@@ -105,7 +129,11 @@ etienne = User.create!(
   last_name: "DELORIEUX",
   phone_number: "07 34 26 53 12",
   address: "5 r Ste Marie des Terreaux, 69001 LYON",
-  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mx9bazmz2jgmulvhamry.jpg"
+  profil_confirmed: true,
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mx9bazmz2jgmulvhamry.jpg",
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
   )
 
 isabelle = User.create!(
@@ -115,7 +143,11 @@ isabelle = User.create!(
   last_name: "PONTOIZEAU" ,
   phone_number: "06 45 21 45 43",
   address: "2 av Berthelot, 69007 LYON",
-  remote_avatar_url: "https://avatars2.githubusercontent.com/u/34674849?v=4"
+  profil_confirmed: true,
+  remote_avatar_url: "https://avatars2.githubusercontent.com/u/34674849?v=4",
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
   )
 
 louis = User.create!(
@@ -125,7 +157,11 @@ louis = User.create!(
   last_name: "DELON",
   phone_number: "06 23 53 24 78",
   address: "6 pl Terreaux, 69001 LYON",
-  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/qec0kiexjcadwz457xwx.jpg"
+  profil_confirmed: true,
+  remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/qec0kiexjcadwz457xwx.jpg",
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
   )
 
 lahbib = User.create!(
@@ -135,10 +171,14 @@ lahbib = User.create!(
   last_name: "BELHADDAD",
   phone_number: "07 32 46 85 23",
   address: "62 grande rue Croix Rousse, 69004 LYON",
+  profil_confirmed: false,
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/evqefyvpwl5csouogibi.jpg"
   )
+
+
 # ------------------------------------------------------------------------------
-# creation of flats :
+# FLATS :-----------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # marion_flat_hash_1 = {:name=>"Appartement T4 Grand Standing", :address=>"Lyon 69006", :price=>"1 725 ", :description=>"Appartement complétementrénové en 2009 au 1er étaged'un immeuble du XIXé siècle avecascenseur très bien situé angleWaldeck- Rousseau / Juliette Récamierà côté placeGénéral Brosset - Prestation hautde gamme - huisseries neuves avec double vitrage24mm - Séjour 36m² et 3 chambres,salle d'eau, wc séparé, lingerieprévue pour LL et SL à condensation- réseau câblé toutespièces - fibre optique -Interphone avecplatines à défilementextérieur et dans le sas d'entrée -nombreux placards - chauffage électriqueradiants - Cuisine américaineéquipée avec plaquesvitrocéramique et hotte - Emplacementsprévus pour frigo, four et lave vaisselle -Compteurs edf et eau privatifs - Cave -garage enlocation sous place Gl Brosset - gare, bus etmétro à 5 min à pied. PAS DECOLOCATION - AGENCE S'ABSTENIRLibre à compter du 2 avril 2018.", :surface=>"94 m²", :publication_date=>"28/02/2018 à 11h37", :nb_rooms=>"4", :photos=>["https://img5.leboncoin.fr/ad-image/3cd20e2e47702dd598e801a212655de921d41043.jpg", "https://img3.leboncoin.fr/ad-image/fcd0d40ddee051dc974a2c6b16b33be156b9e687.jpg", "https://img3.leboncoin.fr/ad-image/09928876251aa8dead1e94d1f091146039be0b66.jpg"]}
 # marion_flat_hash_2 = {:name=>"T2 - Meublé - Mermoz Pinel - Tous Compris", :address=>"Lyon 69008", :price=>"750 ", :description=>"137 Avenue Paul Santy - 69008 LYON Venez découvrir ce jolie T2 situé au 1er étage d'une petite copropriété. Il se compose d'une entrée desservant : - Un coin cuisine entièrement meublé et équipé (Frigo, senseo, bouilloire, plaque vitro, four et micro-onde et tout ustensiles). - Un espace séjour salon avec table et chaises, canapé convertible, télé à LED 80 cm.- Une belle chambre avec lit double et rangement. Salle d'eau avec machine à laver, table et fer à repasser.Parking privatif fermé.Loyer tout compris (charges+eau+électricité+internet )Loyer charges comprises : 750,00€ Loyer hors charges : 700,00€Forfait de charges : 50,00€ Dépôt de garantie : 1400,00€Frais d'agence : 350,00€ Frais d'état des lieux : 105,00€", :surface=>"35 m²", :publication_date=>"28/02/2018 à 11h37", :nb_rooms=>"2", :photos=>["https://img1.leboncoin.fr/ad-image/40f90f2f011d4844710d474d106c09630ebad0f7.jpg", "https://img1.leboncoin.fr/ad-image/84cabc80ee670d87ff75fbf6ed7cc7b17ee562a4.jpg", "https://img6.leboncoin.fr/ad-image/fdf14d6c35dca98d215fb6e7b1256691af4c21e7.jpg", nil]}
@@ -148,40 +188,40 @@ lahbib = User.create!(
 
 puts "scrapping of LEBONCOIN..."
 
-marion_flat_hash_1 = LbcScraper.new(urls[0]).extract
-marion_flat_hash_2 = LbcScraper.new(urls[1]).extract
+antoine_flat_hash_1 = LbcScraper.new(urls[0]).extract
+antoine_flat_hash_2 = LbcScraper.new(urls[1]).extract
 steeve_flat_hash = LbcScraper.new(urls[2]).extract
 jose_flat_hash = LbcScraper.new(urls[3]).extract
-vanessa_flat_hash = LbcScraper.new(urls[4]).extract
+marion_flat_hash = LbcScraper.new(urls[4]).extract
 
 puts "creating of the 5 flats..."
 
-marion_flat_1 = Flat.create!(
-  name: marion_flat_hash_1[:name],
-  address: marion_flat_hash_1[:address],
-  price: marion_flat_hash_1[:price],
-  user_id: marion.id,
-  description: marion_flat_hash_1[:description],
-  publication_date: marion_flat_hash_1[:publication_date],
-  surface: marion_flat_hash_1[:surface],
-  nb_rooms: marion_flat_hash_1[:nb_rooms],
+antoine_flat_1 = Flat.create!(
+  name: antoine_flat_hash_1[:name],
+  address: antoine_flat_hash_1[:address],
+  price: antoine_flat_hash_1[:price],
+  user_id: antoine.id,
+  description: antoine_flat_hash_1[:description],
+  publication_date: antoine_flat_hash_1[:publication_date],
+  surface: antoine_flat_hash_1[:surface],
+  nb_rooms: antoine_flat_hash_1[:nb_rooms],
   ad_url: urls[0],
   visit_capacity: 3,
-  photo: marion_flat_hash_1[:photo]
+  photo: antoine_flat_hash_1[:photo]
   )
 
-marion_flat_2 = Flat.create!(
-  name: marion_flat_hash_2[:name],
-  address: marion_flat_hash_2[:address],
-  price: marion_flat_hash_2[:price],
-  user_id: marion.id,
-  description: marion_flat_hash_2[:description],
-  publication_date: marion_flat_hash_2[:publication_date],
-  surface: marion_flat_hash_2[:surface],
-  nb_rooms: marion_flat_hash_2[:nb_rooms],
+antoine_flat_2 = Flat.create!(
+  name: antoine_flat_hash_2[:name],
+  address: antoine_flat_hash_2[:address],
+  price: antoine_flat_hash_2[:price],
+  user_id: antoine.id,
+  description: antoine_flat_hash_2[:description],
+  publication_date: antoine_flat_hash_2[:publication_date],
+  surface: antoine_flat_hash_2[:surface],
+  nb_rooms: antoine_flat_hash_2[:nb_rooms],
   ad_url: urls[1],
   visit_capacity: 3,
-  photo: marion_flat_hash_2[:photo]
+  photo: antoine_flat_hash_2[:photo]
   )
 
 steeve_flat = Flat.create!(
@@ -212,40 +252,878 @@ jose_flat = Flat.create!(
   photo: jose_flat_hash[:photo]
   )
 
-vanessa_flat = Flat.create!(
-  name: vanessa_flat_hash[:name],
-  address: vanessa_flat_hash[:address],
-  price: vanessa_flat_hash[:price],
-  user_id: vanessa.id,
-  description: vanessa_flat_hash[:description],
-  publication_date: vanessa_flat_hash[:publication_date],
-  surface: vanessa_flat_hash[:surface],
-  nb_rooms: vanessa_flat_hash[:nb_rooms],
+marion_flat = Flat.create!(
+  name: marion_flat_hash[:name],
+  address: marion_flat_hash[:address],
+  price: marion_flat_hash[:price],
+  user_id: marion.id,
+  description: marion_flat_hash[:description],
+  publication_date: marion_flat_hash[:publication_date],
+  surface: marion_flat_hash[:surface],
+  nb_rooms: marion_flat_hash[:nb_rooms],
   ad_url: urls[4],
   visit_capacity: 3,
-  photo: vanessa_flat_hash[:photo]
+  photo: marion_flat_hash[:photo]
   )
 
 # ------------------------------------------------------------------------------
-# creation of candidacies :
+# CANDIDACIES :-----------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 puts "creating of the candidacies..."
 
-flats = [marion_flat_1, marion_flat_2, steeve_flat, jose_flat]
-tenants = [alexandre, alix, etienne, isabelle, louis]
+flats = [antoine_flat_1, antoine_flat_2, steeve_flat, jose_flat]
+tenants = [sebastien, alexandre, alix, etienne, isabelle, louis, lahbib]
+status_table = ["Dossier retenu", "Visite effectuee", "Visite programmee", "En attente", "Dossier archive"]
 
-flats.each do |flat|
-  tenants.each do |tenant|
-    Candidacy.create!(
-      flat_id: flat.id,
-      user_id: tenant.id
-    )
-  end
-end
 
-Candidacy.create!(
-  flat_id: vanessa_flat.id,
-  user_id: lahbib.id
-)
+# ------------------------------------------------------------------------------
+# Candidacies for antoine's flat 1
+
+antoine_1_seb = Candidacy.create!(
+  flat_id: antoine_flat_1.id,
+  user_id: sebastien.id,
+  status: "Visite effectuee"
+  )
+
+antoine_1_etienne = Candidacy.create!(
+  flat_id: antoine_flat_1.id,
+  user_id: etienne.id,
+  status: "Visite effectuee"
+  )
+
+antoine_1_alex = Candidacy.create!(
+  flat_id: antoine_flat_1.id,
+  user_id: alexandre.id,
+  status: "Visite programmee"
+  )
+
+antoine_1_isa = Candidacy.create!(
+  flat_id: antoine_flat_1.id,
+  user_id: isabelle.id,
+  status: "Visite programmee"
+  )
+
+antoine_1_alix = Candidacy.create!(
+  flat_id: antoine_flat_1.id,
+  user_id: alix.id,
+  status: "En attente"
+  )
+
+antoine_1_louis = Candidacy.create!(
+  flat_id: antoine_flat_1.id,
+  user_id: louis.id,
+  status: "En attente"
+  )
+
+antoine_1_lahbib = Candidacy.create!(
+  flat_id: antoine_flat_1.id,
+  user_id: lahbib.id,
+  status: "Dossier archive"
+  )
+
+# ------------------------------------------------------------------------------
+# Candidacies for antoine's flat 2
+
+antoine_2_alex = Candidacy.create!(
+  flat_id: antoine_flat_2.id,
+  user_id: alexandre.id,
+  status: "Visite programmee"
+  )
+
+antoine_2_seb = Candidacy.create!(
+  flat_id: antoine_flat_2.id,
+  user_id: sebastien.id,
+  status: "Visite programmee"
+  )
+
+antoine_2_lahbib = Candidacy.create!(
+  flat_id: antoine_flat_2.id,
+  user_id: lahbib.id,
+  status: "En attente"
+  )
+
+antoine_2_alix = Candidacy.create!(
+  flat_id: antoine_flat_2.id,
+  user_id: alix.id,
+  status: "En attente"
+  )
+
+# ------------------------------------------------------------------------------
+# Candidacies for Steeve's flat
+
+steeve_etienne = Candidacy.create!(
+  flat_id: steeve_flat.id,
+  user_id: etienne.id,
+  status: "Visite programmee"
+  )
+
+steeve_alex = Candidacy.create!(
+  flat_id: steeve_flat.id,
+  user_id: alexandre.id,
+  status: "Visite programmee"
+  )
+
+steeve_seb = Candidacy.create!(
+  flat_id: steeve_flat.id,
+  user_id: sebastien.id,
+  status: "Visite programmee"
+  )
+
+steeve_lahbib = Candidacy.create!(
+  flat_id: steeve_flat.id,
+  user_id: lahbib.id,
+  status: "En attente"
+  )
+
+steeve_alix = Candidacy.create!(
+  flat_id: steeve_flat.id,
+  user_id: alix.id,
+  status: "En attente"
+  )
+
+# ------------------------------------------------------------------------------
+# Candidacies for Jose's flat
+
+jose_alix = Candidacy.create!(
+  flat_id: jose_flat.id,
+  user_id: alix.id,
+  status: "Visite effectuee"
+  )
+
+jose_etienne = Candidacy.create!(
+  flat_id: jose_flat.id,
+  user_id: etienne.id,
+  status: "Visite effectuee"
+  )
+
+jose_alex = Candidacy.create!(
+  flat_id: jose_flat.id,
+  user_id: alexandre.id,
+  status: "Visite programmee"
+  )
+
+jose_isa = Candidacy.create!(
+  flat_id: jose_flat.id,
+  user_id: isabelle.id,
+  status: "Dossier archive"
+  )
+
+# ------------------------------------------------------------------------------
+# Candidacies for marion's flat
+
+marion_etienne = Candidacy.create!(
+  flat_id: marion_flat.id,
+  user_id: etienne.id,
+  status: "Visite programmee"
+  )
+
+marion_alex = Candidacy.create!(
+  flat_id: marion_flat.id,
+  user_id: alexandre.id,
+  status: "Visite programmee"
+  )
+
+marion_seb = Candidacy.create!(
+  flat_id: marion_flat.id,
+  user_id: sebastien.id,
+  status: "Visite programmee"
+  )
+
+marion_lahbib = Candidacy.create!(
+  flat_id: marion_flat.id,
+  user_id: lahbib.id,
+  status: "En attente"
+  )
+
+marion_alix = Candidacy.create!(
+  flat_id: marion_flat.id,
+  user_id: alix.id,
+  status: "En attente"
+  )
+
+# ------------------------------------------------------------------------------
+# MESSAGES :--------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# INBOX: ANTOINE 1--------------------------------------------------------------
+puts "creating of the messages..."
+
+
+# Messages btw antoine and sebastien 1
+
+Message.create!(
+  content: "Bonjour Antoine",
+  read: true,
+  sender: sebastien,
+  recipient: antoine,
+  candidacy: antoine_1_seb
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
+  read: true,
+  sender: sebastien,
+  recipient: antoine,
+  candidacy: antoine_1_seb
+  )
+
+Message.create!(
+  content: "De rien, j'attends votre booking.",
+  read: true,
+  sender: antoine,
+  recipient: sebastien,
+  candidacy: antoine_1_seb
+  )
+
+Message.create!(
+  content: "Done!",
+  read: true,
+  sender: sebastien,
+  recipient: antoine,
+  candidacy: antoine_1_seb
+  )
+
+Message.create!(
+  content: "Hâte de visiter votre appartement.",
+  read: true,
+  sender: sebastien,
+  recipient: antoine,
+  candidacy: antoine_1_seb
+  )
+
+Message.create!(
+  content: "Parfait. À jeudi.",
+  read: true,
+  sender: antoine,
+  recipient: sebastien,
+  candidacy: antoine_1_seb
+  )
+
+Message.create!(
+  content: "Encore merci pour la visite, j'ai vraiment apprécié votre appartement.",
+  read: false,
+  sender: sebastien,
+  recipient: antoine,
+  candidacy: antoine_1_seb
+  )
+
+# ------------------------------------------------------------------------------
+# Messages btw antoine and etienne 1
+
+Message.create!(
+  content: "Bonjour",
+  read: true,
+  sender: etienne,
+  recipient: antoine,
+  candidacy: antoine_1_etienne
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
+  read: true,
+  sender: etienne,
+  recipient: antoine,
+  candidacy: antoine_1_etienne
+  )
+
+Message.create!(
+  content: "De rien, j'attends votre booking.",
+  read: true,
+  sender: antoine,
+  recipient: etienne,
+  candidacy: antoine_1_etienne
+  )
+
+Message.create!(
+  content: "Done!",
+  read: true,
+  sender: etienne,
+  recipient: antoine,
+  candidacy: antoine_1_etienne
+  )
+
+Message.create!(
+  content: "Hâte de visiter votre appartement.",
+  read: true,
+  sender: etienne,
+  recipient: antoine,
+  candidacy: antoine_1_etienne
+  )
+
+Message.create!(
+  content: "Parfait. À vendredi.",
+  read: true,
+  sender: antoine,
+  recipient: etienne,
+  candidacy: antoine_1_etienne
+  )
+
+Message.create!(
+  content: "Merci pour la visite.",
+  read: false,
+  sender: etienne,
+  recipient: antoine,
+  candidacy: antoine_1_etienne
+  )
+
+# ------------------------------------------------------------------------------
+# Messages btw antoine and alex 1
+
+Message.create!(
+  content: "Bonjour",
+  read: true,
+  sender: alexandre,
+  recipient: antoine,
+  candidacy: antoine_1_alex
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
+  read: true,
+  sender: alexandre,
+  recipient: antoine,
+  candidacy: antoine_1_alex
+  )
+
+Message.create!(
+  content: "De rien, j'attends votre booking.",
+  read: true,
+  sender: antoine,
+  recipient: alexandre,
+  candidacy: antoine_1_alex
+  )
+
+Message.create!(
+  content: "Done!",
+  read: true,
+  sender: alexandre,
+  recipient: antoine,
+  candidacy: antoine_1_alex
+  )
+
+Message.create!(
+  content: "Hâte de visiter votre appartement.",
+  read: false,
+  sender: alexandre,
+  recipient: antoine,
+  candidacy: antoine_1_alex
+  )
+
+# ------------------------------------------------------------------------------
+# Messages btw antoine and isa 1
+
+Message.create!(
+  content: "Bonjour",
+  read: true,
+  sender: isabelle,
+  recipient: antoine,
+  candidacy: antoine_1_isa
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
+  read: true,
+  sender: isabelle,
+  recipient: antoine,
+  candidacy: antoine_1_isa
+  )
+
+Message.create!(
+  content: "De rien, j'attends votre booking.",
+  read: true,
+  sender: antoine,
+  recipient: isabelle,
+  candidacy: antoine_1_isa
+  )
+
+Message.create!(
+  content: "Done!",
+  read: true,
+  sender: isabelle,
+  recipient: antoine,
+  candidacy: antoine_1_isa
+  )
+
+Message.create!(
+  content: "Hâte de visiter votre appartement.",
+  read: true,
+  sender: isabelle,
+  recipient: antoine,
+  candidacy: antoine_1_isa
+  )
+
+Message.create!(
+  content: "Parfait. À demain.",
+  read: true,
+  sender: antoine,
+  recipient: isabelle,
+  candidacy: antoine_1_isa
+  )
+
+# ------------------------------------------------------------------------------
+# Messages btw antoine and alix 1
+
+Message.create!(
+  content: "Bonjour",
+  read: true,
+  sender: alix,
+  recipient: antoine,
+  candidacy: antoine_1_alix
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
+  read: true,
+  sender: alix,
+  recipient: antoine,
+  candidacy: antoine_1_alix
+  )
+
+Message.create!(
+  content: "De rien, j'attends votre booking.",
+  read: true,
+  sender: antoine,
+  recipient: alix,
+  candidacy: antoine_1_alix
+  )
+
+
+# ------------------------------------------------------------------------------
+# Messages btw antoine and louis 1
+
+Message.create!(
+  content: "Bonjour",
+  read: true,
+  sender: louis,
+  recipient: antoine,
+  candidacy: antoine_1_louis
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
+  read: false,
+  sender: louis,
+  recipient: antoine,
+  candidacy: antoine_1_louis
+  )
+
+# ------------------------------------------------------------------------------
+# Messages btw antoine and lahbib 1
+
+Message.create!(
+  content: "Bonjour",
+  read: true,
+  sender: lahbib,
+  recipient: antoine,
+  candidacy: antoine_1_lahbib
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
+  read: true,
+  sender: lahbib,
+  recipient: antoine,
+  candidacy: antoine_1_lahbib
+  )
+
+Message.create!(
+  content: "De rien, j'attends votre booking.",
+  read: true,
+  sender: antoine,
+  recipient: lahbib,
+  candidacy: antoine_1_lahbib
+  )
+
+Message.create!(
+  content: "Done!",
+  read: true,
+  sender: lahbib,
+  recipient: antoine,
+  candidacy: antoine_1_lahbib
+  )
+
+Message.create!(
+  content: "Hâte de visiter votre appartement.",
+  read: true,
+  sender: lahbib,
+  recipient: antoine,
+  candidacy: antoine_1_lahbib
+  )
+
+Message.create!(
+  content: "Parfait. À vendredi.",
+  read: true,
+  sender: antoine,
+  recipient: lahbib,
+  candidacy: antoine_1_lahbib
+  )
+
+Message.create!(
+  content: "Merci pour la visite d'hier. C'était top.",
+  read: true,
+  sender: lahbib,
+  recipient: antoine,
+  candidacy: antoine_1_lahbib
+  )
+
+# ------------------------------------------------------------------------------
+# INBOX: ANTOINE 2 -------------------------------------------------------------
+
+# Messages btw antoine and alex 2
+
+Message.create!(
+  content: "Bonjour",
+  read: true,
+  sender: alexandre,
+  recipient: antoine,
+  candidacy: antoine_2_alex
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
+  read: true,
+  sender: alexandre,
+  recipient: antoine,
+  candidacy: antoine_2_alex
+  )
+
+Message.create!(
+  content: "De rien, j'attends votre booking.",
+  read: true,
+  sender: antoine,
+  recipient: alexandre,
+  candidacy: antoine_2_alex
+  )
+
+Message.create!(
+  content: "Done!",
+  read: true,
+  sender: alexandre,
+  recipient: antoine,
+  candidacy: antoine_2_alex
+  )
+
+Message.create!(
+  content: "Hâte de visiter votre appartement.",
+  read: false,
+  sender: alexandre,
+  recipient: antoine,
+  candidacy: antoine_2_alex
+  )
+
+# ------------------------------------------------------------------------------
+# Messages btw antoine and seb 2
+
+Message.create!(
+  content: "Bonjour",
+  read: true,
+  sender: sebastien,
+  recipient: antoine,
+  candidacy: antoine_2_seb
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
+  read: true,
+  sender: sebastien,
+  recipient: antoine,
+  candidacy: antoine_2_seb
+  )
+
+Message.create!(
+  content: "De rien, j'attends votre booking.",
+  read: true,
+  sender: antoine,
+  recipient: sebastien,
+  candidacy: antoine_2_seb
+  )
+
+Message.create!(
+  content: "Done!",
+  read: true,
+  sender: sebastien,
+  recipient: antoine,
+  candidacy: antoine_2_seb
+  )
+
+Message.create!(
+  content: "Hâte de visiter votre appartement.",
+  read: true,
+  sender: sebastien,
+  recipient: antoine,
+  candidacy: antoine_2_seb
+  )
+
+Message.create!(
+  content: "Parfait. À jeudi pour la visite.",
+  read: true,
+  sender: antoine,
+  recipient: sebastien,
+  candidacy: antoine_2_seb
+  )
+
+# ------------------------------------------------------------------------------
+# Messages btw antoine and alix 2
+
+Message.create!(
+  content: "Bonjour Antoine",
+  read: false,
+  sender: alix,
+  recipient: antoine,
+  candidacy: antoine_1_alix
+  )
+
+Message.create!(
+  content: "Merci pour votre annonce, je suis très intéressé par votre bel appartement.",
+  read: false,
+  sender: alix,
+  recipient: antoine,
+  candidacy: antoine_1_alix
+  )
+
+# ------------------------------------------------------------------------------
+# AVAILABILITIES :--------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# ANTOINE'S FLAT 1--------------------------------------------------------------
+
+puts "creating of the availabilities..."
+
+availability_flat1_old_1 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Mon, 05 Mar 2018 10:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_old_2 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Mon, 05 Mar 2018 11:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_1 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Thu, 08 Mar 2018 10:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_2 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Thu, 08 Mar 2018 11:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_3 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Thu, 08 Mar 2018 13:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_4 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Thu, 08 Mar 2018 12:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+
+availability_flat1_5 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Thu, 08 Mar 2018 18:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_6 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Thu, 08 Mar 2018 19:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_7 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Mon, 12 Mar 2018 10:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_8 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Mon, 12 Mar 2018 11:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_9 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Mon, 12 Mar 2018 17:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_10 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Mon, 12 Mar 2018 18:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_11 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Mon, 12 Mar 2018 19:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_12 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Tue, 13 Mar 2018 12:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_13 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Tue, 13 Mar 2018 13:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat1_14 = Availability.create!(
+  flat_id: antoine_flat_1.id,
+  start_time: "Tue, 13 Mar 2018 14:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+
+# ------------------------------------------------------------------------------
+# ANTOINE'S FLAT 2--------------------------------------------------------------
+
+availability_flat2_old_1 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Mon, 05 Mar 2018 10:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_old_2 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Mon, 05 Mar 2018 11:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_1 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Thu, 08 Mar 2018 10:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_2 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Thu, 08 Mar 2018 11:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_3 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Thu, 08 Mar 2018 13:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_4 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Thu, 08 Mar 2018 12:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+
+availability_flat2_5 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Thu, 08 Mar 2018 18:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_6 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Thu, 08 Mar 2018 19:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_7 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Mon, 12 Mar 2018 10:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_8 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Mon, 12 Mar 2018 11:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_9 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Mon, 12 Mar 2018 17:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_10 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Mon, 12 Mar 2018 18:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_11 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Mon, 12 Mar 2018 19:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_12 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Tue, 13 Mar 2018 12:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_13 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Tue, 13 Mar 2018 13:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+availability_flat2_14 = Availability.create!(
+  flat_id: antoine_flat_2.id,
+  start_time: "Tue, 13 Mar 2018 14:00:00 UTC +00:00",
+  visit_confirmed: false
+  )
+
+# ------------------------------------------------------------------------------
+# BOOKINGS :--------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# ANTOINE'S FLAT 1--------------------------------------------------------------
+
+puts "creating of the bookings..."
+
+Booking.create!(
+  availability: availability_flat1_old_1,
+  candidacy: antoine_1_seb
+  )
+
+Booking.create!(
+  availability: availability_flat1_old_2,
+  candidacy: antoine_1_etienne
+  )
+
+Booking.create!(
+  availability: availability_flat1_7,
+  candidacy: antoine_1_alex
+  )
+
+Booking.create!(
+  availability: availability_flat1_8,
+  candidacy: antoine_1_isa
+  )
+
+# ------------------------------------------------------------------------------
+# ANTOINE'S FLAT 2--------------------------------------------------------------
+
+Booking.create!(
+  availability: availability_flat2_9,
+  candidacy: antoine_2_alex
+  )
+
+Booking.create!(
+  availability: availability_flat2_10,
+  candidacy: antoine_2_seb
+  )
 
 puts "Finish mamen!!!"
