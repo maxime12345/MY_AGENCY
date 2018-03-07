@@ -79,11 +79,8 @@ class CandidaciesController < ApplicationController
   end
 
   def update
-    if @candidacy.update(candidacy_params)
-      redirect_to @candidacy, notice: 'Candidacy was successfully updated.'
-    else
-      render :edit
-    end
+    @candidacy.update(status: params[:candidacy][:status])
+    redirect_to flat_candidacies_path(@candidacy.flat)
   end
 
   def destroy

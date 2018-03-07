@@ -1,20 +1,50 @@
-<!-- Dashboard-box côté locataire -->
-<div class="dashboard">
+<% if params[:candidacy_id].nil? %>
+  <div class="dashboard">
 
-  <div class="container">
-    <div class="row flex">
-      <div class="col-xs-3 sm-padding-right">
-        <!-- sidebar-owner -->
-        <%= render 'shared/sidebar_tenant' %>
-      </div>
+    <div class="container">
+      <div class="row flex">
+        <div class="col-xs-3 sm-padding-right">
+          <!-- sidebar-owner -->
+          <%= render 'shared/sidebar_tenant' %>
+        </div>
 
-      <div class="col-xs-9 sm-padding-left">
-        <!-- dashboard-box -->
-        <div class="dashboard-box">
-          <%= render 'shared/tabs_candidacies' %>
-          <%= render 'shared/calendar_availabilities' %>
+        <div class="col-xs-9 sm-padding-left">
+          <!-- dashboard-box -->
+          <div class="dashboard-box">
+            <% if @bookings.empty? %>
+              <h3>Aucune visite de plannifiée pour le moment</h3>
+            <% else %>
+              <h3>Mes visites</h3>
+              <% @bookings.each do |booking|%>
+                <%= I18n.l(booking.availability.start_time, format: "%A %d %B %H:%M") %>: <%= booking.candidacy.flat.name %>
+              <% end%>
+            <% end%>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+
+<% else%>
+  <!-- Dashboard-box côté locataire -->
+  <div class="dashboard">
+
+    <div class="container">
+      <div class="row flex">
+        <div class="col-xs-3 sm-padding-right">
+          <!-- sidebar-owner -->
+          <%= render 'shared/sidebar_tenant' %>
+        </div>
+
+        <div class="col-xs-9 sm-padding-left">
+          <!-- dashboard-box -->
+          <div class="dashboard-box">
+            <%= render 'shared/tabs_candidacies' %>
+            <%= render 'shared/calendar_booking' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end%>

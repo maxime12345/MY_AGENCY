@@ -1,0 +1,4 @@
+<%= simple_form_for(candidacy, method: :put) do |f| %>
+  <%= f.hidden_field :status, value: "Dossier retenu" %>
+  <%= f.button :submit, 'Confirmer dossier', class: "btn btn-success pull-center" %>
+<% end %>
