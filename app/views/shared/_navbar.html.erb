@@ -19,7 +19,7 @@
 
       <% if current_user.flats.count > 0  %>
         <%= link_to flats_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
-          <i class="fas fa-home"></i>  <%= "Mes appartements" %>
+          <i class="fas fa-home"></i>  <%= "Mes logements" %>
         <% end %>
       <% else %>
         <%= link_to new_flat_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
