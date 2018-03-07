@@ -3,18 +3,29 @@
     <div class="row">
       <div class="col-xs-12">
         <!-- grille -->
-        <h3>Les dossiers de candidatures</h3>
-        <div class="flex-container">
-          <div class="candidacies">
-            <div class="row">
-              <% @candidacies.each do |candidacy| %>
-                <div class="col-xs-12">
-                  <%= render 'card_tenant', candidacy: candidacy %>
-                </div>
-              <% end%>
+        <% if @candidacies.empty? %>
+          <h3>Aucune candidature pour le moment</h3>
+        <% else %>
+          <h3>Les dossiers de candidatures</h3>
+          <div class="flex-container">
+            <div class="candidacies">
+              <div class="row">
+                <% @candidacies_sorted.each do |candidacy_group| %>
+                  <% unless candidacy_group.empty? %>
+                    <h4> <%= candidacy_group.first.status%></h4>
+                    <div class="candidacy_group">
+                      <% candidacy_group.each do |candidacy| %>
+                        <div class="col-xs-12 candidacy_group_card">
+                          <%= render 'card_tenant', candidacy: candidacy %>
+                        </div>
+                      <% end%>
+                    </div>
+                  <% end%>
+                <% end%>
+              </div>
             </div>
           </div>
-        </div>
+        <% end%>
       </div>
     </div>
   </div>

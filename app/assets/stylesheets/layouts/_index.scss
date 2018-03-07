@@ -34,6 +34,12 @@ h3:after {
   position: absolute;
 }
 
+h4 {
+  font-size: 18px;
+  font-weight: lighter;
+  color: $gray-base;
+}
+
 .candidacies {
   flex-grow: 1;
   margin: 0 1em;
@@ -66,4 +72,14 @@ h3:after {
   margin: 10px 0 0 10px !important;
   position: sticky !important;
   top: 0px;
-  }
+}
+
+.candidacy_group {
+  border-top: 2px solid rgba(220,224,244,0.4);
+}
+
+
+.candidacy_group_card:last-child {
+  border-bottom: none;
+  margin-bottom: 30px;
+}
