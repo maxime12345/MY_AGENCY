@@ -1,3 +1,4 @@
+  <!-- Dashboard-box côté locataire: listes des bookings-->
 <% if params[:candidacy_id].nil? %>
   <div class="dashboard">
 
@@ -16,7 +17,7 @@
             <% else %>
               <h3>Mes visites programmées</h3>
               <% @bookings.each do |booking|%>
-                <%= I18n.l(booking.availability.start_time, format: "%A %d %B %H:%M") %>: <%= booking.candidacy.flat.name %>
+                <%= I18n.l(booking.availability.start_time, format: "%A %d %B %H:%M") %>: <%= booking.candidacy.flat.name %> <br>
               <% end%>
             <% end%>
           </div>
@@ -25,9 +26,8 @@
     </div>
   </div>
 
-
 <% else%>
-  <!-- Dashboard-box côté locataire -->
+  <!-- Dashboard-box côté locataire: booking pour une candidacy -->
   <div class="dashboard">
 
     <div class="container">
