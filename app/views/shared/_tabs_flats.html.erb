@@ -1,6 +1,7 @@
 <div class="tabs-flats">
     <% @flats.each_with_index do |flat, i| %>
-      <%= link_to flat_candidacies_path(flat) do %>
+      <%= link_to flat_candidacies_path(flat), class:"tooltips" do %>
+        <span><%= flat.name %></span>
         <div class="tab-flat <%= 'active' if @flat == flat %> <%= 'first-tab' if i == 0 %>" title= "<%= flat.name %>">
           <i class="fas fa-home"></i>
           <div class="flat-num">
@@ -10,7 +11,8 @@
       <% end %>
     <% end %>
 
-    <%= link_to new_flat_path, title: "Ajouter une annonce" do %>
+    <%= link_to new_flat_path, class:"tooltips" do %>
+      <span>Ajouter une annonce</span>
       <div class="tab-flat <%= 'active' if @flat.name == nil  %>">
         <i class="fas fa-plus-circle"></i>
       </div>
