@@ -5,7 +5,10 @@
   <!-- <h3><%= @flat.name %></h3> -->
   <% if !@flat.id.nil? %>
     <ul>
-      <li><a href="#"><i class="fas fa-map-marker-alt"></i>Mon logement</li></a>
+      <li> <%= link_to flat_candidacies_path(@flat) do %>
+        <i class="fas fa-folder"></i>
+        Dossiers
+      <% end %></li>
       <li> <%= link_to  flat_messages_path(@flat) do %>
         <i class="fas fa-envelope"></i>
         <% if @unread_mess_flat > 0%>
@@ -18,9 +21,9 @@
         <i class="far fa-calendar-alt"></i>
         Visites
       <% end %></li>
-      <li> <%= link_to flat_candidacies_path(@flat) do %>
-        <i class="fas fa-folder"></i>
-        Dossiers
+      <li> <%= link_to flat_path(@flat) do %>
+        <i class="fas fa-map-marker-alt"></i>
+        Mon logement
       <% end %></li>
     </ul>
   <% end%>
