@@ -2,6 +2,11 @@
   <div class="card">
     <div class="candidacy_card_body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= candidacy.flat.photo[0] %>);">
       <div class="candidacy_card_title"><strong><%= candidacy.flat.name %></strong> <br> <%= candidacy.flat.address %> <br> <%= candidacy.flat.price %>€</div>
+      <% if  candidacy.status == "Visite programmée" %>
+        <div class="candidacy_booking_date">
+          <i class="far fa-calendar-alt folder-icon"></i> <%= I18n.l(candidacy.bookings.first.availability.start_time, format: "%A %d %B %H:%M") %>
+        </div>
+      <% end%>
     </div>
     <div class="candidacy_card_footer">
       <div class="avatar-img">
