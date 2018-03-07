@@ -22,7 +22,7 @@ User.destroy_all
 urls = [
   "https://www.leboncoin.fr/locations/1387875755.htm?ca=12_s",
   "https://www.leboncoin.fr/locations/1385711512.htm?ca=22_s",
-  "https://www.leboncoin.fr/locations/1377652859.htm?ca=22_s",
+  "https://www.leboncoin.fr/locations/1384636419.htm?ca=5_s",
   "https://www.leboncoin.fr/locations/1395105416.htm?ca=22_s",
   "https://www.leboncoin.fr/locations/1392469156.htm?ca=22_s"
 ]
