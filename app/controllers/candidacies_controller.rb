@@ -34,10 +34,10 @@ class CandidaciesController < ApplicationController
   def sort_candidacies(candidacies_tot)
     @candidacies_sorted = []
     @candidacies_sorted << candidacies_tot.where(status: "Dossier retenu").order(updated_at: :desc)
-    @candidacies_sorted << candidacies_tot.where(status: "Visite effectuee").order(updated_at: :desc)
-    @candidacies_sorted << candidacies_tot.where(status: "Visite programmee").order(updated_at: :desc)
+    @candidacies_sorted << candidacies_tot.where(status: "Visite effectuée").order(updated_at: :desc)
+    @candidacies_sorted << candidacies_tot.where(status: "Visite programmée").order(updated_at: :desc)
     @candidacies_sorted << candidacies_tot.where(status: "En attente").order(updated_at: :desc)
-    @candidacies_sorted << candidacies_tot.where(status: "Dossier archive").order(updated_at: :desc)
+    @candidacies_sorted << candidacies_tot.where(status: "Dossier archivé").order(updated_at: :desc)
   end
 
   def show

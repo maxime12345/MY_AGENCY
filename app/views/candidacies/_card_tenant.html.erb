@@ -29,7 +29,7 @@
   </div>
   <div class="tenant-calendar">
     <%= link_to flat_availabilities_path(candidacy.flat) do %>
-      <% if candidacy.status == "Visite programmee" %>
+      <% if candidacy.status == "Visite programmée" %>
         <i class="far fa-calendar-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i>
       <% else%>
         <i class="far fa-calendar-alt"></i>
@@ -39,15 +39,15 @@
   <div class="tenant-status">
     <% if candidacy.status == "Dossier retenu" %>
       <p class="status accepted"> Retenu</p>
-    <% elsif candidacy.status == "Visite effectuee" %>
+    <% elsif candidacy.status == "Visite effectuée" %>
       <%= render 'candidacies/form', candidacy: candidacy, status: "Dossier retenu" %>
-      <%= render 'candidacies/form', candidacy: candidacy, status: "Dossier archive"%>
+      <%= render 'candidacies/form', candidacy: candidacy, status: "Dossier archivé"%>
       <!-- <i class="fas fa-check-circle confirm-candidacy"></i> <i class="fas fa-times-circle refuse-candidacy"></i> -->
-    <% elsif candidacy.status == "Visite programmee" %>
+    <% elsif candidacy.status == "Visite programmée" %>
       <p class="status pending"> <%=  I18n.l(candidacy.bookings.first.availability.start_time, format: "%Hh %d/%m") %> </p>
     <% elsif candidacy.status == "En attente" %>
       <p class="status pending"><%= candidacy.status %></p>
-    <% elsif candidacy.status == "Dossier archive" %>
+    <% elsif candidacy.status == "Dossier archivé" %>
       <p class="status declined"> Archivé</p>
     <% end %>
 

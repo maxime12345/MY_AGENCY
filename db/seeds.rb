@@ -277,7 +277,7 @@ puts "creating of the candidacies..."
 
 flats = [antoine_flat_1, antoine_flat_2, steeve_flat, jose_flat]
 tenants = [sebastien, alexandre, alix, etienne, isabelle, louis, lahbib]
-status_table = ["Dossier retenu", "Visite effectuee", "Visite programmee", "En attente", "Dossier archive"]
+status_table = ["Dossier retenu", "Visite effectuée", "Visite programmée", "En attente", "Dossier archivé"]
 
 
 # ------------------------------------------------------------------------------
@@ -286,25 +286,25 @@ status_table = ["Dossier retenu", "Visite effectuee", "Visite programmee", "En a
 antoine_1_seb = Candidacy.create!(
   flat_id: antoine_flat_1.id,
   user_id: sebastien.id,
-  status: "Visite effectuee"
+  status: "Visite effectuée"
   )
 
 antoine_1_etienne = Candidacy.create!(
   flat_id: antoine_flat_1.id,
   user_id: etienne.id,
-  status: "Visite effectuee"
+  status: "Visite effectuée"
   )
 
 antoine_1_alex = Candidacy.create!(
   flat_id: antoine_flat_1.id,
   user_id: alexandre.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 antoine_1_isa = Candidacy.create!(
   flat_id: antoine_flat_1.id,
   user_id: isabelle.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 antoine_1_alix = Candidacy.create!(
@@ -322,7 +322,7 @@ antoine_1_louis = Candidacy.create!(
 antoine_1_lahbib = Candidacy.create!(
   flat_id: antoine_flat_1.id,
   user_id: lahbib.id,
-  status: "Dossier archive"
+  status: "Dossier archivé"
   )
 
 # ------------------------------------------------------------------------------
@@ -331,13 +331,13 @@ antoine_1_lahbib = Candidacy.create!(
 antoine_2_alex = Candidacy.create!(
   flat_id: antoine_flat_2.id,
   user_id: alexandre.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 antoine_2_seb = Candidacy.create!(
   flat_id: antoine_flat_2.id,
   user_id: sebastien.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 antoine_2_lahbib = Candidacy.create!(
@@ -358,19 +358,19 @@ antoine_2_alix = Candidacy.create!(
 steeve_etienne = Candidacy.create!(
   flat_id: steeve_flat.id,
   user_id: etienne.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 steeve_alex = Candidacy.create!(
   flat_id: steeve_flat.id,
   user_id: alexandre.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 steeve_seb = Candidacy.create!(
   flat_id: steeve_flat.id,
   user_id: sebastien.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 steeve_lahbib = Candidacy.create!(
@@ -391,25 +391,25 @@ steeve_alix = Candidacy.create!(
 jose_alix = Candidacy.create!(
   flat_id: jose_flat.id,
   user_id: alix.id,
-  status: "Visite effectuee"
+  status: "Visite effectuée"
   )
 
 jose_etienne = Candidacy.create!(
   flat_id: jose_flat.id,
   user_id: etienne.id,
-  status: "Visite effectuee"
+  status: "Visite effectuée"
   )
 
 jose_alex = Candidacy.create!(
   flat_id: jose_flat.id,
   user_id: alexandre.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 jose_isa = Candidacy.create!(
   flat_id: jose_flat.id,
   user_id: isabelle.id,
-  status: "Dossier archive"
+  status: "Dossier archivé"
   )
 
 # ------------------------------------------------------------------------------
@@ -418,19 +418,19 @@ jose_isa = Candidacy.create!(
 marion_etienne = Candidacy.create!(
   flat_id: marion_flat.id,
   user_id: etienne.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 marion_alex = Candidacy.create!(
   flat_id: marion_flat.id,
   user_id: alexandre.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 marion_seb = Candidacy.create!(
   flat_id: marion_flat.id,
   user_id: sebastien.id,
-  status: "Visite programmee"
+  status: "Visite programmée"
   )
 
 marion_lahbib = Candidacy.create!(
