@@ -23,7 +23,11 @@ const updateDisplayDaysT = (firstDayT) => {
   console.log(bookingsCandidacy);
   bookingsCandidacy.forEach(function(link, index){
     console.log(link.availability_id);
-    document.querySelector(`[data-availability-id="${link.availability_id}"]`).classList.add("booked");
+    const booking = document.querySelector(`[data-availability-id="${link.availability_id}"]`);
+    booking.classList.add("booked");
+    // booking.classList.add(`data-booking-id="${link.id}"`);
+    booking.dataset.bookingId = link.id;
+
   })
 
   // mise à jour de l'état des boutons left et rightPaginationT
@@ -78,11 +82,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 function updateBookingHtml(element, booked, id){
+  // console.log("je suis dans updateHTML");
   if(booked){
+      // supprimer 'booked' sur l'autre qui avait cette classe
+      document.querySelector(".booked").classList.remove("booked");
       element.classList.add("booked");
       element.dataset.bookingId = id;
   }
   else{
+    // console.log("coucou j'y suis");
     element.classList.remove("booked");
     element.dataset.bookingId = null;
   }
@@ -106,8 +114,8 @@ function addBooking(element) {
 }
 
 function removeBooking(element) {
-    const id = element.dataset.availabilityId
-    fetch(`availabilities/${id}/`, {
+    const id = element.dataset.bookingId
+    fetch(`/candidacies/${candidacyId}/bookings/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -118,7 +126,7 @@ function removeBooking(element) {
     .then((data) => {
       console.log(data.body);
       // on considere que tout c'est bien passé si on est ici.
-      updateAvailabilityHtml(element, false);
+      updateBookingHtml(element, false);
     });
 }
 
@@ -130,7 +138,7 @@ btnAvailabilities.forEach(function(availability, index){
     child = document.querySelectorAll(".availabilities-slot")[index];
     // if (je suis active){
     if (child.classList.contains("booked")) {
-      console.log("coucou");
+      // console.log("je vais bien me dirigier vers le remove")
       removeBooking(child);
 
     } else {

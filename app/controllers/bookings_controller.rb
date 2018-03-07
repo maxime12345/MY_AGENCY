@@ -54,6 +54,9 @@ class BookingsController < ApplicationController
 
   def destroy
     @candidacy.update(status: "En attente")
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    authorize(@booking)
   end
 
   private

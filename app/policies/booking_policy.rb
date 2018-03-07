@@ -12,4 +12,8 @@ class BookingPolicy < ApplicationPolicy
   def create?
     record.candidacy.user == user
   end
+
+  def destroy?
+    record.candidacy.user == user
+  end
 end
