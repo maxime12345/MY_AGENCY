@@ -873,7 +873,7 @@ Message.create!(
   read: false,
   sender: alix,
   recipient: antoine,
-  candidacy: antoine_1_alix
+  candidacy: antoine_2_alix
   )
 
 Message.create!(
@@ -881,7 +881,7 @@ Message.create!(
   read: false,
   sender: alix,
   recipient: antoine,
-  candidacy: antoine_1_alix
+  candidacy: antoine_2_alix
   )
 
 # ------------------------------------------------------------------------------
