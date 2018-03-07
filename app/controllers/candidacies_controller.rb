@@ -5,7 +5,7 @@ class CandidaciesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:flat_id].nil?
+    if params[:flat_id].nil? #Côté locataire: Mes candidatures
       @candidacies = policy_scope(Candidacy).where(user: current_user).order(created_at: :desc)
       @sidebar_title = "Mes candidatures"
       @flats = []
@@ -22,12 +22,22 @@ class CandidaciesController < ApplicationController
           infoWindow: { content: render_to_string(partial: "/shared/map_box", locals: { flat: flat }) }
         }
       end
-    else
+    else #Côté propriétaire: Les candidatures par appartement
       set_flat
       count_unread_messages(@flat)
       @flats = policy_scope(Flat).where(user: @flat.user).order(created_at: :desc)
       @candidacies = policy_scope(Candidacy).where(flat_id: params[:flat_id]).order(created_at: :desc)
+      sort_candidacies(@candidacies)
     end
+  end
+
+  def sort_candidacies(candidacies_tot)
+    @candidacies_sorted = []
+    @candidacies_sorted << candidacies_tot.where(status: "Dossier retenu").order(updated_at: :desc)
+    @candidacies_sorted << candidacies_tot.where(status: "Visite effectuee").order(updated_at: :desc)
+    @candidacies_sorted << candidacies_tot.where(status: "Visite programmee").order(updated_at: :desc)
+    @candidacies_sorted << candidacies_tot.where(status: "En attente").order(updated_at: :desc)
+    @candidacies_sorted << candidacies_tot.where(status: "Dossier archive").order(updated_at: :desc)
   end
 
   def show
