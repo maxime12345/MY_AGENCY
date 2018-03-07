@@ -27,6 +27,8 @@ urls = [
   "https://www.leboncoin.fr/locations/1392469156.htm?ca=22_s"
 ]
 
+DOC = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mjuutjo19df7vnadx0um.jpg"
+
 # ------------------------------------------------------------------------------
 # OWNERS :-----------------------------------------------------------------
 # ------------------------------------------------------------------------------
@@ -88,10 +90,11 @@ sebastien = User.create!(
   last_name: "Balas",
   phone_number: "06 45 76 12 45",
   address: "103 av Berthelot, 69007 LYON",
+  profil_confirmed: true,
   remote_avatar_url: "https://avatars3.githubusercontent.com/u/24254220?v=4",
-  remote_id_card_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_tax_notice_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_payslip_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg"
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
   )
 
 alexandre = User.create!(
@@ -101,10 +104,11 @@ alexandre = User.create!(
   last_name: "BOUVIER",
   phone_number: "06 55 09 02 35",
   address: "38 av Berthelot, 69007 LYON",
+  profil_confirmed: true,
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/frri8d39adeybthbgsx0.jpg",
-  remote_id_card_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_tax_notice_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_payslip_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg"
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
   )
 
 alix = User.create!(
@@ -114,6 +118,7 @@ alix = User.create!(
   last_name: "PEYROT",
   phone_number: "06 43 49 02 13",
   address: "76 av Jean Mermoz, 69008 LYON",
+  profil_confirmed: false,
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/hwiwrtdiuxqckwavwwwf.jpg"
   )
 
@@ -124,10 +129,11 @@ etienne = User.create!(
   last_name: "DELORIEUX",
   phone_number: "07 34 26 53 12",
   address: "5 r Ste Marie des Terreaux, 69001 LYON",
+  profil_confirmed: true,
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mx9bazmz2jgmulvhamry.jpg",
-  remote_id_card_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_tax_notice_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_payslip_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg"
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
   )
 
 isabelle = User.create!(
@@ -137,10 +143,11 @@ isabelle = User.create!(
   last_name: "PONTOIZEAU" ,
   phone_number: "06 45 21 45 43",
   address: "2 av Berthelot, 69007 LYON",
+  profil_confirmed: true,
   remote_avatar_url: "https://avatars2.githubusercontent.com/u/34674849?v=4",
-  remote_id_card_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_tax_notice_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_payslip_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg"
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
   )
 
 louis = User.create!(
@@ -150,10 +157,11 @@ louis = User.create!(
   last_name: "DELON",
   phone_number: "06 23 53 24 78",
   address: "6 pl Terreaux, 69001 LYON",
+  profil_confirmed: true,
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/qec0kiexjcadwz457xwx.jpg",
-  remote_id_card_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_tax_notice_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg",
-  remote_payslip_url: "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520350792/yqeslygokfh5mun3uyea.jpg"
+  remote_id_card_url: DOC,
+  remote_tax_notice_url: DOC,
+  remote_payslip_url: DOC
   )
 
 lahbib = User.create!(
@@ -163,6 +171,7 @@ lahbib = User.create!(
   last_name: "BELHADDAD",
   phone_number: "07 32 46 85 23",
   address: "62 grande rue Croix Rousse, 69004 LYON",
+  profil_confirmed: false,
   remote_avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/evqefyvpwl5csouogibi.jpg"
   )
 
@@ -395,7 +404,7 @@ jose_alex = Candidacy.create!(
   )
 
 jose_isa = Candidacy.create!(
-  flat_id: jose_flat_2.id,
+  flat_id: jose_flat.id,
   user_id: isabelle.id,
   status: "Dossier archive"
   )
@@ -446,7 +455,7 @@ Message.create!(
   content: "Bonjour Antoine",
   read: true,
   sender: sebastien,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_seb
   )
 
@@ -454,7 +463,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: sebastien,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_seb
   )
 
@@ -462,7 +471,7 @@ Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
   sender: antoine,
-  receiver: sebastien,
+  recipient: sebastien,
   candidacy: antoine_1_seb
   )
 
@@ -470,7 +479,7 @@ Message.create!(
   content: "Done!",
   read: true,
   sender: sebastien,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_seb
   )
 
@@ -478,7 +487,7 @@ Message.create!(
   content: "Hâte de visiter votre appartement.",
   read: true,
   sender: sebastien,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_seb
   )
 
@@ -486,7 +495,7 @@ Message.create!(
   content: "Parfait. À jeudi.",
   read: true,
   sender: antoine,
-  receiver: sebastien,
+  recipient: sebastien,
   candidacy: antoine_1_seb
   )
 
@@ -494,7 +503,7 @@ Message.create!(
   content: "Encore merci pour la visite, j'ai vraiment apprécié votre appartement.",
   read: false,
   sender: sebastien,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_seb
   )
 
@@ -505,7 +514,7 @@ Message.create!(
   content: "Bonjour",
   read: true,
   sender: etienne,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_etienne
   )
 
@@ -513,7 +522,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: etienne,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_etienne
   )
 
@@ -521,7 +530,7 @@ Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
   sender: antoine,
-  receiver: etienne,
+  recipient: etienne,
   candidacy: antoine_1_etienne
   )
 
@@ -529,7 +538,7 @@ Message.create!(
   content: "Done!",
   read: true,
   sender: etienne,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_etienne
   )
 
@@ -537,7 +546,7 @@ Message.create!(
   content: "Hâte de visiter votre appartement.",
   read: true,
   sender: etienne,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_etienne
   )
 
@@ -545,7 +554,7 @@ Message.create!(
   content: "Parfait. À vendredi.",
   read: true,
   sender: antoine,
-  receiver: etienne,
+  recipient: etienne,
   candidacy: antoine_1_etienne
   )
 
@@ -553,7 +562,7 @@ Message.create!(
   content: "Merci pour la visite.",
   read: false,
   sender: etienne,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_etienne
   )
 
@@ -564,7 +573,7 @@ Message.create!(
   content: "Bonjour",
   read: true,
   sender: alexandre,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_alex
   )
 
@@ -572,7 +581,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: alexandre,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_alex
   )
 
@@ -580,7 +589,7 @@ Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
   sender: antoine,
-  receiver: alexandre,
+  recipient: alexandre,
   candidacy: antoine_1_alex
   )
 
@@ -588,7 +597,7 @@ Message.create!(
   content: "Done!",
   read: true,
   sender: alexandre,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_alex
   )
 
@@ -596,7 +605,7 @@ Message.create!(
   content: "Hâte de visiter votre appartement.",
   read: false,
   sender: alexandre,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_alex
   )
 
@@ -607,7 +616,7 @@ Message.create!(
   content: "Bonjour",
   read: true,
   sender: isabelle,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_isa
   )
 
@@ -615,7 +624,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: isabelle,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_isa
   )
 
@@ -623,7 +632,7 @@ Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
   sender: antoine,
-  receiver: isabelle,
+  recipient: isabelle,
   candidacy: antoine_1_isa
   )
 
@@ -631,7 +640,7 @@ Message.create!(
   content: "Done!",
   read: true,
   sender: isabelle,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_isa
   )
 
@@ -639,7 +648,7 @@ Message.create!(
   content: "Hâte de visiter votre appartement.",
   read: true,
   sender: isabelle,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_isa
   )
 
@@ -647,7 +656,7 @@ Message.create!(
   content: "Parfait. À demain.",
   read: true,
   sender: antoine,
-  receiver: isabelle,
+  recipient: isabelle,
   candidacy: antoine_1_isa
   )
 
@@ -658,7 +667,7 @@ Message.create!(
   content: "Bonjour",
   read: true,
   sender: alix,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_alix
   )
 
@@ -666,7 +675,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: alix,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_alix
   )
 
@@ -674,7 +683,7 @@ Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
   sender: antoine,
-  receiver: alix,
+  recipient: alix,
   candidacy: antoine_1_alix
   )
 
@@ -686,7 +695,7 @@ Message.create!(
   content: "Bonjour",
   read: true,
   sender: louis,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_louis
   )
 
@@ -694,7 +703,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: false,
   sender: louis,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_louis
   )
 
@@ -705,7 +714,7 @@ Message.create!(
   content: "Bonjour",
   read: true,
   sender: lahbib,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_lahbib
   )
 
@@ -713,7 +722,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: lahbib,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_lahbib
   )
 
@@ -721,7 +730,7 @@ Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
   sender: antoine,
-  receiver: lahbib,
+  recipient: lahbib,
   candidacy: antoine_1_lahbib
   )
 
@@ -729,7 +738,7 @@ Message.create!(
   content: "Done!",
   read: true,
   sender: lahbib,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_lahbib
   )
 
@@ -737,7 +746,7 @@ Message.create!(
   content: "Hâte de visiter votre appartement.",
   read: true,
   sender: lahbib,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_lahbib
   )
 
@@ -745,7 +754,7 @@ Message.create!(
   content: "Parfait. À vendredi.",
   read: true,
   sender: antoine,
-  receiver: lahbib,
+  recipient: lahbib,
   candidacy: antoine_1_lahbib
   )
 
@@ -753,7 +762,7 @@ Message.create!(
   content: "Merci pour la visite d'hier. C'était top.",
   read: true,
   sender: lahbib,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_lahbib
   )
 
@@ -766,7 +775,7 @@ Message.create!(
   content: "Bonjour",
   read: true,
   sender: alexandre,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_2_alex
   )
 
@@ -774,7 +783,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: alexandre,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_2_alex
   )
 
@@ -782,7 +791,7 @@ Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
   sender: antoine,
-  receiver: alexandre,
+  recipient: alexandre,
   candidacy: antoine_2_alex
   )
 
@@ -790,7 +799,7 @@ Message.create!(
   content: "Done!",
   read: true,
   sender: alexandre,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_2_alex
   )
 
@@ -798,7 +807,7 @@ Message.create!(
   content: "Hâte de visiter votre appartement.",
   read: false,
   sender: alexandre,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_2_alex
   )
 
@@ -809,7 +818,7 @@ Message.create!(
   content: "Bonjour",
   read: true,
   sender: sebastien,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_2_seb
   )
 
@@ -817,7 +826,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: sebastien,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_2_seb
   )
 
@@ -825,7 +834,7 @@ Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
   sender: antoine,
-  receiver: sebastien,
+  recipient: sebastien,
   candidacy: antoine_2_seb
   )
 
@@ -833,7 +842,7 @@ Message.create!(
   content: "Done!",
   read: true,
   sender: sebastien,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_2_seb
   )
 
@@ -841,7 +850,7 @@ Message.create!(
   content: "Hâte de visiter votre appartement.",
   read: true,
   sender: sebastien,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_2_seb
   )
 
@@ -849,7 +858,7 @@ Message.create!(
   content: "Parfait. À jeudi pour la visite.",
   read: true,
   sender: antoine,
-  receiver: sebastien,
+  recipient: sebastien,
   candidacy: antoine_2_seb
   )
 
@@ -860,7 +869,7 @@ Message.create!(
   content: "Bonjour Antoine",
   read: false,
   sender: alix,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_alix
   )
 
@@ -868,7 +877,7 @@ Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé par votre bel appartement.",
   read: false,
   sender: alix,
-  receiver: antoine,
+  recipient: antoine,
   candidacy: antoine_1_alix
   )
 
@@ -876,6 +885,8 @@ Message.create!(
 # AVAILABILITIES :--------------------------------------------------------------
 # ------------------------------------------------------------------------------
 # ANTOINE'S FLAT 1--------------------------------------------------------------
+
+puts "creating of the availabilities..."
 
 availability_flat1_old_1 = Availability.create!(
   flat_id: antoine_flat_1.id,
@@ -1080,6 +1091,8 @@ availability_flat2_14 = Availability.create!(
 # ------------------------------------------------------------------------------
 # ANTOINE'S FLAT 1--------------------------------------------------------------
 
+puts "creating of the bookings..."
+
 Booking.create!(
   availability: availability_flat1_old_1,
   candidacy: antoine_1_seb
@@ -1105,12 +1118,12 @@ Booking.create!(
 
 Booking.create!(
   availability: availability_flat2_9,
-  candidacy: antoine_1_alex
+  candidacy: antoine_2_alex
   )
 
 Booking.create!(
   availability: availability_flat2_10,
-  candidacy: antoine_1_seb
+  candidacy: antoine_2_seb
   )
 
 puts "Finish mamen!!!"
