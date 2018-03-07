@@ -6,7 +6,7 @@
   border: none;
   background: $my-blue;
   color: #fff;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 1em;
   line-height: 4;
@@ -26,6 +26,7 @@
   line-height: 1.428571429;
   border-radius: 2px;
 }
+
 
 .progress-button:hover {
     background-color: #0393e3;
