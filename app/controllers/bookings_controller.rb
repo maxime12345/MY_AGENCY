@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_candidacy, only: [:index]
+  before_action :set_candidacy, only: [:index, :create]
   before_action :set_availability, only: [:create]
 
   def index
@@ -24,14 +24,21 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.availability_id = @availability
-    authorize(@booking)
 
+
+    @booking = Booking.find_by(candidacy: @candidacy)
+
+    if @booking
+      @booking.availability = @availability
+    else
+      @booking = Booking.new(availability: @availability, candidacy: @candidacy)
+    end
+
+    authorize(@booking)
     if @booking.save
       render json: @booking
     else
-      head :bad_request
+      render json: @booking.errors, status: :bad_request
     end
   end
 
@@ -47,16 +54,7 @@ class BookingsController < ApplicationController
   end
 
   def set_availability
-    @availability = Availability.find(params[:flat_id])
-    authorize(@availability)
-  end
-
-  def booking_params
-    params
-      .require(:booking)
-      .permit(
-        :availability_id,
-        :candidacy_id
-      )
+    @availability = Availability.find(params[:availability_id])
+    # authorize(@availability)
   end
 end

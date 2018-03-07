@@ -81,7 +81,7 @@ function updateBookingHtml(element, booked, id){
 }
 
 function addBooking(element) {
-    availability = element.dataset.availabilityId;
+    availabilityId = element.dataset.availabilityId;
     fetch(`/candidacies/${candidacyId}/bookings/`, {
     method: "POST",
     headers: {
@@ -89,7 +89,7 @@ function addBooking(element) {
       'X-CSRF-Token': Rails.csrfToken()
     },
     credentials: 'same-origin',
-    body: JSON.stringify({ booking: {availability_id: availability} })
+    body: JSON.stringify({ availability_id: availabilityId })
   })
     .then(response => response.json())
     .then((data) => {
