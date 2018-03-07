@@ -1,8 +1,14 @@
 <%= simple_form_for(candidacy, method: :put) do |f| %>
   <%= f.hidden_field :status, value: status %>
   <% if status == "Dossier archive" %>
-    <%= f.button :submit, 'Refuser', class: "btn btn-success pull-center" %>
+    <%= f.button :button do %>
+      <i class="fas fa-times-circle refuse-candidacy"></i>
+    <% end %>
   <% else %>
-    <%= f.button :submit, 'Accepter', class: "btn btn-success pull-center" %>
+    <%= f.button :button do %>
+      <i class="fas fa-check-circle confirm-candidacy"></i>
+    <% end %>
   <% end %>
 <% end %>
+
+
