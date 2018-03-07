@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
         @bookings << candidacy.bookings.first unless candidacy.bookings.empty?
       end
       @bookings.sort!{|a,b| b.availability.start_time <=> a.availability.start_time}
+      @sidebar_title = "Mes candidatures"
     else
       set_candidacy
       @bookings = policy_scope(Booking).where(candidacy_id: @candidacy).order(created_at: :desc)
