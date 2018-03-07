@@ -1,16 +1,16 @@
 <div class="profil_show">
   <% if @profil.profil_confirmed %>
-      <h1> <%= "#{@profil.first_name} #{@profil.last_name}" %> <i class="fas fa-check-circle"></i></h1>
+      <h3> <%= "#{@profil.first_name} #{@profil.last_name}" %> <i class="fas fa-check-circle"></i></h3>
     <% else %>
-      <h1> <%= "#{@profil.first_name} #{@profil.last_name}" %></h1>
-      <p>(Merci de compléter votre profil pour appliquer à une offre)</p>
+      <h3> <%= "#{@profil.first_name} #{@profil.last_name}" %></h3>
+      <p>Attention : merci de bien compléter ton profile pour candidater à une offre</p>
     <% end %>
 
   <%= cl_image_tag @profil.avatar, class: "avatar-large" %>
 
 
   <ul>
-    <li><%= "adresse: #{@profil.address}" %></li>
+    <li><%= "Adresse: #{@profil.address}" %></li>
     <li><%= "Tel: #{@profil.phone_number}" %></li>
     <% if @profil.id_card? %>
       <li><i class="fas fa-check-circle"></i> Carte d'identité </li>
@@ -29,7 +29,11 @@
     <% end %>
   </ul>
 
-
-
-  <%= link_to 'Editer mon Profil', edit_profil_path(current_user) %> <br>
+  <%= link_to edit_profil_path(current_user) do %>
+    <i class="fas fa-edit"></i>
+    Editer mon profile
+  <% end %>
 </div>
+
+
+
