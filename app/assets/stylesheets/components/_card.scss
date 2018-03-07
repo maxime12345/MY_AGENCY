@@ -130,6 +130,9 @@ bottom: 0px;
     font-size: 25px;
     i {
       color: lightgrey;
+      .folder-check {
+      color: green
+    }
     }
     i:hover {
       color: $brand-primary;

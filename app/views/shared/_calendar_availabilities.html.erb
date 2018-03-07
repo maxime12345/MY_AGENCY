@@ -20,21 +20,13 @@
                   <div class="availabilities-day-date">
                     <%= day.day %> <%= I18n.l(day, format: '%B') %>
                   </div>
-
-
                 </div>
 
                 <div class="availabilities-slots" data-bookings="<%= @availabilities.to_json %>" data-flat="<%= @flat.id %>">
                   <% 12.times do |i| %>
-
-
                     <% date_hour = day.to_datetime + ((8 + i) * 3600).seconds %>
                     <% is_available = @availabilities.map(&:start_time).include?(date_hour) %>
-
                     <% availability_id = @availabilities.select{|av| av.start_time == date_hour}.map(&:id).first %>
-
-
-
                     <%= link_to flat_availabilities_path(@flat, date: date_hour), class:"availability-proprio" do %>
                       <div class="availabilities-slot <%= "availability" if is_available %>" data-dt="<%= date_hour %>" data-availability-id="<%= availability_id %>">
                         <%= date_hour.strftime('%Hh')  %>
