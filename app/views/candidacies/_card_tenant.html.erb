@@ -42,7 +42,7 @@
     <% elsif candidacy.status == "Visite effectuee" %>
       <%= render 'candidacies/form', candidacy: candidacy, status: "Dossier retenu" %>
       <%= render 'candidacies/form', candidacy: candidacy, status: "Dossier archive"%>
-      <i class="fas fa-check-circle confirm-candidacy"></i> <i class="fas fa-times-circle refuse-candidacy"></i>
+      <!-- <i class="fas fa-check-circle confirm-candidacy"></i> <i class="fas fa-times-circle refuse-candidacy"></i> -->
     <% elsif candidacy.status == "Visite programmee" %>
       <p class="status pending"> <%=  I18n.l(candidacy.bookings.first.availability.start_time, format: "%Hh %d/%m") %> </p>
     <% elsif candidacy.status == "En attente" %>
