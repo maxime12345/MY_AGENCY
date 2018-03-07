@@ -33,7 +33,7 @@ function form_autocomplete() {
 
       let percentage = 0;
       const interval = setInterval(() => {
-        percentage = percentage + 0.3;
+        percentage = percentage + 1;
         progress.style.width = `${percentage}%`;
       }, 150);
 
@@ -41,7 +41,7 @@ function form_autocomplete() {
         .then(response => response.json())
         .then((data) => {
           document.querySelectorAll(".form-group.hidden").forEach(function(elem){elem.classList.remove("hidden")});
-          document.querySelectorAll(".form-actions.hidden").forEach(function(elem){elem.classList.remove("hidden")});
+          document.querySelectorAll(".btn.btn-primary.pull-right.hidden").forEach(function(elem){elem.classList.remove("hidden")});
           document.querySelectorAll(".warning-info.hidden").forEach(function(elem){elem.classList.remove("hidden")});
           clearInterval(interval);
           progress.style.width = '100%';
