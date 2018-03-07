@@ -1,4 +1,6 @@
 <%= simple_form_for([ candidacy, message ], remote: true) do |form| %>
   <%= form.input :content, as: :text %>
-  <%= form.button :submit %>
+  <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+    Envoyer <i class="fas fa-paper-plane"></i>
+  <% end %>
 <% end %>

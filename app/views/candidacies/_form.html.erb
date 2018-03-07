@@ -1,6 +1,6 @@
 <%= simple_form_for(candidacy, method: :put) do |f| %>
   <%= f.hidden_field :status, value: status %>
-  <% if status == "Dossier archive" %>
+  <% if status == "Dossier archivé" %>
     <%= f.button :button do %>
       <i class="fas fa-times-circle refuse-candidacy"></i>
     <% end %>

@@ -50,7 +50,7 @@ class BookingsController < ApplicationController
     else
       render json: @booking.errors, status: :bad_request
     end
-    @candidacy.update(status: "Visite programmee")
+    @candidacy.update(status: "Visite programmée")
   end
 
   def destroy
