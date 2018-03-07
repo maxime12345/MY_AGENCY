@@ -7,7 +7,7 @@ class FlatsController < ApplicationController
     @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
     @flat = @flats.first
     authorize(@flat)
-    redirect_to flat_path(@flat)
+    redirect_to flat_candidacies_path(@flat)
     @flats = Flat.where.not(latitude: nil, longitude: nil)
 
     @markers = @flats.map do |flat|
