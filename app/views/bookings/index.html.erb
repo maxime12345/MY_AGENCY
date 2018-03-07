@@ -14,7 +14,7 @@
             <% if @bookings.empty? %>
               <h3>Aucune visite de plannifiée pour le moment</h3>
             <% else %>
-              <h3>Mes visites</h3>
+              <h3>Mes visites programmées</h3>
               <% @bookings.each do |booking|%>
                 <%= I18n.l(booking.availability.start_time, format: "%A %d %B %H:%M") %>: <%= booking.candidacy.flat.name %>
               <% end%>
