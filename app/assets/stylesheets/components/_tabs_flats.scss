@@ -19,6 +19,12 @@
   box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, 0.1);
   i {
     font-size: 36px;
+    position: relative;
+  }
+  .flat-num {
+    position: absolute;
+    color: white;
+    font-size: 12px;
   }
 }
 
@@ -29,6 +35,15 @@
 .tab-flat:hover {
   background-color: $my-light-blue;
   color: white;
+  i {
+    font-size: 36px;
+    position: relative;
+  }
+  .flat-num {
+    position: absolute;
+    color: $my-light-blue;
+    font-size: 12px;
+  }
 }
 
 // .tab-flat i {
