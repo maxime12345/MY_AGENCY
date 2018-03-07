@@ -8,6 +8,10 @@ class CandidacyPolicy < ApplicationPolicy
     # - user:   the `current_user` signed in with Devise.
   end
 
+  def index?
+    record.user == user
+  end
+
   def destroy?
     record.user == user
   end

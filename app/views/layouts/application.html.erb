@@ -3,8 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>myAgency</title>
+    <!-- Google result text-->
+    <title>myAgency - Oubliez les agences, nous vous offrons la simplicité</title>
+    <!-- Google result description-->
+    <meta name="description" content="myAgency révolutionne la relation locataire propriétaire!">
     <%= favicon_link_tag 'favicon.png' %>
+    <!-- Facebook-->
+    <meta property="og:title" content="myAgency - Oubliez les agences, nous vous offrons la simplicité">
+    <meta property="og:image" content="<%= image_tag 'facebook-card.jpeg' %>">
+    <meta property="og:description" content="myAgency révolutionne la relation locataire propriétaire!">
+    <meta property="og:site_name" content="myAgency"/>
+
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>

@@ -139,7 +139,7 @@ bottom: 0px;
   display: flex;
   align-items: center;
   padding: 20px;
-  border-bottom: 2px solid rgba(220,224,244,0.4);
+  border-bottom: 1px solid rgba(220,224,244,0.4);
   i {
     font-size: 25px;
     color: lightgrey;
@@ -151,6 +151,7 @@ bottom: 0px;
     margin-bottom: 0;
   }
 }
+
 
 .tenant-name {
   font-size: 15px;
@@ -210,4 +211,12 @@ i.folder-check{
   font-size: 15px;
   font-weight: bold;
   min-width: 70px;
+}
+
+i.confirm-candidacy {
+  color: green;
+}
+
+i.refuse-candidacy {
+  color: red;
 }

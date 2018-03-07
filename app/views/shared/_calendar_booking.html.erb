@@ -1,5 +1,5 @@
-<!-- calendar structure côté proprio by Antoine -->
-<div class="row calendar calendar-owner">
+<!-- calendar structure côté locataire by Antoine -->
+<div class="row calendar calendar-tenant">
   <div class="col-xs-12 text-center">
 
     <div class="row">
@@ -24,7 +24,7 @@
 
                 </div>
 
-                <div class="availabilities-slots" data-bookings="<%= @availabilities.to_json %>" data-flat="<%= @flat.id %>">
+                <div class="availabilities-slots" data-bookings="<%= @bookings.to_json %>" data-candidacy-id="<%= @candidacy.id %>">
                   <% 12.times do |i| %>
 
 
@@ -33,9 +33,16 @@
 
                     <% availability_id = @availabilities.select{|av| av.start_time == date_hour}.map(&:id).first %>
 
+                    <!-- ajouter insersion class 'booked' si is_booked == true -->
 
 
-                    <%= link_to flat_availabilities_path(@flat, date: date_hour), class:"availability-proprio" do %>
+                    <!-- ajouter data-booking-id si is_booked == true -->
+                    <% is_booked = @bookings.map(&:candidacy_id).include?(@candidacy) %>
+
+                    <!-- booking_id = @bookings.select{|booking| booking.availability_id == @availability} -->
+
+
+                    <%= link_to flat_availabilities_path(@flat, date: date_hour), class:"availability-tenant" do %>
                       <div class="availabilities-slot <%= "availability" if is_available %>" data-dt="<%= date_hour %>" data-availability-id="<%= availability_id %>">
                         <%= date_hour.strftime('%Hh')  %>
                       </div>

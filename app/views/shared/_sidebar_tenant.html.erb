@@ -6,7 +6,11 @@
           Annonces
         <% end %>
       </li>
-      <li><a href="#"><i class="far fa-calendar-alt"></i>Visites</li></a>
+      <li> <%= link_to  candidacy_bookings_path(@candidacy) do %>
+        <i class="far fa-calendar-alt"></i>
+          Visites
+        <% end %>
+      </li>
       <li> <%= link_to  profil_path(current_user) do %>
         <i class="fas fa-user"></i>
         Profile

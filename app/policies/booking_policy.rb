@@ -8,4 +8,8 @@ class BookingPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def create?
+    record.candidacy.user == user
+  end
 end
