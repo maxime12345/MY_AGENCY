@@ -12,7 +12,7 @@
               <div class="row">
                 <% @candidacies_sorted.each do |candidacy_group| %>
                   <% unless candidacy_group.empty? %>
-                    <h4> <%= candidacy_group.first.status%></h4>
+                    <%= render 'candidacy_class_name', candidacy_group: candidacy_group %>
                     <div class="candidacy_group">
                       <% candidacy_group.each do |candidacy| %>
                         <div class="col-xs-12 candidacy_group_card">

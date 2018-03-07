@@ -57,6 +57,7 @@ class FlatsController < ApplicationController
   end
 
   def edit
+    count_unread_messages
     @flats = policy_scope(Flat).where(user: current_user).order(created_at: :desc)
   end
 

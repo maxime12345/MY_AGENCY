@@ -3,10 +3,17 @@
   <div class="flex-container">
     <div class="candidacies">
       <div class="row">
-        <% @candidacies.each do |candidacy| %>
-          <div class="candidacy_card">
-            <%= render 'card_flat', candidacy: candidacy %>
-          </div>
+        <% @candidacies_sorted.each do |candidacy_group| %>
+          <% unless candidacy_group.empty? %>
+            <%= render 'candidacy_class_name', candidacy_group: candidacy_group %>
+            <div class="candidacy_group">
+              <% candidacy_group.each do |candidacy| %>
+                <div class="candidacy_card">
+                  <%= render 'card_flat', candidacy: candidacy %>
+                </div>
+              <% end%>
+            </div>
+          <% end%>
         <% end%>
       </div>
     </div>
@@ -19,3 +26,5 @@
     data-markers="<%= @markers.to_json %>">
   </div>
 </div>
+
+

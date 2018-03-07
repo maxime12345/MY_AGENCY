@@ -31,7 +31,9 @@
     <%= link_to flat_availabilities_path(candidacy.flat) do %>
       <% if candidacy.status == "Visite programmée" %>
         <i class="far fa-calendar-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i>
-      <% else%>
+      <% elsif candidacy.status == "Visite effectuée"%>
+        <i class="far fa-calendar-check">
+      <% else %>
         <i class="far fa-calendar-alt"></i>
       <% end%>
     <% end %>

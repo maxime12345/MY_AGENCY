@@ -76,6 +76,10 @@ bottom: 0px;
   transition: margin-top 0.2s ease, margin-bottom 0.2s ease;
 }
 
+.candidacy_card:last-child {
+  margin-bottom: 40px;
+}
+
 .candidacy_card:hover{
   margin-top: -10px;
   margin-bottom: 30px;
