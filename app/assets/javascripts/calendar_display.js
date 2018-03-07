@@ -1,3 +1,4 @@
+// JS côté PROPRIO
 let firstDay;
 const leftPagination = document.getElementById("left-pagination");
 const rightPagination = document.getElementById("right-pagination");
@@ -32,7 +33,7 @@ const updateDisplayDays = (firstDay) => {
 
 document.addEventListener('DOMContentLoaded', (event) => {
   // initialiser display au chargement de la page (à partir de today)
-  if (document.querySelector(".calendar")) {
+  if (document.querySelector(".calendar-owner")) {
     // initialiser plage jour = today --> today + 5
     firstDay = 0;
     updateDisplayDays(firstDay);
