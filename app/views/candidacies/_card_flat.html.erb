@@ -22,7 +22,13 @@
       </div>
       <div class="icon-calendar">
         <%= link_to candidacy_bookings_path(candidacy) do %>
-          <i class="far fa-calendar-alt"></i>
+          <% if candidacy.status == "Visite effectuée" || candidacy.status == "Dossier retenu" %>
+            <i class="far fa-calendar-check"></i>
+          <% elsif candidacy.status == "Visite programmée" %>
+            <i class="far fa-calendar-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i>
+          <% else %>
+            <i class="far fa-calendar-alt"></i>
+          <% end%>
         <% end %>
       </div>
     </div>

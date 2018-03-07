@@ -893,98 +893,98 @@ puts "creating of the availabilities..."
 
 availability_flat1_old_1 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Mon, 05 Mar 2018 10:00:00 UTC +00:00",
+  start_time: (Date.today - 2).to_datetime + ((10) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_old_2 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Mon, 05 Mar 2018 11:00:00 UTC +00:00",
+  start_time: (Date.today - 2).to_datetime + ((11) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_1 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Thu, 08 Mar 2018 10:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((10) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_2 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Thu, 08 Mar 2018 11:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((11) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_3 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Thu, 08 Mar 2018 13:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((12) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_4 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Thu, 08 Mar 2018 12:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((13) * 3600).seconds,
   visit_confirmed: false
   )
 
 
 availability_flat1_5 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Thu, 08 Mar 2018 18:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((18) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_6 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Thu, 08 Mar 2018 19:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((19) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_7 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Mon, 12 Mar 2018 10:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((10) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_8 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Mon, 12 Mar 2018 11:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((11) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_9 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Mon, 12 Mar 2018 17:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((17) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_10 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Mon, 12 Mar 2018 18:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((18) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_11 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Mon, 12 Mar 2018 19:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((19) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_12 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Tue, 13 Mar 2018 12:00:00 UTC +00:00",
+  start_time: (Date.today + 6).to_datetime + ((12) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_13 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Tue, 13 Mar 2018 13:00:00 UTC +00:00",
+  start_time: (Date.today + 6).to_datetime + ((13) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat1_14 = Availability.create!(
   flat_id: antoine_flat_1.id,
-  start_time: "Tue, 13 Mar 2018 14:00:00 UTC +00:00",
+  start_time: (Date.today + 6).to_datetime + ((14) * 3600).seconds,
   visit_confirmed: false
   )
 
@@ -994,100 +994,245 @@ availability_flat1_14 = Availability.create!(
 
 availability_flat2_old_1 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Mon, 05 Mar 2018 10:00:00 UTC +00:00",
+  start_time: (Date.today - 2).to_datetime + ((10) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_old_2 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Mon, 05 Mar 2018 11:00:00 UTC +00:00",
+  start_time: (Date.today - 2).to_datetime + ((11) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_1 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Thu, 08 Mar 2018 10:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((10) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_2 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Thu, 08 Mar 2018 11:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((11) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_3 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Thu, 08 Mar 2018 13:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((12) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_4 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Thu, 08 Mar 2018 12:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((13) * 3600).seconds,
   visit_confirmed: false
   )
 
 
 availability_flat2_5 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Thu, 08 Mar 2018 18:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((18) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_6 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Thu, 08 Mar 2018 19:00:00 UTC +00:00",
+  start_time: (Date.today + 1).to_datetime + ((19) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_7 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Mon, 12 Mar 2018 10:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((10) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_8 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Mon, 12 Mar 2018 11:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((11) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_9 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Mon, 12 Mar 2018 17:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((17) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_10 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Mon, 12 Mar 2018 18:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((18) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_11 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Mon, 12 Mar 2018 19:00:00 UTC +00:00",
+  start_time: (Date.today + 5).to_datetime + ((19) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_12 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Tue, 13 Mar 2018 12:00:00 UTC +00:00",
+  start_time: (Date.today + 6).to_datetime + ((12) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_13 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Tue, 13 Mar 2018 13:00:00 UTC +00:00",
+  start_time: (Date.today + 6).to_datetime + ((13) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_14 = Availability.create!(
   flat_id: antoine_flat_2.id,
-  start_time: "Tue, 13 Mar 2018 14:00:00 UTC +00:00",
+  start_time: (Date.today + 6).to_datetime + ((14) * 3600).seconds,
   visit_confirmed: false
   )
+
+# ------------------------------------------------------------------------------
+# STEEVE'S FLAT 1--------------------------------------------------------------
+
+availability_flat3_1 = Availability.create!(
+  flat_id: steeve_flat.id,
+  start_time: (Date.today + 2).to_datetime + ((10) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat3_2 = Availability.create!(
+  flat_id: steeve_flat.id,
+  start_time: (Date.today + 2).to_datetime + ((11) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat3_3 = Availability.create!(
+  flat_id: steeve_flat.id,
+  start_time: (Date.today + 2).to_datetime + ((12) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat3_4 = Availability.create!(
+  flat_id: steeve_flat.id,
+  start_time: (Date.today + 2).to_datetime + ((13) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+
+availability_flat3_5 = Availability.create!(
+  flat_id: steeve_flat.id,
+  start_time: (Date.today + 1).to_datetime + ((18) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat3_6 = Availability.create!(
+  flat_id: steeve_flat.id,
+  start_time: (Date.today + 1).to_datetime + ((19) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+# ------------------------------------------------------------------------------
+# JOSE'S FLAT 1--------------------------------------------------------------
+
+availability_flat4_old_1 = Availability.create!(
+  flat_id: jose_flat.id,
+  start_time: (Date.today - 1).to_datetime + ((12) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat4_old_2 = Availability.create!(
+  flat_id: jose_flat.id,
+  start_time: (Date.today - 2).to_datetime + ((12) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat4_1 = Availability.create!(
+  flat_id: jose_flat.id,
+  start_time: (Date.today + 1).to_datetime + ((12) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat4_2 = Availability.create!(
+  flat_id: jose_flat.id,
+  start_time: (Date.today + 1).to_datetime + ((13) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat4_3 = Availability.create!(
+  flat_id: jose_flat.id,
+  start_time: (Date.today + 2).to_datetime + ((12) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat4_4 = Availability.create!(
+  flat_id: jose_flat.id,
+  start_time: (Date.today + 2).to_datetime + ((13) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+
+availability_flat4_5 = Availability.create!(
+  flat_id: jose_flat.id,
+  start_time: (Date.today + 3).to_datetime + ((12) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat4_6 = Availability.create!(
+  flat_id: jose_flat.id,
+  start_time: (Date.today + 3).to_datetime + ((13) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+# ------------------------------------------------------------------------------
+# MARION'S FLAT 1--------------------------------------------------------------
+
+availability_flat5_1 = Availability.create!(
+  flat_id: marion_flat.id,
+  start_time: (Date.today + 1).to_datetime + ((18) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat5_2 = Availability.create!(
+  flat_id: marion_flat.id,
+  start_time: (Date.today + 1).to_datetime + ((19) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat5_3 = Availability.create!(
+  flat_id: marion_flat.id,
+  start_time: (Date.today + 2).to_datetime + ((18) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat5_4 = Availability.create!(
+  flat_id: marion_flat.id,
+  start_time: (Date.today + 2).to_datetime + ((19) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+
+availability_flat5_5 = Availability.create!(
+  flat_id: marion_flat.id,
+  start_time: (Date.today + 4).to_datetime + ((18) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat5_6 = Availability.create!(
+  flat_id: marion_flat.id,
+  start_time: (Date.today + 4).to_datetime + ((19) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat5_7 = Availability.create!(
+  flat_id: marion_flat.id,
+  start_time: (Date.today + 5).to_datetime + ((18) * 3600).seconds,
+  visit_confirmed: false
+  )
+
+availability_flat5_8 = Availability.create!(
+  flat_id: marion_flat.id,
+  start_time: (Date.today + 5).to_datetime + ((19) * 3600).seconds,
+  visit_confirmed: false
+  )
+
 
 # ------------------------------------------------------------------------------
 # BOOKINGS :--------------------------------------------------------------------
@@ -1127,6 +1272,61 @@ Booking.create!(
 Booking.create!(
   availability: availability_flat2_10,
   candidacy: antoine_2_seb
+  )
+
+
+# ------------------------------------------------------------------------------
+# STEEVE'S FLAT 1--------------------------------------------------------------
+
+Booking.create!(
+  availability: availability_flat3_2,
+  candidacy: steeve_alex
+  )
+
+Booking.create!(
+  availability: availability_flat3_4,
+  candidacy: steeve_seb
+  )
+
+Booking.create!(
+  availability: availability_flat3_5,
+  candidacy: steeve_etienne
+  )
+
+# ------------------------------------------------------------------------------
+# JOSE'S FLAT 1--------------------------------------------------------------
+
+Booking.create!(
+  availability: availability_flat4_3,
+  candidacy: jose_alex
+  )
+
+Booking.create!(
+  availability: availability_flat4_old_1,
+  candidacy: jose_etienne
+  )
+
+Booking.create!(
+  availability: availability_flat4_old_2,
+  candidacy: jose_alix
+  )
+
+# ------------------------------------------------------------------------------
+# MARION'S FLAT 1--------------------------------------------------------------
+
+Booking.create!(
+  availability: availability_flat5_1,
+  candidacy: marion_etienne
+  )
+
+Booking.create!(
+  availability: availability_flat5_2,
+  candidacy: marion_alex
+  )
+
+Booking.create!(
+  availability: availability_flat5_8,
+  candidacy: marion_seb
   )
 
 puts "Finish mamen!!!"
