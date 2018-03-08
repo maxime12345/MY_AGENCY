@@ -133,11 +133,11 @@
 }
 .msj-rta{
   float:right;
-  background:$my-light-blue;
+  background:$my-very-light-blue;
   justify-content: space-between;
-  color: white;
+  // color: white;
   .time {
-    color: white;
+    // color: white;
   }
 }
 .msj{
@@ -187,7 +187,7 @@
     position:relative;
     border-style: solid;
     border-width: 13px 13px 0 0;
-    border-color: $my-light-blue transparent transparent transparent;
+    border-color: $my-very-light-blue transparent transparent transparent;
 }
 
 
