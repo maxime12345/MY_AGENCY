@@ -23,11 +23,12 @@
   height: 300px;
   flex: 1;
   background-color: red;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 15px;
 }
 
 .visuel {
   display: flex;
+  padding: 10px 0 5px 0;
 }
 
 .photo_flat {
@@ -45,6 +46,7 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .metric_flat {
@@ -65,5 +67,9 @@
 
 .dash_tenant_candidacies {
   display: flex;
+}
+
+#update_flat_date {
+  text-align: right;
 }
 
