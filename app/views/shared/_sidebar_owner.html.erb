@@ -1,7 +1,7 @@
 <!-- Sidebar du proprio -->
 <div class="sidebar sidebar-owner">
   <!-- Ajouter un if @flat exist : Name Sinon "Nouveau" -->
-  <h3><%= @flat.name ? @flat.name : "Nouveau" %></h3>
+  <h3><%= @flat.name ? @flat.name : "Nouveau logement" %></h3>
   <!-- <h3><%= @flat.name %></h3> -->
   <% if !@flat.id.nil? %>
     <ul>
