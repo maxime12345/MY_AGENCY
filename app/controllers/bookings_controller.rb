@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_candidacy, only: [:create, :destroy, :update]
-  before_action :set_availability, only: [:create, :destroy, :update]
+  before_action :set_availability, only: [:create, :update]
+  before_action :set_booking, only: :destroy
 
   def index
     if params[:candidacy_id].nil?
@@ -54,6 +55,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @candidacy = @booking.candidacy
     @candidacy.update(status: "En attente")
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -62,6 +64,10 @@ class BookingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def set_candidacy
     @candidacy = Candidacy.find(params[:candidacy_id])
