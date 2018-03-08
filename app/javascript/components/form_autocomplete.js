@@ -14,8 +14,7 @@ function updateFields(data) {
   document.getElementById('flat_surface').value = data.surface;
   document.getElementById('flat_nb_rooms').value = data.nb_rooms;
   document.getElementById('flat_photo').value = data.photo;
-
-  // document.getElementById('flat_visit_capacity').value = data.visit_capacity;
+  document.getElementById('flat_visit_capacity').value = data.visit_capacity;
 }
 
 function form_autocomplete() {

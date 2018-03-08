@@ -48,6 +48,7 @@ class FlatsController < ApplicationController
     authorize(@flat)
     @flat.user = current_user
     @flat.photo = params[:flat][:photo].split(',')
+    @flat.visit_capacity = params[:flat][:visit_capacity]
 
     if @flat.save
       redirect_to @flat, notice: 'Flat was successfully created.'
@@ -94,7 +95,6 @@ class FlatsController < ApplicationController
         :surface,
         :nb_rooms,
         :ad_url,
-        :visit_capacity,
         :user_id
       )
   end

@@ -19,7 +19,7 @@
     <%= f.input :publication_date, wrapper_html: { class: 'hidden' }, label: "Date de publication" %>
     <%= f.input :surface, wrapper_html: { class: 'hidden' }, label: "Surface" %>
     <%= f.input :nb_rooms, wrapper_html: { class: 'hidden' }, label: "Nombre de pièces principales" %>
-    <%= f.input :visit_capacity, wrapper_html: { class: 'hidden' }, label: "Entrez le nombre maximal de candidat par visite" %>
+    <%= f.input :visit_capacity, as: :hidden, label: "Entrez le nombre maximal de candidat par visite" %>
     <%= f.input :photo, as: :hidden, label: "Liens des photos" %>
   </div>
 
