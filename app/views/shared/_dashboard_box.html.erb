@@ -13,13 +13,16 @@
               <i class="fas fa-pen-square"></i>
             <% end %>
           <% else %>
-            <%= cl_image_tag @flat.user.avatar, class: "avatar"%>
+            <% owner_avatar = true %>
           <% end %>
       </div>
     </div>
 
     <div class="visuel">
       <div class="photo_flat">
+        <% if owner_avatar %>
+          <%= cl_image_tag @flat.user.avatar, class: "avatar-large-bordered"%>
+        <% end %>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->

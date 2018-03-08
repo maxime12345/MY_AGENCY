@@ -33,6 +33,14 @@
 
 .photo_flat {
   flex: 0 0 400px;
+  position: relative;
+  .avatar-large-bordered {
+    position: absolute;
+    z-index:1;
+    bottom: 10px;
+    right: 10px;
+
+  }
 }
 
 .item > img {
