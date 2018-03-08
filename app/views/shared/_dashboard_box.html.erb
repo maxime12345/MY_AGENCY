@@ -70,7 +70,7 @@
     <div class="info_flat">
       <div class="metric_flat">
         <div><p><%= @flat.price %> € / mois</p></div>
-        <div><p><i class="fas fa-expand-arrows-alt"></i> <%= @flat.surface %> m2 </p></div>
+        <div><p><i class="fas fa-expand-arrows-alt"></i> <%= @flat.surface %> m<sup>2</sup> </p></div>
         <div><p><i class="fas fa-bed"></i> <%= @flat.nb_rooms %> pièce(s)</p></div>
       </div>
       <div>
@@ -82,7 +82,7 @@
     <p><%= @flat.description.html_safe %></p>
 
 
-    <h6>Dernière mise à jour le
+    <h6 id="update_flat_date">Dernière mise à jour le
       <%= @flat.updated_at.day %>/<%= @flat.updated_at.month %>/<%= @flat.updated_at.year %>
 
 
