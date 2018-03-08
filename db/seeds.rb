@@ -192,7 +192,7 @@ lahbib = User.create!(
 puts "scrapping of LEBONCOIN..."
 
 antoine_flat_hash_1 = LbcScraper.new(urls[0]).extract
-antoine_flat_hash_2 = LbcScraper.new(urls[1]).extract
+steeve_flat_hash_2 = LbcScraper.new(urls[1]).extract
 steeve_flat_hash = LbcScraper.new(urls[2]).extract
 jose_flat_hash = LbcScraper.new(urls[3]).extract
 marion_flat_hash = LbcScraper.new(urls[4]).extract
@@ -213,20 +213,6 @@ antoine_flat_1 = Flat.create!(
   photo: antoine_flat_hash_1[:photo]
   )
 
-antoine_flat_2 = Flat.create!(
-  name: antoine_flat_hash_2[:name],
-  address: antoine_flat_hash_2[:address],
-  price: antoine_flat_hash_2[:price],
-  user_id: antoine.id,
-  description: antoine_flat_hash_2[:description],
-  publication_date: antoine_flat_hash_2[:publication_date],
-  surface: antoine_flat_hash_2[:surface],
-  nb_rooms: antoine_flat_hash_2[:nb_rooms],
-  ad_url: urls[1],
-  visit_capacity: 3,
-  photo: antoine_flat_hash_2[:photo]
-  )
-
 steeve_flat = Flat.create!(
   name: steeve_flat_hash[:name],
   address: steeve_flat_hash[:address],
@@ -239,6 +225,20 @@ steeve_flat = Flat.create!(
   ad_url: urls[2],
   visit_capacity: 3,
   photo: steeve_flat_hash[:photo]
+  )
+
+steeve_flat_2 = Flat.create!(
+  name: steeve_flat_hash_2[:name],
+  address: steeve_flat_hash_2[:address],
+  price: steeve_flat_hash_2[:price],
+  user_id: steeve.id,
+  description: steeve_flat_hash_2[:description],
+  publication_date: steeve_flat_hash_2[:publication_date],
+  surface: steeve_flat_hash_2[:surface],
+  nb_rooms: steeve_flat_hash_2[:nb_rooms],
+  ad_url: urls[1],
+  visit_capacity: 3,
+  photo: steeve_flat_hash_2[:photo]
   )
 
 jose_flat = Flat.create!(
@@ -275,7 +275,7 @@ marion_flat = Flat.create!(
 
 puts "creating of the candidacies..."
 
-flats = [antoine_flat_1, antoine_flat_2, steeve_flat, jose_flat]
+flats = [antoine_flat_1, steeve_flat_2, steeve_flat, jose_flat]
 tenants = [sebastien, alexandre, alix, etienne, isabelle, louis, lahbib]
 status_table = ["Dossier retenu", "Visite effectuée", "Visite programmée", "En attente", "Dossier archivé"]
 
@@ -326,28 +326,28 @@ antoine_1_lahbib = Candidacy.create!(
   )
 
 # ------------------------------------------------------------------------------
-# Candidacies for antoine's flat 2
+# Candidacies for steeve's flat 2
 
-antoine_2_alex = Candidacy.create!(
-  flat_id: antoine_flat_2.id,
+steeve_2_alex = Candidacy.create!(
+  flat_id: steeve_flat_2.id,
   user_id: alexandre.id,
   status: "Visite programmée"
   )
 
-antoine_2_seb = Candidacy.create!(
-  flat_id: antoine_flat_2.id,
+steeve_2_seb = Candidacy.create!(
+  flat_id: steeve_flat_2.id,
   user_id: sebastien.id,
   status: "Visite programmée"
   )
 
-antoine_2_lahbib = Candidacy.create!(
-  flat_id: antoine_flat_2.id,
+steeve_2_lahbib = Candidacy.create!(
+  flat_id: steeve_flat_2.id,
   user_id: lahbib.id,
   status: "En attente"
   )
 
-antoine_2_alix = Candidacy.create!(
-  flat_id: antoine_flat_2.id,
+steeve_2_alix = Candidacy.create!(
+  flat_id: steeve_flat_2.id,
   user_id: alix.id,
   status: "En attente"
   )
@@ -459,7 +459,9 @@ Message.create!(
   read: true,
   sender: sebastien,
   recipient: antoine,
-  candidacy: antoine_1_seb
+  candidacy: antoine_1_seb,
+  updated_at: (Date.today).to_datetime + ((12) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((12) * 3600).seconds
   )
 
 Message.create!(
@@ -467,7 +469,9 @@ Message.create!(
   read: true,
   sender: sebastien,
   recipient: antoine,
-  candidacy: antoine_1_seb
+  candidacy: antoine_1_seb,
+  updated_at: (Date.today).to_datetime + ((13) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((13) * 3600).seconds
   )
 
 Message.create!(
@@ -475,7 +479,9 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: sebastien,
-  candidacy: antoine_1_seb
+  candidacy: antoine_1_seb,
+  updated_at: (Date.today).to_datetime + ((14) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((14) * 3600).seconds
   )
 
 Message.create!(
@@ -483,7 +489,9 @@ Message.create!(
   read: true,
   sender: sebastien,
   recipient: antoine,
-  candidacy: antoine_1_seb
+  candidacy: antoine_1_seb,
+  updated_at: (Date.today).to_datetime + ((15) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((15) * 3600).seconds
   )
 
 Message.create!(
@@ -491,7 +499,9 @@ Message.create!(
   read: true,
   sender: sebastien,
   recipient: antoine,
-  candidacy: antoine_1_seb
+  candidacy: antoine_1_seb,
+  updated_at: (Date.today).to_datetime + ((16) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((16) * 3600).seconds
   )
 
 Message.create!(
@@ -499,7 +509,9 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: sebastien,
-  candidacy: antoine_1_seb
+  candidacy: antoine_1_seb,
+  updated_at: (Date.today).to_datetime + ((17) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((17) * 3600).seconds
   )
 
 Message.create!(
@@ -507,7 +519,9 @@ Message.create!(
   read: false,
   sender: sebastien,
   recipient: antoine,
-  candidacy: antoine_1_seb
+  candidacy: antoine_1_seb,
+  updated_at: (Date.today).to_datetime + ((18) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((18) * 3600).seconds
   )
 
 # ------------------------------------------------------------------------------
@@ -518,7 +532,9 @@ Message.create!(
   read: true,
   sender: etienne,
   recipient: antoine,
-  candidacy: antoine_1_etienne
+  candidacy: antoine_1_etienne,
+  updated_at: (Date.today - 1).to_datetime + ((12) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((12) * 3600).seconds
   )
 
 Message.create!(
@@ -526,7 +542,9 @@ Message.create!(
   read: true,
   sender: etienne,
   recipient: antoine,
-  candidacy: antoine_1_etienne
+  candidacy: antoine_1_etienne,
+  updated_at: (Date.today - 1).to_datetime + ((13) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((13) * 3600).seconds
   )
 
 Message.create!(
@@ -534,7 +552,9 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: etienne,
-  candidacy: antoine_1_etienne
+  candidacy: antoine_1_etienne,
+  updated_at: (Date.today - 1).to_datetime + ((14) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((14) * 3600).seconds
   )
 
 Message.create!(
@@ -542,7 +562,9 @@ Message.create!(
   read: true,
   sender: etienne,
   recipient: antoine,
-  candidacy: antoine_1_etienne
+  candidacy: antoine_1_etienne,
+  updated_at: (Date.today - 1).to_datetime + ((15) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((15) * 3600).seconds
   )
 
 Message.create!(
@@ -550,7 +572,9 @@ Message.create!(
   read: true,
   sender: etienne,
   recipient: antoine,
-  candidacy: antoine_1_etienne
+  candidacy: antoine_1_etienne,
+  updated_at: (Date.today - 1).to_datetime + ((16) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((16) * 3600).seconds
   )
 
 Message.create!(
@@ -558,15 +582,19 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: etienne,
-  candidacy: antoine_1_etienne
+  candidacy: antoine_1_etienne,
+  updated_at: (Date.today - 1).to_datetime + ((17) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((17) * 3600).seconds
   )
 
 Message.create!(
   content: "Merci pour la visite.",
-  read: false,
+  read: true,
   sender: etienne,
   recipient: antoine,
-  candidacy: antoine_1_etienne
+  candidacy: antoine_1_etienne,
+  updated_at: (Date.today - 1).to_datetime + ((18) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((18) * 3600).seconds
   )
 
 # ------------------------------------------------------------------------------
@@ -577,7 +605,9 @@ Message.create!(
   read: true,
   sender: alexandre,
   recipient: antoine,
-  candidacy: antoine_1_alex
+  candidacy: antoine_1_alex,
+  updated_at: (Date.today).to_datetime + ((12) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((12) * 3600).seconds
   )
 
 Message.create!(
@@ -585,7 +615,9 @@ Message.create!(
   read: true,
   sender: alexandre,
   recipient: antoine,
-  candidacy: antoine_1_alex
+  candidacy: antoine_1_alex,
+  updated_at: (Date.today).to_datetime + ((13) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((13) * 3600).seconds
   )
 
 Message.create!(
@@ -593,7 +625,9 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: alexandre,
-  candidacy: antoine_1_alex
+  candidacy: antoine_1_alex,
+  updated_at: (Date.today).to_datetime + ((14) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((14) * 3600).seconds
   )
 
 Message.create!(
@@ -601,7 +635,9 @@ Message.create!(
   read: true,
   sender: alexandre,
   recipient: antoine,
-  candidacy: antoine_1_alex
+  candidacy: antoine_1_alex,
+  updated_at: (Date.today).to_datetime + ((15) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((15) * 3600).seconds
   )
 
 Message.create!(
@@ -609,7 +645,9 @@ Message.create!(
   read: false,
   sender: alexandre,
   recipient: antoine,
-  candidacy: antoine_1_alex
+  candidacy: antoine_1_alex,
+  updated_at: (Date.today).to_datetime + ((16) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((16) * 3600).seconds
   )
 
 # ------------------------------------------------------------------------------
@@ -620,7 +658,9 @@ Message.create!(
   read: true,
   sender: isabelle,
   recipient: antoine,
-  candidacy: antoine_1_isa
+  candidacy: antoine_1_isa,
+  updated_at: (Date.today - 2).to_datetime + ((12) * 3600).seconds,
+  created_at: (Date.today - 2).to_datetime + ((12) * 3600).seconds
   )
 
 Message.create!(
@@ -628,7 +668,9 @@ Message.create!(
   read: true,
   sender: isabelle,
   recipient: antoine,
-  candidacy: antoine_1_isa
+  candidacy: antoine_1_isa,
+  updated_at: (Date.today - 2).to_datetime + ((13) * 3600).seconds,
+  created_at: (Date.today - 2).to_datetime + ((13) * 3600).seconds
   )
 
 Message.create!(
@@ -636,7 +678,9 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: isabelle,
-  candidacy: antoine_1_isa
+  candidacy: antoine_1_isa,
+  updated_at: (Date.today - 2).to_datetime + ((14) * 3600).seconds,
+  created_at: (Date.today - 2).to_datetime + ((14) * 3600).seconds
   )
 
 Message.create!(
@@ -644,7 +688,9 @@ Message.create!(
   read: true,
   sender: isabelle,
   recipient: antoine,
-  candidacy: antoine_1_isa
+  candidacy: antoine_1_isa,
+  updated_at: (Date.today - 2).to_datetime + ((15) * 3600).seconds,
+  created_at: (Date.today - 2).to_datetime + ((15) * 3600).seconds
   )
 
 Message.create!(
@@ -652,7 +698,9 @@ Message.create!(
   read: true,
   sender: isabelle,
   recipient: antoine,
-  candidacy: antoine_1_isa
+  candidacy: antoine_1_isa,
+  updated_at: (Date.today - 2).to_datetime + ((16) * 3600).seconds,
+  created_at: (Date.today - 2).to_datetime + ((16) * 3600).seconds
   )
 
 Message.create!(
@@ -660,7 +708,9 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: isabelle,
-  candidacy: antoine_1_isa
+  candidacy: antoine_1_isa,
+  updated_at: (Date.today - 2).to_datetime + ((17) * 3600).seconds,
+  created_at: (Date.today - 2).to_datetime + ((17) * 3600).seconds
   )
 
 # ------------------------------------------------------------------------------
@@ -671,7 +721,9 @@ Message.create!(
   read: true,
   sender: alix,
   recipient: antoine,
-  candidacy: antoine_1_alix
+  candidacy: antoine_1_alix,
+  updated_at: (Date.today - 1).to_datetime + ((12) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((12) * 3600).seconds
   )
 
 Message.create!(
@@ -679,7 +731,9 @@ Message.create!(
   read: true,
   sender: alix,
   recipient: antoine,
-  candidacy: antoine_1_alix
+  candidacy: antoine_1_alix,
+  updated_at: (Date.today - 1).to_datetime + ((13) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((13) * 3600).seconds
   )
 
 Message.create!(
@@ -687,7 +741,9 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: alix,
-  candidacy: antoine_1_alix
+  candidacy: antoine_1_alix,
+  updated_at: (Date.today - 1).to_datetime + ((14) * 3600).seconds,
+  created_at: (Date.today - 1).to_datetime + ((14) * 3600).seconds
   )
 
 
@@ -699,7 +755,9 @@ Message.create!(
   read: true,
   sender: louis,
   recipient: antoine,
-  candidacy: antoine_1_louis
+  candidacy: antoine_1_louis,
+  updated_at: (Date.today).to_datetime + ((12) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((12) * 3600).seconds
   )
 
 Message.create!(
@@ -707,7 +765,9 @@ Message.create!(
   read: false,
   sender: louis,
   recipient: antoine,
-  candidacy: antoine_1_louis
+  candidacy: antoine_1_louis,
+  updated_at: (Date.today).to_datetime + ((13) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((13) * 3600).seconds
   )
 
 # ------------------------------------------------------------------------------
@@ -718,7 +778,9 @@ Message.create!(
   read: true,
   sender: lahbib,
   recipient: antoine,
-  candidacy: antoine_1_lahbib
+  candidacy: antoine_1_lahbib,
+  updated_at: (Date.today - 5).to_datetime + ((12) * 3600).seconds,
+  created_at: (Date.today - 5).to_datetime + ((12) * 3600).seconds
   )
 
 Message.create!(
@@ -726,7 +788,9 @@ Message.create!(
   read: true,
   sender: lahbib,
   recipient: antoine,
-  candidacy: antoine_1_lahbib
+  candidacy: antoine_1_lahbib,
+  updated_at: (Date.today - 5).to_datetime + ((13) * 3600).seconds,
+  created_at: (Date.today - 5).to_datetime + ((13) * 3600).seconds
   )
 
 Message.create!(
@@ -734,7 +798,9 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: lahbib,
-  candidacy: antoine_1_lahbib
+  candidacy: antoine_1_lahbib,
+  updated_at: (Date.today - 5).to_datetime + ((14) * 3600).seconds,
+  created_at: (Date.today - 5).to_datetime + ((14) * 3600).seconds
   )
 
 Message.create!(
@@ -742,7 +808,9 @@ Message.create!(
   read: true,
   sender: lahbib,
   recipient: antoine,
-  candidacy: antoine_1_lahbib
+  candidacy: antoine_1_lahbib,
+  updated_at: (Date.today - 5).to_datetime + ((15) * 3600).seconds,
+  created_at: (Date.today - 5).to_datetime + ((15) * 3600).seconds
   )
 
 Message.create!(
@@ -750,7 +818,9 @@ Message.create!(
   read: true,
   sender: lahbib,
   recipient: antoine,
-  candidacy: antoine_1_lahbib
+  candidacy: antoine_1_lahbib,
+  updated_at: (Date.today - 5).to_datetime + ((16) * 3600).seconds,
+  created_at: (Date.today - 5).to_datetime + ((16) * 3600).seconds
   )
 
 Message.create!(
@@ -758,7 +828,9 @@ Message.create!(
   read: true,
   sender: antoine,
   recipient: lahbib,
-  candidacy: antoine_1_lahbib
+  candidacy: antoine_1_lahbib,
+  updated_at: (Date.today - 5).to_datetime + ((17) * 3600).seconds,
+  created_at: (Date.today - 5).to_datetime + ((17) * 3600).seconds
   )
 
 Message.create!(
@@ -766,122 +838,124 @@ Message.create!(
   read: true,
   sender: lahbib,
   recipient: antoine,
-  candidacy: antoine_1_lahbib
+  candidacy: antoine_1_lahbib,
+  updated_at: (Date.today - 5).to_datetime + ((18) * 3600).seconds,
+  created_at: (Date.today - 5).to_datetime + ((18) * 3600).seconds
   )
 
 # ------------------------------------------------------------------------------
-# INBOX: ANTOINE 2 -------------------------------------------------------------
+# INBOX: STEEVE 2 -------------------------------------------------------------
 
-# Messages btw antoine and alex 2
+# Messages btw steeve and alex 2
 
 Message.create!(
   content: "Bonjour",
   read: true,
   sender: alexandre,
-  recipient: antoine,
-  candidacy: antoine_2_alex
+  recipient: steeve,
+  candidacy: steeve_2_alex
   )
 
 Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: alexandre,
-  recipient: antoine,
-  candidacy: antoine_2_alex
+  recipient: steeve,
+  candidacy: steeve_2_alex
   )
 
 Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
-  sender: antoine,
+  sender: steeve,
   recipient: alexandre,
-  candidacy: antoine_2_alex
+  candidacy: steeve_2_alex
   )
 
 Message.create!(
   content: "Done!",
   read: true,
   sender: alexandre,
-  recipient: antoine,
-  candidacy: antoine_2_alex
+  recipient: steeve,
+  candidacy: steeve_2_alex
   )
 
 Message.create!(
   content: "Hâte de visiter votre appartement.",
   read: false,
   sender: alexandre,
-  recipient: antoine,
-  candidacy: antoine_2_alex
+  recipient: steeve,
+  candidacy: steeve_2_alex
   )
 
 # ------------------------------------------------------------------------------
-# Messages btw antoine and seb 2
+# Messages btw steeve and seb 2
 
 Message.create!(
   content: "Bonjour",
   read: true,
   sender: sebastien,
-  recipient: antoine,
-  candidacy: antoine_2_seb
+  recipient: steeve,
+  candidacy: steeve_2_seb
   )
 
 Message.create!(
   content: "Merci pour votre annonce, je suis très intéressé. Je selectionne une visite dès que possible.",
   read: true,
   sender: sebastien,
-  recipient: antoine,
-  candidacy: antoine_2_seb
+  recipient: steeve,
+  candidacy: steeve_2_seb
   )
 
 Message.create!(
   content: "De rien, j'attends votre booking.",
   read: true,
-  sender: antoine,
+  sender: steeve,
   recipient: sebastien,
-  candidacy: antoine_2_seb
+  candidacy: steeve_2_seb
   )
 
 Message.create!(
   content: "Done!",
   read: true,
   sender: sebastien,
-  recipient: antoine,
-  candidacy: antoine_2_seb
+  recipient: steeve,
+  candidacy: steeve_2_seb
   )
 
 Message.create!(
   content: "Hâte de visiter votre appartement.",
   read: true,
   sender: sebastien,
-  recipient: antoine,
-  candidacy: antoine_2_seb
+  recipient: steeve,
+  candidacy: steeve_2_seb
   )
 
 Message.create!(
   content: "Parfait. À jeudi pour la visite.",
   read: true,
-  sender: antoine,
+  sender: steeve,
   recipient: sebastien,
-  candidacy: antoine_2_seb
+  candidacy: steeve_2_seb
   )
 
 # ------------------------------------------------------------------------------
-# Messages btw antoine and alix 2
+# Messages btw steeve and alix 2
 
 Message.create!(
-  content: "Bonjour Antoine",
+  content: "Bonjour steeve",
   read: false,
   sender: alix,
-  recipient: antoine,
-  candidacy: antoine_2_alix
+  recipient: steeve,
+  candidacy: steeve_2_alix
   )
 
 Message.create!(
   content: "Merci pour votre annonce. Très bel appartement.",
   read: false,
   sender: alix,
-  recipient: antoine,
-  candidacy: antoine_2_alix
+  recipient: steeve,
+  candidacy: steeve_2_alix
   )
 
 # ------------------------------------------------------------------------------
@@ -990,101 +1064,101 @@ availability_flat1_14 = Availability.create!(
 
 
 # ------------------------------------------------------------------------------
-# ANTOINE'S FLAT 2--------------------------------------------------------------
+# STEEVE'S FLAT 2--------------------------------------------------------------
 
 availability_flat2_old_1 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today - 2).to_datetime + ((10) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_old_2 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today - 2).to_datetime + ((11) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_1 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 1).to_datetime + ((10) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_2 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 1).to_datetime + ((11) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_3 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 1).to_datetime + ((12) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_4 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 1).to_datetime + ((13) * 3600).seconds,
   visit_confirmed: false
   )
 
 
 availability_flat2_5 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 1).to_datetime + ((18) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_6 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 1).to_datetime + ((19) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_7 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 5).to_datetime + ((10) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_8 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 5).to_datetime + ((11) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_9 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 5).to_datetime + ((17) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_10 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 5).to_datetime + ((18) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_11 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 5).to_datetime + ((19) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_12 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 6).to_datetime + ((12) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_13 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 6).to_datetime + ((13) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat2_14 = Availability.create!(
-  flat_id: antoine_flat_2.id,
+  flat_id: steeve_flat_2.id,
   start_time: (Date.today + 6).to_datetime + ((14) * 3600).seconds,
   visit_confirmed: false
   )
@@ -1262,16 +1336,16 @@ Booking.create!(
   )
 
 # ------------------------------------------------------------------------------
-# ANTOINE'S FLAT 2--------------------------------------------------------------
+# STEEVE'S FLAT 2--------------------------------------------------------------
 
 Booking.create!(
   availability: availability_flat2_9,
-  candidacy: antoine_2_alex
+  candidacy: steeve_2_alex
   )
 
 Booking.create!(
   availability: availability_flat2_10,
-  candidacy: antoine_2_seb
+  candidacy: steeve_2_seb
   )
 
 

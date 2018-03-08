@@ -3,7 +3,7 @@
     <!-- grille -->
     <div id="inbox">
       <% if @discussions[0].nil? %>
-        <h3>Vous n'avez pas encore de conversations.</h3>
+        <h3>Tu n'as pas encore de message</h3>
       <% else %>
         <% @discussions.each do |discussion| %>
           <%= render 'messages/message_inbox', last_message: discussion.first[0], unread_messages: discussion[1]%>
