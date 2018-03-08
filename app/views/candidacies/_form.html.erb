@@ -2,12 +2,10 @@
   <%= f.hidden_field :status, value: status %>
   <% if status == "Dossier archivé" %>
     <%= f.button :button do %>
-      <i class="fas fa-times-circle refuse-candidacy"></i>
+      <i class="fas fa-archive"> </i>
     <% end %>
   <% else %>
-    <%= f.button :button do %>
-      <i class="fas fa-check-circle confirm-candidacy"></i>
-    <% end %>
+    <%= f.button :submit, 'Approuver', class: "btn btn-sm btn-primary accept-candidat" %>
   <% end %>
 <% end %>
 

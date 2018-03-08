@@ -2,7 +2,7 @@ class CandidaciesController < ApplicationController
   before_action :set_candidacy, only: [:show, :edit, :update, :destroy]
   before_action :set_flat, only: [:new, :create]
 
-  # skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:new]
 
   def index
     if params[:flat_id].nil? #Côté locataire: Mes candidatures

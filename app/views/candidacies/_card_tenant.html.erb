@@ -38,13 +38,11 @@
       <% end%>
     <% end %>
   </div>
-  <div class="tenant-status">
+  <div class="tenant-status text-center">
     <% if candidacy.status == "Dossier retenu" %>
-      <p class="status accepted"> Retenu</p>
+      <p class="status accepted"><i class="fas fa-check-circle"></i></p>
     <% elsif candidacy.status == "Visite effectuée" %>
       <%= render 'candidacies/form', candidacy: candidacy, status: "Dossier retenu" %>
-      <%= render 'candidacies/form', candidacy: candidacy, status: "Dossier archivé"%>
-      <!-- <i class="fas fa-check-circle confirm-candidacy"></i> <i class="fas fa-times-circle refuse-candidacy"></i> -->
     <% elsif candidacy.status == "Visite programmée" %>
       <p class="status pending"> <%=  I18n.l(candidacy.bookings.first.availability.start_time, format: "%Hh %d/%m") %> </p>
     <% elsif candidacy.status == "En attente" %>
@@ -52,7 +50,11 @@
     <% elsif candidacy.status == "Dossier archivé" %>
       <p class="status declined"> Archivé</p>
     <% end %>
-
   </div>
+  <% if candidacy.status == "Visite effectuée" %>
+    <div class="archive-candidacy">
+      <%= render 'candidacies/form', candidacy: candidacy, status: "Dossier archivé"%>
+    </div>
+  <% end%>
 </div>
 
