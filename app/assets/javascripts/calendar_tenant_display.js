@@ -85,7 +85,8 @@ function updateBookingHtml(element, booked, id){
   // console.log("je suis dans updateHTML");
   if(booked){
       // supprimer 'booked' sur l'autre qui avait cette classe
-      document.querySelector(".booked").classList.remove("booked");
+      const bookedList = document.querySelectorAll(".booked")
+      bookedList.forEach(e => e.classList.remove("booked"));
       element.classList.add("booked");
       element.dataset.bookingId = id;
   }
