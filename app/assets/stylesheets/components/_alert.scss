@@ -1,3 +1,14 @@
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        padding: 0;
+        margin: 0;
+        overflow:hidden;
+        visibility: hidden;
+    }
+}
 /* -------------------------------------
  * Your CSS code for flash notices and alerts
 * ------------------------------------- */
@@ -12,4 +23,10 @@
 }
 .alert-warning {
   background: $red;
+}
+
+
+.alert-dismissible {
+  animation: cssAnimation 0.2s ease-in 3s forwards;
+  animation-fill-mode: forwards;
 }

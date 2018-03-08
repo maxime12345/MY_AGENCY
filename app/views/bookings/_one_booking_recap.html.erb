@@ -1,0 +1,14 @@
+<%= link_to(candidacy_path(booking.candidacy)) do %>
+  <div class="booking-card">
+    <div class="booking-calendar">
+      <i class="far fa-calendar-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i> <%= I18n.l(booking.availability.start_time, format: "%A %d %B %H:%M") %>
+    </div>
+    <div class="booking-avatar-img">
+      <%= cl_image_tag booking.candidacy.flat.user.avatar, class: "avatar"%>
+    </div>
+    <div class="booking-flat">
+
+      <p><%= booking.candidacy.flat.name %></p>
+    </div>
+  </div>
+<% end %>

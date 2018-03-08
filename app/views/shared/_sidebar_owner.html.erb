@@ -5,34 +5,67 @@
   <!-- <h3><%= @flat.name %></h3> -->
   <% if !@flat.id.nil? %>
     <ul>
-      <li> <%= link_to flat_candidacies_path(@flat) do %>
-        <i class="fas fa-folder"></i>
-        Dossiers
-      <% end %></li>
-      <li> <%= link_to  flat_messages_path(@flat) do %>
-        <i class="fas fa-envelope"></i>
-        <% if @unread_mess_flat > 0%>
-          Messages <%= "(#{@unread_mess_flat})" %>
-        <% else%>
-          Messages
+
+      <li>
+        <%= link_to_with_actif flat_candidacies_path(@flat) do %>
+          <i class="fas fa-folder"></i>
+            Dossiers
         <% end %>
-      <% end %></li>
-      <li> <%= link_to flat_availabilities_path(@flat) do %>
-        <i class="far fa-calendar-alt"></i>
-        Visites
-      <% end %></li>
-      <li> <%= link_to flat_path(@flat) do %>
-        <i class="fas fa-map-marker-alt"></i>
-        Mon logement
-      <% end %></li>
+      </li>
+      <li>
+        <%= link_to_with_actif flat_messages_path(@flat) do %>
+          <i class="fas fa-envelope"></i>
+          <% if @unread_mess_flat > 0%>
+            Messages <%= "(#{@unread_mess_flat})" %>
+          <% else%>
+            Messages
+          <% end %>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to_with_actif flat_availabilities_path(@flat) do %>
+          <i class="far fa-calendar-alt"></i>
+            Visites
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to_with_actif flat_path(@flat) do %>
+          <i class="fas fa-map-marker-alt"></i>
+            Mon logement
+        <% end %>
+      </li>
+
     </ul>
 
+    <!-- Button trigger modal -->
     <div class="share-link-flat text-center">
-      <%= button_tag(type: 'submit', class: "btn btn-sm btn-primary tooltips") do %>
+      <button type="button" class="btn btn-sm btn-primary tooltips" data-toggle="modal" data-target="#myModal">
         <span>Inviter de nouveaux locataires</span>
-        Partager <i class="fas fa-share-alt"></i>
-      <% end %>
+        <i class="fas fa-share-alt"></i> Partager
+      </button>
     </div>
+
+    <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+              <h3 class="modal-title" id="myModalLabel">Partage ce lien à tes potentiels locataires</h3>
+            </div>
+            <div class="modal-body">
+              <input type="text" id="link-flat-share" value=<%= "www.myagency.top/flats/#{@flat.id}/candidacies/new"%>>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+              <button type="button" class="btn btn-primary">Copier le lien</button>
+            </div>
+          </div>
+        </div>
+      </div>
   <% end%>
 </div>
+
 

@@ -1,0 +1,73 @@
+.booking-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  i {
+    font-size: 25px;
+    color: #616668;
+  }
+  i:hover {
+    color: $brand-primary;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.booking-card:hover {
+  background-color: #ecf5fa;
+}
+
+.booking-name {
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 5px;
+  min-width: 100px;
+}
+
+
+.folder-icon{
+  position: relative;
+}
+
+i.folder-check{
+  font-size: 12px;
+  color: green;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  right: -5px;
+}
+
+// .folder-check{
+//   position: absolute;
+//   top: 0px;
+//   right: -5px;
+// }
+
+.booking-calendar {
+  min-width: 230px;
+}
+
+.booking-avatar-img {
+  padding-left: 10px;
+}
+
+.booking-avatar-candidates {
+  padding-left: 10px;
+}
+
+.booking-flat {
+  padding-left: 10px;
+  font-weight: lighter;
+}
+
+i.confirm-candidacy {
+  color: green;
+}
+
+i.refuse-candidacy {
+  color: red;
+}
