@@ -25,3 +25,37 @@
 .banner-content {
   padding: 200px;
 }
+
+.wrapper-info {
+  background-color: white;
+  padding-top: 10px;
+  i {
+    color: $my-blue;
+  }
+  .info-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 125px;
+    p {
+      text-align: center;
+      }
+
+  }
+  .info-card {
+    margin-bottom: 50px;
+    margin-top: 10px;
+    padding: 15px;
+    height: 200px;
+    background: $my-light-gray;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+    // color: white;
+    text-align: center;
+    .fas, .far {
+      font-size: 42px;
+      margin: 10px;
+    }
+
+  }
+}
