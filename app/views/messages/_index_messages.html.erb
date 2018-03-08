@@ -2,14 +2,6 @@
   <div class="row">
     <div class="col-xs-12">
       <!-- grille -->
-      <% if current_user == candidacy.user %> <!-- Vue locataire -->
-        <%= link_to candidacies_path do %>
-          <i class="fas fa-chevron-circle-left"></i>
-          Retour à mes candidatures
-        <% end %>
-      <% else %> <!-- Vue proprio -->
-
-      <% end %>
 
       <div class="discussion-header">
         <% if current_user == candidacy.user %>

@@ -56,6 +56,7 @@ class CandidaciesController < ApplicationController
     @message = Message.new
     @flat = @candidacy.flat
     @sidebar_title = @flat.name
+    @tab_activ = "tab-logement"
   end
 
   def new
