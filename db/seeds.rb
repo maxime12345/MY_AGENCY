@@ -503,7 +503,7 @@ Message.create!(
   )
 
 Message.create!(
-  content: "Encore merci pour la visite, j'ai vraiment apprécié votre appartement.",
+  content: "Encore merci pour la visite. J'ai vraiment apprécié votre appartement.",
   read: false,
   sender: sebastien,
   recipient: antoine,
@@ -877,7 +877,7 @@ Message.create!(
   )
 
 Message.create!(
-  content: "Merci pour votre annonce, je suis très intéressé par votre bel appartement.",
+  content: "Merci pour votre annonce. Très bel appartement.",
   read: false,
   sender: alix,
   recipient: antoine,

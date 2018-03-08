@@ -9,11 +9,25 @@
       <% if  unread_messages.count > 0%>
         <p><strong><%= last_message.content.split(/[\.!?]/)[0]%> <%= "(#{unread_messages.count})" %></strong> </p>
       <% else %>
-        <p><strong><%= last_message.content.split(/[\.!?]/)[0]%></strong> </p>
+        <% if last_message.sender == current_user %>
+          <p><i class="fas fa-share"></i> <%= last_message.content.split(/[\.!?]/)[0]%></p>
+        <% else %>
+          <p><%= last_message.content.split(/[\.!?]/)[0]%></p>
+        <% end%>
       <% end%>
     </div>
-    <div class="message-status">
-      <p class="status pending"><%= last_message.candidacy.status %></p>
+    <div class="message-status-icon">
+      <% if last_message.candidacy.status == "Dossier retenu" %>
+        <i class="fas fa-check-circle"></i>
+      <% elsif last_message.candidacy.status == "Visite effectuée" %>
+        <i class="far fa-calendar-check"> </i>
+      <% elsif last_message.candidacy.status == "Visite programmée" %>
+        <i class="far fa-calendar-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i>
+      <% elsif last_message.candidacy.status == "En attente" %>
+        <i class="far fa-clock"> </i>
+      <% elsif last_message.candidacy.status == "Dossier archivé" %>
+        <i class="fas fa-archive"> </i>
+      <% end %>
     </div>
   </div>
 <% end %>
