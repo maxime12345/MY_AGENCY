@@ -20,6 +20,7 @@ fr:
       invalid_token: "Jeton d'authentification incorrect."
       timeout: "Votre séance est expirée, veuillez vous reconnecter pour continuer."
       inactive: "Votre compte n'est pas encore activé."
+      already_authenticated: "Vous êtes déjà déjà connecté"
       user:
         not_found_in_database: "Inconnu au bataillon moussaillon !"
     sessions:
