@@ -33,3 +33,39 @@ a:hover.tooltips span {
   margin-right: 15px;
   z-index: 999;
 }
+
+button.tooltips {
+  position: relative;
+  display: inline;
+}
+
+button.tooltips span {
+  position: absolute;
+  color: white;
+  background: $my-light-blue;
+  line-height: 20px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 2px;
+}
+
+button.tooltips span:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  margin-top: -13px;
+  width: 0; height: 0;
+  border-bottom: 8px solid $my-light-blue;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+button:hover.tooltips span {
+  visibility: visible;
+  opacity: 1;
+  right: -35%;
+  top: 100%;
+  margin-top: 5px;
+  padding: 5px;
+  z-index: 999;
+}
