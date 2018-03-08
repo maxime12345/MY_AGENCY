@@ -30,7 +30,7 @@ urls = [
   "https://www.leboncoin.fr/locations/1392469156.htm?ca=22_s"
 ]
 
-DOC = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/mjuutjo19df7vnadx0um.jpg"
+DOC = "http://res.cloudinary.com/dwom9jpwx/image/upload/v1520349951/kqmig7ydufqv3izx4f4j.jpg"
 
 # ------------------------------------------------------------------------------
 # OWNERS :-----------------------------------------------------------------
