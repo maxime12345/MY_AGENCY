@@ -1,7 +1,7 @@
 <div class="tabs-candidacies">
   <div class="row">
     <div class="col-xs-4 text-center">
-      <%= link_to candidacy_path(@candidacy) do %>
+      <%= link_to_with_actif candidacy_path(@candidacy) do %>
         <div class="tab-candidacy">
           <i class="fas fa-home"></i>
           Le logement
@@ -9,7 +9,7 @@
       <% end %>
     </div>
     <div class="col-xs-4 text-center">
-      <%= link_to candidacy_messages_path(@candidacy) do %>
+      <%= link_to_with_actif candidacy_messages_path(@candidacy) do %>
         <div class="tab-candidacy">
           <% if !@candidacy.messages.empty? %>
             <% if (@candidacy.messages.last.sender == @candidacy.flat.user && !@candidacy.messages.last.read) %>
@@ -27,7 +27,7 @@
       <% end %>
     </div>
     <div class="col-xs-4 text-center">
-      <%= link_to candidacy_bookings_path(@candidacy) do %>
+      <%= link_to_with_actif candidacy_bookings_path(@candidacy) do %>
         <div class="tab-candidacy">
           <% if @candidacy.status == "Visite effectuée" || @candidacy.status == "Dossier retenu" %>
             <i class="far fa-calendar-check"></i>
