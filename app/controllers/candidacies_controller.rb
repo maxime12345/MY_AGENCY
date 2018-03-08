@@ -2,8 +2,6 @@ class CandidaciesController < ApplicationController
   before_action :set_candidacy, only: [:show, :edit, :update, :destroy]
   before_action :set_flat, only: [:new, :create]
 
-  skip_before_action :authenticate_user!, only: [:new]
-
   def index
     if params[:flat_id].nil? #Côté locataire: Mes candidatures
       @candidacies = policy_scope(Candidacy).where(user: current_user).order(created_at: :desc)
@@ -64,8 +62,11 @@ class CandidaciesController < ApplicationController
   end
 
   def create
+
     @candidacy = Candidacy.new(candidacy_params)
+
     authorize(@candidacy)
+
     @candidacy.flat = @flat
     @candidacy.user = current_user
 

@@ -86,7 +86,6 @@ bottom: 0px;
 // }
 
 .candidacy_card_body{
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   font-size: 18px;
@@ -130,6 +129,9 @@ bottom: 0px;
     // top: 30%;
   }
 
+  .icon-message i .unread-message-dot:hover {
+    color: red;
+  }
   .icon-calendar{
     // position: absolute;
     font-size: 25px;
@@ -137,7 +139,7 @@ bottom: 0px;
       color: #616668;
       .folder-check {
       color: $brand-primary
-    }
+      }
     }
     i:hover {
       color: $brand-primary;
@@ -146,6 +148,8 @@ bottom: 0px;
     // top: 30%;
   }
 }
+
+
 
 .tenant-card {
   display: flex;
