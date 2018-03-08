@@ -136,7 +136,7 @@ bottom: 0px;
     i {
       color: lightgrey;
       .folder-check {
-      color: green
+      color: $brand-primary
     }
     }
     i:hover {
@@ -154,7 +154,7 @@ bottom: 0px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   i {
     font-size: 25px;
-    color: lightgrey;
+    color: #616668;
   }
   i:hover {
     color: $brand-primary;
@@ -180,7 +180,7 @@ bottom: 0px;
   }
   i {
     font-size: 16px;
-    color: lightgrey;
+    color: #616668;
   }
 }
 
@@ -228,7 +228,7 @@ i.unread-message-dot {
 
 i.folder-check{
   font-size: 12px;
-  color: green;
+  color: $brand-primary;
   background-color: white;
   border-radius: 50%;
   position: absolute;
@@ -248,12 +248,32 @@ i.folder-check{
 
 .tenant-status {
   font-size: 15px;
-  font-weight: bold;
-  min-width: 70px;
+  min-width: 90px;
 }
 
+.status.accepted {
+  font-size: 20px;
+  font-weight: bold;
+  color: $brand-primary;
+  i {
+    font-size: 35px;
+    color: $brand-primary;
+  }
+}
+.status.declined {
+  color: lightgrey;
+}
+.status.pending {
+  color: #616668;
+}
+
+.accept-candidat {
+    padding: 4px 6px;
+    font-size: 15px;
+  }
+
 i.confirm-candidacy {
-  color: green;
+  color: $brand-primary;
 }
 
 i.refuse-candidacy {

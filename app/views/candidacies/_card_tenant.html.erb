@@ -40,7 +40,7 @@
   </div>
   <div class="tenant-status text-center">
     <% if candidacy.status == "Dossier retenu" %>
-      <p class="status accepted"> Retenu</p>
+      <p class="status accepted"><i class="fas fa-check-circle"></i></p>
     <% elsif candidacy.status == "Visite effectuée" %>
       <%= render 'candidacies/form', candidacy: candidacy, status: "Dossier retenu" %>
     <% elsif candidacy.status == "Visite programmée" %>
