@@ -1,20 +1,20 @@
 <div class="sidebar sidebar-tenant">
   <h3><%= @sidebar_title %></h3>
     <ul>
-      <li> <%= link_to  candidacies_path do %>
-        <i class="fas fa-map-marker-alt"></i>
-          Annonces
+
+      <li>
+        <%= link_to_with_actif candidacies_path do %>
+          <i class="fas fa-map-marker-alt"></i>
+            Annonces
         <% end %>
       </li>
-      <li> <%= link_to  bookings_path do %>
-        <i class="far fa-calendar-alt"></i>
-          Visites
+
+      <li>
+        <%= link_to_with_actif bookings_path do %>
+          <i class="far fa-calendar-alt"></i>
+            Visites
         <% end %>
       </li>
-      <!-- <li> <%= link_to  profil_path(current_user) do %>
-        <i class="fas fa-user"></i>
-        Profile
-        <% end %>
-      </li> -->
+
     <ul>
 </div>

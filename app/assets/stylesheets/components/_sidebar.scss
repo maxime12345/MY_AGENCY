@@ -8,6 +8,9 @@
   box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
   //min-height: 80vh;
   height: 100%;
+  .tab-active {
+    color: $my-blue;
+  }
 }
 
 .sm-padding-right {
