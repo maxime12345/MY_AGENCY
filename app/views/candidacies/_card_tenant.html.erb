@@ -29,9 +29,9 @@
   </div>
   <div class="tenant-calendar">
     <%= link_to flat_availabilities_path(candidacy.flat) do %>
-      <% if candidacy.status == "Visite programmée" %>
+      <% if candidacy.status == "Visite programmée"  %>
         <i class="far fa-calendar-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i>
-      <% elsif candidacy.status == "Visite effectuée"%>
+      <% elsif candidacy.status == "Visite effectuée" || candidacy.status == "Dossier retenu"%>
         <i class="far fa-calendar-check"></i>
       <% else %>
         <i class="far fa-calendar-alt"></i>

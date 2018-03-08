@@ -10,6 +10,9 @@
           <div class="flex-container">
             <div class="candidacies">
               <div class="row">
+                <div class="col-xs-12 candidacy_group_card_status">
+                  <%= render 'schema_status'%>
+                </div>
                 <% @candidacies_sorted.each do |candidacy_group| %>
                   <% unless candidacy_group.empty? %>
                     <%= render 'candidacy_class_name', candidacy_group: candidacy_group %>
