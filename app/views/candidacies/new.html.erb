@@ -1,19 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="card-form">
-        <h3>Créer un dossier de candidature pour <%= @flat.name %></h3>
-        <%= simple_form_for(@candidacy) do |f| %>
-          <%= f.error_notification %>
+      <div class="registration">
+        <div class="card-form">
+          <h3><%= @flat.name %> - <%= @flat.price %> € / mois</h3>
+          <%= simple_form_for(@candidacy) do |f| %>
+            <%= f.error_notification %>
+            <br>
+            <p><strong>Bienvenue sur myAgency !</strong></p>
+            <br>
+            <p>Ici, pas de frais d'agence, tout se fait très simplement et en direct avec le proprio (questions, programmation des visites...).</p>
+            <br>
+            <div class="form-inputs">
+              <input id="flat_id" name="flat_id" type="hidden" value= <%= "#{params[:flat_id]}" %>>
+            </div>
 
-          <div class="form-inputs">
-            <input id="flat_id" name="flat_id" type="hidden" value= <%= "#{params[:flat_id]}" %>>
-          </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, 'Confirmer candidature', class: "btn btn-success pull-center" %>
-          </div>
-        <% end %>
+            <div class="form-actions">
+              <%= f.button :submit, "Rejoindre l'espace de candidature", class: "btn btn-primary pull-center" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
