@@ -1,0 +1,13 @@
+<div class="booking-card">
+  <div class="booking-calendar">
+    <i class="far fa-calendar-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i> <%= I18n.l(booking.first.availability.start_time, format: "%A %d %B %H:%M") %>
+  </div>
+  <% booking.each do |candidate|%>
+    <div class="booking-avatar-candidates">
+      <%= link_to profil_path(candidate.candidacy.user) do %>
+        <%= cl_image_tag candidate.candidacy.user.avatar, class: "avatar"%>
+      <% end%>
+    </div>
+  <% end %>
+</div>
+

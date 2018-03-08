@@ -2,8 +2,9 @@
   <div class="col-xs-12">
     <h3> Les visites programmées</h3>
     <% bookings.each do |booking|%>
-      <%= I18n.l(booking.first.availability.start_time, format: "%A %d %B %H:%M") %> <br>
+      <% if booking.first.availability.start_time > Date.today %>
+        <%= render 'one_booking_recap_owner', booking: booking %>
+      <% end%>
     <% end%>
   </div>
 </div>
-
