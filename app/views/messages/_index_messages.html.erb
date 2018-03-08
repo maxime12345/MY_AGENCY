@@ -11,10 +11,7 @@
 
         <% else %>
           <h3> Conversation avec <%= "#{candidacy.user.first_name} #{candidacy.user.last_name}" %> </h3>
-          <%= link_to profil_path(candidacy.user) do %>
-            <i class="fas fa-folder"></i>
-            Voir son dossier
-          <% end %>
+
           <%= cl_image_tag candidacy.user.avatar, class: "avatar-large"%>
         <% end %>
       </div>
