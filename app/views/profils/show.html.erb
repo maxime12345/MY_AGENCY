@@ -23,17 +23,17 @@
           <div>
             <ul class="list_doc">
               <% if @profil.id_card? %>
-                <li><i class="far fa-file-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i> Carte d'identité </li>
+                <li><i class="far fa-file-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i> <a href=<%= @profil.id_card %>> Carte d'identité </a> </li>
               <% else %>
                 <li><i class="far fa-file-alt folder-icon"><i class="fas fa-times-circle folder-times"></i></i> Carte d'identité </li>
               <% end %>
               <% if @profil.tax_notice? %>
-                <li><i class="far fa-file-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i> Avis d'imposition </li>
+                <li><i class="far fa-file-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i> <a href=<%= @profil.tax_notice %>> Avis d'imposition </a> </li>
               <% else %>
                 <li><i class="far fa-file-alt folder-icon"><i class="fas fa-times-circle folder-times"></i></i> Avis d'imposition </li>
               <% end %>
               <% if @profil.payslip? %>
-                <li><i class="far fa-file-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i> Fiche de salaire </li>
+                <li><i class="far fa-file-alt folder-icon"><i class="fas fa-check-circle folder-check"></i></i> <a href=<%= @profil.payslip %>> Fiche de salaire </a> </li>
               <% else %>
                 <li><i class="far fa-file-alt folder-icon"><i class="fas fa-times-circle folder-times"></i></i> Fiche de salaire </li>
               <% end %>
@@ -43,7 +43,7 @@
             <% if @profil == current_user%>
               <%= link_to edit_profil_path(current_user) do %>
                 <i class="fas fa-edit"></i>
-                Editer mon profile
+                Editer mon profil
               <% end %>
             <% end %>
           </div>
