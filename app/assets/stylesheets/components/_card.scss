@@ -162,8 +162,35 @@ bottom: 0px;
   p {
     margin-bottom: 0;
   }
+  position: relative;
 }
 
+.archive-candidacy {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  button {
+    border: none;
+    padding: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 255, 0);
+  }
+  button:hover {
+    background-color: rgba(0, 0, 255, 0);
+  }
+  i {
+    font-size: 16px;
+    color: lightgrey;
+  }
+}
+
+.tenant-card:hover {
+  background-color: #ecf5fa;
+}
+
+.tenant-card:hover button{
+  opacity: 1;
+}
 
 .tenant-name {
   font-size: 15px;

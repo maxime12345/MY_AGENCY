@@ -78,6 +78,9 @@ h3:after {
   border-top: 2px solid rgba(220,224,244,0.4);
 }
 
+.candidacy_group_card:first-child {
+  margin-top: 5px;
+}
 
 .candidacy_group_card:last-child {
   border-bottom: none;
