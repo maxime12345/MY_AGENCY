@@ -61,6 +61,10 @@ button.tooltips span:after {
   border-left: 8px solid transparent;
 }
 
+button.tooltips span:focus {
+  outline: none !important;
+}
+
 button:hover.tooltips span {
   visibility: visible;
   opacity: 1;
