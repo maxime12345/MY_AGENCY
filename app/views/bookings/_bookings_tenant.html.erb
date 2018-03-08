@@ -1,0 +1,10 @@
+<% if bookings.empty? %>
+  <h3>Aucune visite de plannifiée pour le moment</h3>
+<% else %>
+  <h3>Mes visites programmées</h3>
+  <% bookings.each do |booking|%>
+    <% if booking.availability.start_time > Date.today %>
+      <%= render 'one_booking_recap', booking: booking %>
+    <% end%>
+  <% end%>
+<% end%>
