@@ -16,7 +16,8 @@ class LbcScraper
       surface: html_doc.search('[data-qa-id="criteria_item_square"] ._3Jxf3').text.split(' m')[0],
       publication_date: html_doc.search('._3Pad-').text,
       nb_rooms: html_doc.search('[data-qa-id="criteria_item_rooms"] ._3Jxf3').text,
-      photo: photos
+      photo: photos,
+      visit_capacity: 1
     }
   end
 
