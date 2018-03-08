@@ -34,9 +34,17 @@
   flex: 0 0 400px;
 }
 
+.item > img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 100% !important;
+}
+
 .info_flat {
   display: flex;
   justify-content: space-between;
+  text-align: center;
 }
 
 .metric_flat {
