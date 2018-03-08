@@ -1146,25 +1146,25 @@ availability_flat4_old_2 = Availability.create!(
 
 availability_flat4_1 = Availability.create!(
   flat_id: jose_flat.id,
-  start_time: (Date.today + 1).to_datetime + ((12) * 3600).seconds,
+  start_time: (Date.today + 1).to_datetime + ((15) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat4_2 = Availability.create!(
   flat_id: jose_flat.id,
-  start_time: (Date.today + 1).to_datetime + ((13) * 3600).seconds,
+  start_time: (Date.today + 1).to_datetime + ((16) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat4_3 = Availability.create!(
   flat_id: jose_flat.id,
-  start_time: (Date.today + 2).to_datetime + ((12) * 3600).seconds,
+  start_time: (Date.today + 2).to_datetime + ((15) * 3600).seconds,
   visit_confirmed: false
   )
 
 availability_flat4_4 = Availability.create!(
   flat_id: jose_flat.id,
-  start_time: (Date.today + 2).to_datetime + ((13) * 3600).seconds,
+  start_time: (Date.today + 2).to_datetime + ((16) * 3600).seconds,
   visit_confirmed: false
   )
 
