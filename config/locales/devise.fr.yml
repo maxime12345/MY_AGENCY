@@ -12,7 +12,8 @@ fr:
 
   devise:
     failure:
-      unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
+      # unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
+      unauthenticated: "Tu dois te connecter ou t'inscrire pour continuer."
       unconfirmed: "Vous devez confirmer votre compte pour continuer."
       locked: "Votre compte est verrouillé."
       invalid: "Courriel ou mot de passe incorrect."
@@ -20,8 +21,10 @@ fr:
       timeout: "Votre séance est expirée, veuillez vous reconnecter pour continuer."
       inactive: "Votre compte n'est pas encore activé."
     sessions:
-      signed_in: "Réussite de la connexion."
-      signed_out: "Réussite de la deconnexion."
+      # signed_in: "Réussite de la connexion."
+      signed_in: "Connexion réussie"
+      # signed_out: "Réussite de la deconnexion."
+      signed_out: "Deconnexion réussie"
     passwords:
       send_instructions: "Vous allez recevoir un courriel avec des instructions pour changer votre mot de passe."
       updated: "Votre mot de passe a été changé. Vous êtes maintenant connecté."
