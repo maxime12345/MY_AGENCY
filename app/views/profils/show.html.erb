@@ -32,10 +32,11 @@
               <li><i class="fas fa-times-circle"></i> Fiche de salaire </li>
             <% end %>
           </ul>
-
-          <%= link_to edit_profil_path(current_user) do %>
-            <i class="fas fa-edit"></i>
-            Editer mon profile
+          <% if @profil == current_user%>
+            <%= link_to edit_profil_path(current_user) do %>
+              <i class="fas fa-edit"></i>
+              Editer mon profile
+            <% end %>
           <% end %>
         </div>
       </div>
