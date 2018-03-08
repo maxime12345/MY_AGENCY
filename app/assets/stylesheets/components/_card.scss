@@ -293,3 +293,26 @@ i.confirm-candidacy {
 i.refuse-candidacy {
   color: red;
 }
+
+.bookmark-award {
+  position: absolute;
+  left: 88%;
+  top: 13px;
+  position: relative;
+}
+
+.certificate-award {
+  position: absolute;
+  top: -90%;
+  right: -32%;
+}
+
+i.bookmark-award {
+  font-size: 28px;
+  color: $brand-primary;
+}
+
+i.certificate-award {
+  font-size: 35px;
+  color: $brand-primary;
+}

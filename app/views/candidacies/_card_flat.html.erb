@@ -7,6 +7,11 @@
           <i class="far fa-calendar-alt folder-icon"></i> <%= I18n.l(candidacy.bookings.first.availability.start_time, format: "%A %d %B %H:%M") %>
         </div>
       <% end%>
+      <% if candidacy.status == "Dossier retenu"  %>
+        <div class="icon-award-candidate">
+          <i class="fas fa-bookmark bookmark-award"><i class="fas fa-certificate certificate-award"></i></i>
+        </div>
+      <% end %>
     </div>
     <div class="candidacy_card_footer">
       <div class="avatar-img">
