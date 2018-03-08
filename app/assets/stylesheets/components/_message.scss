@@ -57,6 +57,7 @@
 
 .discussion-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -97,6 +98,7 @@
   margin-bottom:-7px;
   margin-top:auto;
   font-weight: lighter;
+  font-size: 15px;
 }
 
 .message-text-l{
@@ -118,7 +120,7 @@
 }
 
 .macro{
-    margin-top:5px;
+    margin-top: 20px;
     width:85%;
     border-radius:5px;
     padding:5px;
@@ -128,6 +130,10 @@
   float:right;
   background:$my-light-blue;
   justify-content: space-between;
+  color: white;
+  .time {
+    color: white;
+  }
 }
 .msj{
     float:left;
@@ -142,8 +148,9 @@
     padding:0;
 }
 
-
-.conversation ul {
+#conversation {
+  padding-top: 20px;
+  ul {
     width:100%;
     list-style-type: none;
     padding:18px;
@@ -152,6 +159,7 @@
     flex-direction: column;
     top:0;
     overflow-y:scroll;
+  }
 }
 
 .msj:before{

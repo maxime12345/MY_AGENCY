@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
   def index
     if params[:flat_id].nil?
       set_chat_page
+      @sidebar_title = @flat.name
     else
       if params[:candidacy_id].nil?
         set_flat
