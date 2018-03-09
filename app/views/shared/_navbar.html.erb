@@ -20,11 +20,12 @@
         <%= link_to flats_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
           <i class="fas fa-home"></i>  <%= "Mes logements" %>
         <% end %>
-      <% else %>
-        <%= link_to new_flat_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
-          <i class="fas fa-plus-circle"></i>  <%= "Ajouter une annonce" %>
-        <% end %>
       <% end %>
+
+      <%= link_to new_flat_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
+        <i class="fas fa-plus-circle"></i>  <%= "Ajouter une annonce" %>
+      <% end %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
