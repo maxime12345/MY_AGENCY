@@ -462,8 +462,8 @@ Message.create!(
   sender: sebastien,
   recipient: antoine,
   candidacy: antoine_1_seb,
-  updated_at: (Date.today).to_datetime + ((12) * 3600).seconds,
-  created_at: (Date.today).to_datetime + ((12) * 3600).seconds
+  updated_at: (Date.today).to_datetime + ((8) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((8) * 3600).seconds
   )
 
 Message.create!(
@@ -472,8 +472,8 @@ Message.create!(
   sender: sebastien,
   recipient: antoine,
   candidacy: antoine_1_seb,
-  updated_at: (Date.today).to_datetime + ((13) * 3600).seconds,
-  created_at: (Date.today).to_datetime + ((13) * 3600).seconds
+  updated_at: (Date.today).to_datetime + ((9) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((9) * 3600).seconds
   )
 
 Message.create!(
@@ -482,8 +482,8 @@ Message.create!(
   sender: antoine,
   recipient: sebastien,
   candidacy: antoine_1_seb,
-  updated_at: (Date.today).to_datetime + ((14) * 3600).seconds,
-  created_at: (Date.today).to_datetime + ((14) * 3600).seconds
+  updated_at: (Date.today).to_datetime + ((10) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((10) * 3600).seconds
   )
 
 Message.create!(
@@ -492,8 +492,8 @@ Message.create!(
   sender: sebastien,
   recipient: antoine,
   candidacy: antoine_1_seb,
-  updated_at: (Date.today).to_datetime + ((15) * 3600).seconds,
-  created_at: (Date.today).to_datetime + ((15) * 3600).seconds
+  updated_at: (Date.today).to_datetime + ((11) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((11) * 3600).seconds
   )
 
 Message.create!(
@@ -502,8 +502,8 @@ Message.create!(
   sender: sebastien,
   recipient: antoine,
   candidacy: antoine_1_seb,
-  updated_at: (Date.today).to_datetime + ((16) * 3600).seconds,
-  created_at: (Date.today).to_datetime + ((16) * 3600).seconds
+  updated_at: (Date.today).to_datetime + ((12) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((12) * 3600).seconds
   )
 
 Message.create!(
@@ -512,8 +512,8 @@ Message.create!(
   sender: antoine,
   recipient: sebastien,
   candidacy: antoine_1_seb,
-  updated_at: (Date.today).to_datetime + ((17) * 3600).seconds,
-  created_at: (Date.today).to_datetime + ((17) * 3600).seconds
+  updated_at: (Date.today).to_datetime + ((13) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((13) * 3600).seconds
   )
 
 Message.create!(
@@ -522,8 +522,8 @@ Message.create!(
   sender: sebastien,
   recipient: antoine,
   candidacy: antoine_1_seb,
-  updated_at: (Date.today).to_datetime + ((18) * 3600).seconds,
-  created_at: (Date.today).to_datetime + ((18) * 3600).seconds
+  updated_at: (Date.today).to_datetime + ((14) * 3600).seconds,
+  created_at: (Date.today).to_datetime + ((14) * 3600).seconds
   )
 
 # ------------------------------------------------------------------------------
