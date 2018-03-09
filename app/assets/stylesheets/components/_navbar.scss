@@ -10,6 +10,12 @@
   justify-content: space-between;
 }
 
+.navbar-wagon-brand {
+  font-family: $my-agency-font;
+  font-size: 24px;
+  color: $brand-primary;
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
