@@ -64,6 +64,25 @@
       <div class="dropdown">
           <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% if current_user.candidacies.count > 0  %>
+              <li>
+                <%= link_to candidacies_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
+                  <i class="fas fa-folder-open"></i>  <%= "Mes candidatures" %>
+                <% end %>
+              </li>
+            <% end %>
+            <% if current_user.flats.count > 0  %>
+              <li>
+                <%= link_to flats_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
+                  <i class="fas fa-home"></i>  <%= "Mes logements" %>
+                <% end %>
+              </li>
+            <% end %>
+            <li>
+              <%= link_to new_flat_path, class: "navbar-wagon-item navbar-wagon-link"  do %>
+                <i class="fas fa-plus-circle"></i>  <%= "Ajouter une annonce" %>
+              <% end %>
+            </li>
             <li>
               <%= link_to profil_path(current_user) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
