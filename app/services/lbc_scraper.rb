@@ -30,3 +30,6 @@ class LbcScraper
     tab[0..2]
   end
 end
+
+LbcScraper.new("https://www.leboncoin.fr/locations/1397118224.htm?ca=12_s").extract
+
