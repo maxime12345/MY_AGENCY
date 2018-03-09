@@ -11,7 +11,7 @@ class LbcScraper
     {
       name: html_doc.search('._1KQme').text,
       address: html_doc.search('._1aCZv span').text,
-      price: html_doc.search('._1F5u3').text.split(' €')[0],
+      price: html_doc.search('._1F5u3').first.text.gsub(/[€\s]/, ""),
       description: html_doc.search('._11TgD [data-qa-id="adview_description_container"] > div > span').inner_html,
       surface: html_doc.search('[data-qa-id="criteria_item_square"] ._3Jxf3').text.split(' m')[0],
       publication_date: html_doc.search('._3Pad-').text,
@@ -31,5 +31,4 @@ class LbcScraper
   end
 end
 
-LbcScraper.new("https://www.leboncoin.fr/locations/1397118224.htm?ca=12_s").extract
 
