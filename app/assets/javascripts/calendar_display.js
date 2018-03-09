@@ -2,8 +2,11 @@
 let firstDay;
 const leftPagination = document.getElementById("left-pagination");
 const rightPagination = document.getElementById("right-pagination");
-const flatId = document.querySelector(".availabilities-slots").dataset.flat;
-// console.log(flatId);
+
+let flatId;
+if(document.querySelector(".availabilities-slots")){
+  flatId = document.querySelector(".availabilities-slots").dataset.flat;
+}
 
 const updateDisplayDays = (firstDay) => {
 

@@ -2,8 +2,11 @@
 let firstDayT;
 const leftPaginationT = document.getElementById("left-pagination");
 const rightPaginationT = document.getElementById("right-pagination");
-const candidacyId = document.querySelector(".availabilities-slots").dataset.candidacyId;
-// console.log(flatIdT);
+let candidacyId;
+
+if(document.querySelector(".availabilities-slots")){
+  candidacyId = document.querySelector(".availabilities-slots").dataset.candidacyId;
+}
 
 const updateDisplayDaysT = (firstDayT) => {
 
